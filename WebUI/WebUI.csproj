@@ -286,8 +286,7 @@
     <Content Include="Contents\images\graph24.png" />
     <Content Include="Contents\images\Grid\toDown.png" />
     <Content Include="Contents\images\Grid\toUp.png" />
-    <Content Include="Contents\images\invisible_light.png" />
-    <Content Include="Contents\images\invisible_revert.png" />
+    <Content Include="Contents\images\Hide.png" />
     <Content Include="Contents\images\lineChart.jpg" />
     <Content Include="Contents\images\master24.png" />
     <Content Include="Contents\images\menu\home24.png" />
@@ -336,6 +335,7 @@
     <Content Include="Contents\images\System\Sort.png" />
     <Content Include="Contents\images\System\TitleBackground.jpg" />
     <Content Include="Contents\images\user24.png" />
+    <Content Include="Contents\images\Visible.png" />
     <Content Include="Contents\images\zoom24.png" />
     <Content Include="Contents\jquery-wijmo\external\globalize.culture.ja-JP.js" />
     <Content Include="Contents\jquery-wijmo\external\knockout-2.2.0.js" />

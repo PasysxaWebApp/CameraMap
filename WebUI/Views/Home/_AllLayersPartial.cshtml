@@ -11,7 +11,7 @@
         <td>@layer.Id</td>
         <td>@layer.LayerName</td>
         <td>
-            <a href="javascript:void(0)" class="layerEditIcon layerView" layerid="@layer.Id" layername="@layer.LayerName"><img src="@Url.Content("~/Contents/images/invisible_revert.png")" /></a>
+            <a href="javascript:void(0)" class="layerEditIcon layerView" layerid="@layer.Id" layername="@layer.LayerName" visible="1"><img src="@Url.Content("~/Contents/images/visible.png")" /></a>
         </td>
         <td>
             <a href="javascript:void(0)" class="layerEditIcon layerEdit" layerid="@layer.Id"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
@@ -83,7 +83,18 @@
 
         $(".layerView").click(function () {
             $this = $(this);
-            //openNewDevice($this.attr("layerid"), $this.attr("layername"));
+            var v = parseInt($this.attr("visible"));
+            var imgSrc;
+            if (v == 0) {
+                $this.attr("visible", 1);
+                imgSrc = "@Url.Content("~/Contents/images/visible.png")";
+            }
+            else {
+                $this.attr("visible", 0);
+                imgSrc = "@Url.Content("~/Contents/images/hide.png")";
+            }
+            $($this.children()[0]).attr("src", imgSrc);
+            loadAllDevicePointsByVisitLayers();
         });
 
         function selectLayer(layerId, layerName) {

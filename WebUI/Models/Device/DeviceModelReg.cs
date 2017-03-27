@@ -1,4 +1,5 @@
-﻿using SharedUtilitys.DataBases;
+﻿using PacificSystem.Utility;
+using SharedUtilitys.DataBases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,62 @@ namespace CameraMap.Models.Device
                 utility.ExecuteReaderModelList(sql, models);
             }
             return models;
+        }
+
+        public static List<DeviceModel> GetModels(string LayerIds)
+        {
+            var lays = LayerIds.Split(new char[] { ',' });
+            var formatedLayerIds = lays.Select(m => ConvertToInt64(m)).Aggregate((c, n) => c + "," + n);
+            if (string.IsNullOrEmpty(formatedLayerIds))
+            {
+                return null;
+            }
+            var models = new List<DeviceModel>();
+            using (var utility = DbUtility.GetInstance())
+            {
+                var sql = string.Format(@"
+                        SELECT 
+	                        m_devices.DeviceId,
+                            m_devices.OrganizationID,
+                            m_devices.LayerId,
+                            m_devices.DeviceKey,
+                            m_devices.DeviceName,
+                            m_devices.DeviceUrl,
+                            m_devices.Note,
+                            m_devices.Lat,
+                            m_devices.Lng,
+                            m_devices.DisplayNo,
+                            m_devices.DisplayFlag,
+                            m_devices.LastUserID,
+                            m_devices.LastUpdatetime,
+                            m_layers.LayerKey,
+                            m_layers.LayerName,
+                            m_layers.IconFile,
+                            t_files.FileName as IconFileName 
+                        FROM m_devices
+                        inner join m_layers on m_layers.Id=m_devices.LayerId
+                        left join t_files on t_files.FilesID=m_layers.IconFile
+                        where m_devices.LayerId in ({0})
+                        ;", formatedLayerIds);
+
+                utility.ExecuteReaderModelList(sql, models);
+            }
+            return models;
+        }
+
+        private static string ConvertToInt64(string str) {
+            if (string.IsNullOrEmpty(str))
+            {
+                return "0";
+            }
+            long l;
+            if (long.TryParse(str, out l))
+            {
+                return l.ToString();
+            }
+            else {
+                return "0";
+            }
         }
 
         public static DeviceModel GetModel(long DeviceId)

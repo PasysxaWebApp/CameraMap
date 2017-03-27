@@ -112,10 +112,21 @@ namespace CameraMap.Controllers
             return Json(jsonObj);
         }
 
-        public ActionResult GetAllDeviceDatas(long LayerId)
+        public ActionResult GetAllDeviceDatasByLayerId(long LayerId)
         {
             var loginInfo = SessionLoginInfo.GetInstance(Session);
             var allModels = DeviceModelReg.GetModels(LayerId);
+            allModels.ForEach(m => m.SetUrlHelper(Url));
+            var r = new { 
+                Datas=allModels
+            };
+            return Json(r);
+        }
+
+        public ActionResult GetAllDeviceDatas(string LayerIds)
+        {
+            var loginInfo = SessionLoginInfo.GetInstance(Session);
+            var allModels = DeviceModelReg.GetModels(LayerIds);
             allModels.ForEach(m => m.SetUrlHelper(Url));
             var r = new { 
                 Datas=allModels

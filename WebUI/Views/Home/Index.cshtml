@@ -161,6 +161,7 @@
             $.post(url, null, function (data, status, jqXHR) {
                 $("#allLayers").empty();
                 $("#allLayers").append(data);
+                loadAllDevicePointsByVisitLayers();
             }, "html");
         }
 
@@ -175,7 +176,7 @@
                 $("#allDevices").append(data);
             }, "html");
 
-            loadDevicePoints(layerId);
+            //loadDevicePointsByLayerId(layerId);
 
         }
 
@@ -433,7 +434,7 @@
             map.addControl(new BMap.NavigationControl());
             setBoundary('@Model.FullCountyName');
             //loadPoints();
-            //loadDevicePoints();
+            //loadDevicePointsByLayerId();
             //单击获取点击的经纬度
             map.addEventListener("click",function(e){
                 console.log("lng:"+ e.point.lng + "," + "lat:" + e.point.lat);
@@ -469,6 +470,7 @@
                 console.log("center.lng:"+ center.lng + "," + "center.lat:" + center.lat);
             });
 
+            loadAllDevicePointsByVisitLayers();
         });
 
         function setBoundary(mapName) {
@@ -515,11 +517,41 @@
             map.addOverlay(marker2);              // 将标注添加到地图中
         }
 
-        function loadDevicePoints(layerId) {
+        function loadDevicePointsByLayerId(layerId) {
             map.clearOverlays();
             layerId = layerId || $("#selectedlayerId").val();
-            var url = '@Url.Action("GetAllDeviceDatas", "Device")';
+            var url = '@Url.Action("GetAllDeviceDatasByLayerId", "Device")';
             var postData = { LayerId: layerId }
+            $.post(url, postData, function (data, status, jqXHR) {
+                for (idx in data.Datas) {
+                    var dev = data.Datas[idx];
+                    var pt = new BMap.Point(dev.Lat, dev.Lng);
+                    var marker = new BMap.Marker(pt);// 创建标注
+                    map.addOverlay(marker);             // 将标注添加到地图中
+                    if (dev.IconFileUrl != null && dev.IconFileUrl.length > 0) {
+                        var myIcon = new BMap.Icon(dev.IconFileUrl, new BMap.Size(32, 32));
+                        marker.setIcon(myIcon);  // 创建标注
+                    }
+                    var label = new BMap.Label(dev.DeviceName, { offset: new BMap.Size(20, -10) });
+                    marker.setLabel(label);
+                }
+            });
+        }
+
+        function loadAllDevicePointsByVisitLayers() {
+            var layers=new Array();
+            var allVisitLayers=$(".layerView[visible='1']");
+            if (allVisitLayers.length==0){
+                return;
+            }
+            for(var idx=0;idx<allVisitLayers.length;idx++){
+                layers.push($(allVisitLayers[idx]).attr("layerid"));
+            }
+            layerIds =layers.join(',');
+
+            map.clearOverlays();
+            var url = '@Url.Action("GetAllDeviceDatas", "Device")';
+            var postData = { LayerIds: layerIds }
             $.post(url, postData, function (data, status, jqXHR) {
                 for (idx in data.Datas) {
                     var dev = data.Datas[idx];
