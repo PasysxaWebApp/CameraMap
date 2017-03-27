@@ -199,7 +199,7 @@
     <Compile Include="Controllers\SystemSettingController.cs" />
     <Compile Include="Enums\OperationTypeEnum.cs" />
     <Compile Include="Enums\SystemRollEnum.cs" />
-    <Compile Include="Controllers\Master\AccountController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\Chart\ChartJSModels.cs" />
     <Compile Include="Models\Chart\ChartTargetModel.cs" />
