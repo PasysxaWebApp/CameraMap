@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title></title>
+
+        <link href="@Url.Content("~/Contents/css/import.css?20141009")" rel="stylesheet" type="text/css" />
+
+        <!--jQuery References-->
+        <script src="@Url.Content("~/Contents/jquery/jquery-1.11.1.min.js?20141009")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Contents/jquery/ui/1.11.0/jquery-ui.min.js?20141009")" type="text/javascript"></script>
+
+        <!--Theme-->
+        <link href="@Url.Content("~/Contents/jquery-wijmo/themes/aristo/jquery-wijmo.css?20141009")" rel="stylesheet" type="text/css" />
+
+        <!--Wijmo Widgets CSS-->
+        <link href="@Url.Content("~/Contents/jquery-wijmo/jquery.wijmo-pro.all.3.20142.48.min.css?20141009")" rel="stylesheet" type="text/css" />
+
+        <!--Wijmo Widgets JavaScript-->
+        <script src="@Url.Content("~/Contents/jquery-wijmo/jquery.wijmo-open.all.3.20142.48.min.js?20141009")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Contents/jquery-wijmo/jquery.wijmo-pro.all.3.20142.48.min.js?20141009")" type="text/javascript"></script>
+
+        <!--Culture-->
+        <script src="@Url.Content("~/Contents/jquery-wijmo/external/globalize.culture.ja-JP.js?20141009")" type="text/javascript"></script>
+
+        <!--RequireJs-->
+        <script src="@Url.Content("~/Contents/jquery-wijmo/external/require.js?20141009")" type="text/javascript"></script>
+
+        <!--Custom-->
+        <script src="@Url.Content("~/Contents/Scripts/com.js?20120913")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Contents/Scripts/OrderList.js?20120913")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Contents/Scripts/InputAssistance.js?20120913")" type="text/javascript"></script>
+
+        @RenderSection("PartialHead",false)
+    </head>
+    <body>
+        @RenderBody()
+    </body>
+</html>

@@ -1,0 +1,174 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.Summary.ErrorLog.ErrorLogSearch
+
+@{
+    ViewBag.Title = "ErrorLogList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $(".Fullwidth,.NumABC,.NumText").wijtextbox();
+        $("select").wijcombobox({
+            isEditable: false
+        });
+
+        $("#grid").wijgrid({
+            allowSorting: false,
+            columns: [
+                { headerText: '日時', width: '10%', textAlignment: 'center' },
+                { headerText: '事業所', width: '15%' },
+                { headerText: '利用者', width: '15%' },
+                { headerText: 'エラー内容', width: '60%' }
+            ]
+        });
+        var selection = $("#grid").wijgrid("selection");
+        selection.clear();
+
+        $("#selOrganization").wijcombobox({
+            changed: function (e, data) {
+                var OrganizationID = data.selectedItem.value;
+                $.post('@Url.Action("GetSelUser", "ErrorLog")', { "organizationID": OrganizationID }, function (data) {
+                    $("#selUser").empty();
+                    var testArray = [];
+                    $.each(data.dataorder, function (i, item) {
+                        //testArray.push({ label: item.Text, value: item.Value });
+                        $("<option value='" + item.Value + "'>" + item.Text + "</option>").appendTo("#selUser");
+                    });
+                    //$("#selUser").wijcombobox("option", "data", testArray);
+                    $("#selUser").wijcombobox("option", "selectedValue", "0");
+                    $("#selUser").wijcombobox("destroy");
+                    $("#selUser").wijcombobox({
+                        isEditable: false
+                    });
+                });
+            }
+        });
+
+
+        $("#DateStart").wijinputdate({
+            dateFormat: "yyyy/MM/dd(ddd)",
+            culture: '@LanguageResource.ItemCulture',
+            dropDownClose: function (e) {
+                var dateStart = $("#DateStart").val();
+                var dateEnd = $("#DateEnd").val();
+                if (new Date(dateStart) > new Date(dateEnd))
+                {
+                    var newDate = new Date(dateStart);
+                    var year = newDate.getFullYear();
+                    var month = newDate.getMonth() + 1;
+                    var day = newDate.getDate();
+                    $("#DateEnd").wijinputdate("option", "date", new Date(year, month, day));
+                }
+            }
+        });
+
+        $("#DateEnd").wijinputdate({
+            dateFormat: "yyyy/MM/dd(ddd)",
+            culture: '@LanguageResource.ItemCulture',
+            dropDownClose: function (e) {
+                var dateStart = $("#DateStart").val();
+                var dateEnd = $("#DateEnd").val();
+                if (new Date(dateStart) > new Date(dateEnd)) {
+                    var newDate = new Date(dateEnd);
+                    var year = newDate.getFullYear();
+                    var month = newDate.getMonth() - 1;
+                    var day = newDate.getDate();
+                    $("#DateStart").wijinputdate("option", "date", new Date(year, month, day));
+                }
+            }
+        });
+
+        SetDateFormatOnSubmit("#DateStart,#DateEnd");
+    });
+
+    function GetSelectPageData(page) {
+        $("#Page").val(page);
+        $("#btnSearch").click();
+        //document.forms[0].submit();
+    }
+
+</script>
+
+<h2>エラーログ</h2>
+
+@using (Html.BeginForm())
+{
+    <section id="button_group">
+        <div style="float:left;margin-left:5px;">
+            <input id="btnCsvOutPut" name="btnCsvOutPut" style="width:120px;" type="submit" value="CVS形式で出力" />
+        </div>
+    </section>
+    <div style="margin-top: 10px; margin-left: 5px;">
+        <table>
+            <tr>
+                <td>期間</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(m => m.DateStart, new { @style = "width:160px" })</td>
+                <td style="width:30px;text-align:center;">~</td>
+                <td>@Html.TextBoxFor(m => m.DateEnd, new { @style = "width:160px" })</td>
+            </tr>
+        </table>
+    </div>
+    <div style="margin-top: 10px; margin-left: 5px;">
+        <table>
+            <tr>
+                <td>事業所</td>
+                <td style="padding-left: 10px;">利用者</td>
+                <td style="padding-left: 10px;">エラー内容</td>
+                <td style="padding-left: 30px;"></td>
+            </tr>
+            <tr>
+                <td>@Html.DropDownListFor(m => m.OrganizationID, Model.OrganizationList, new { @style = "width:150px;", id = "selOrganization" })</td>
+                <td style="padding-left: 10px;">@Html.DropDownListFor(m => m.UserID, Model.UserList, new { @style = "width:150px;", id = "selUser" })</td>
+                <td style="padding-left: 10px;">@Html.TextBoxFor(m => m.Detail, new { @class = "Fullwidth", style = "width:300px;" })</td>
+                <td style="padding-left: 30px;"><input id="btnSearch" name="btnSearch" style="width:90px;" type="submit" value="絞り込み" /></td>
+            </tr>
+        </table>
+    </div>
+    <div style="margin-top: 10px; margin-left: 5px;">
+        <table id="grid">
+            <tbody>
+                @foreach (var item in Model.ErrorLogList)
+                {
+                    <tr>
+                        <td>@item.LoggingDate.ToString("yyyy/MM/dd HH:mm")</td>
+                        <td>@item.OfficeName</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Detail</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-top: 0; margin-left: 5px;">
+        @Html.HiddenFor(m => m.Page)
+        <table id="btntable">
+            <tr>
+                <td>
+
+                    <div class="wijmo-wijgrid-footer  wijmo-wijsuperpanel-footer ui-state-default ui-corner-bottom ui-widget wijmo-wijpager ui-helper-clearfix" style="z-index: 5;">
+
+                        <ul>
+                            <li>
+                                @if (Model.PageCount > 1)
+                                {
+                                    for (int i = 1; i <= Model.PageCount; i++)
+                                    {
+                                        var page = i - 1;
+                                        <input type="button" id="pagebtn_@i" value="@i" style="width: 30px;height:20px; padding: 0;margin-top:1px;margin-bottom: 1px;margin-left: 1px;margin-right: 1px;" onclick="GetSelectPageData(@page);" />
+                                    }
+                                }
+                            </li>
+                        </ul>
+                    </div>
+
+                </td>
+            </tr>
+
+        </table>
+    </div>
+}

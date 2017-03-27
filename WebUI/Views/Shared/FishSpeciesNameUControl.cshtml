@@ -1,0 +1,53 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.UserControl.UserCtrlMode
+<script type="text/javascript">
+    $(function () {
+        //$("select").wijdropdown();
+        //$("#select1").change(function () {
+        //    var p1 = $(this).val();
+        //    $("#fishSpeciesId").val(p1);
+        //});
+        $("select").wijcombobox({
+            isEditable: false
+        });
+    });
+</script>
+@Html.DropDownListFor(m => m.FishSpeciesMode.FishSpeciesGuid, Model.FishSpeciesMode.FishSpeciesList, new { @style = "width:150px;height:30px;" })
+
+@*@Html.HiddenFor(m => m.FishSpeciesMode.FishSpeciesGuid, new { @id = "fishSpeciesId" })
+<select id="select1" style="width:150px;height:30px;">
+    @if (Model.FishSpeciesMode.FishSpeciesGuid == 0)
+    {
+        <option value="0" selected="selected">すべての生簀</option>
+    }
+    else
+    {
+        <option value="0">すべての生簀</option>
+    }
+    @{
+        for (var i = 0; i < Model.FishKindNameMode.FishKindList.Count; i++)
+        {
+            var title = Model.FishKindNameMode.FishKindList[i];
+            <optgroup label="@title.Text">
+                @{
+            var list = Model.FishSpeciesMode.FishSpeciesModelList.Where(m => m.FishKindGuid.ToString() == title.Value).ToList();
+            if (list.Count > 0)
+            {
+                for (var j = 0; j < list.Count; j++)
+                {
+                    var speciseTitle = list[j];
+                    if (Model.FishSpeciesMode.FishSpeciesGuid == speciseTitle.Guid)
+                    {
+                        <option value="@speciseTitle.Guid" selected="selected">@speciseTitle.FishSpeciesName</option>
+                    }
+                    else
+                    {
+                        <option value="@speciseTitle.Guid">@speciseTitle.FishSpeciesName</option>
+                    }
+                }
+            }
+                }
+            </optgroup>
+        }
+    }
+</select>*@

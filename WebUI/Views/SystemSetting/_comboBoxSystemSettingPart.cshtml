@@ -1,0 +1,17 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.SystemSetting.ComboBoxSystemSetting
+
+
+<section id="detail_left">
+    @Model.SystemSettingName
+</section>
+<section id="detail_right">
+    @Html.DropDownListFor(m => m.Value, Model.GetListItems(), new {  @style = "min-width:130px;",Name = "Settings[" + Model.Flag + "].Value" })
+    @Html.HiddenFor(m => m.SystemSettingKey, new { @Name = "Settings[" + Model.Flag + "].SystemSettingKey" })
+    @Html.HiddenFor(m => m.OrganizationID, new { @Name = "Settings[" + Model.Flag + "].OrganizationID", @Value = Model.OrganizationID })<br />
+    <div style="padding-top:3px;">
+        @Html.DisplayTextFor(m => m.Note)
+    </div>
+    @Html.ValidationMessageFor(m => m.Value)
+</section>
+

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<script id="scriptInit" type="text/javascript">
+</script>*@
+
+<h2>システムエラー</h2>
+
+@using (Html.BeginForm())
+{
+    <div><p>システムエラーが発生しました、エラー情報に保存されています。<br>大変お手数ですが、サイト管理者までご連絡ください。</p></div>
+    <div>
+        @if (this.Request.UrlReferrer != null)
+        {
+            <a href="@this.Request.UrlReferrer.OriginalString">戻る</a>
+        }
+    </div>
+    <div>
+        @Html.ActionLink("ホームへ", "Index", "Home")
+    </div>
+}

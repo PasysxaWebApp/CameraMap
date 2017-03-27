@@ -1,0 +1,98 @@
+﻿@using CameraMap.App_GlobalResources
+
+@model  CameraMap.Models.Notice.NoticeModel
+
+@{
+    ViewBag.Title = "お知らせ登録";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .autoArea {
+         width:100%;
+         border:0px;
+         overflow:hidden;
+         resize: none;
+         font-size: 14px /*12px*/;
+         font-family: "メイリオ", "Meiryo UI","Hiragino Kaku Gothic ProN",Meiryo,"ＭＳ Ｐゴシック","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","MS PGothic",Sans-Serif;
+    }
+</style>
+
+<script src="@Url.Content("~/Contents/ueditor1.4.3.3/ueditor.config.js")" type="text/javascript" charset="utf-8"></script>
+<script src="@Url.Content("~/Contents/ueditor1.4.3.3/ueditor.all.js")" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var contentType = parseInt($("#ContentType").val());
+        if (contentType == 1) {
+            initEditor();
+        }
+        else {
+            $("#ContentTxt").show();
+
+            $(".autoArea").each(function () {
+                var $this = $(this);
+                $this.height(this.scrollHeight);
+                //$this.attr("overflow-y", "hidden");
+            });
+        }
+    });
+
+    function initEditor() {
+        //var height = 500;
+        //var width = $("#detail_right").innerWidth();
+        //var options = JSON.parse(' { "initialFrameWidth": ' + width + ', "initialFrameHeight": ' + height + '}');
+        //options.toolbars = null;
+        //options.readonly = true;
+        //editor = new UE.ui.Editor(options);
+        //editor.render("EditorContentTxt");
+        //editor.addListener('ready', function (e) {
+        //    $(".edui-editor").css("border", "none");
+        //});
+    }
+
+
+</script>
+
+
+<h2>お知らせ</h2>
+@using (Html.BeginForm("View", "Notice"))
+{
+    @Html.HiddenFor(m => m.ContentType)
+    <section id="button_group">
+        <input type="submit" name="Back" style="width:80px" value="@LanguageResource.CmdBack" />
+    </section>
+}    
+    <section >
+        <h3> @string.Format("{0:yyyy/MM/dd} ({0:ddd}) {1}", Model.NoticeDateTime, Model.Title)</h3>
+
+        @if (!string.IsNullOrEmpty(Model.AttachmentFileFileName1))
+        {
+            <div style="font-weight:bold; ">
+                <span>ファイル添付</span>
+                <span>@Html.RouteLink(Model.AttachmentFileFileName1, "DownloadURL", new { controller = "ImageMng", action = "GetDeadFishFile", FileID = Model.AttachmentFileID1, FileName = Model.AttachmentFileFileName1 }, new { target = "_blank" })  </span>
+            </div>
+        }
+
+        <div style="height:5px;border-top:solid #ccc 0.5px;margin-top:5px; margin-bottom:5px;"></div>
+
+        @if (Model.ContentType == 1)
+        {
+            @Html.Raw(Model.ContentTxt)
+        }
+        else
+        {
+            @Html.TextAreaFor(m => m.ContentTxt, new { @style = "width:100%; height:550px;", @class = "autoArea" })
+        }
+
+        @*@if (Model.ContentType == 1)
+        {
+            @Html.Raw(Model.ContentTxt)
+        }
+        else
+        { 
+        @Html.TextAreaFor(m => m.ContentTxt, new { @Class = "autoArea",@Readonly="readonly" })
+        }*@
+
+    </section>

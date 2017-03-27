@@ -1,0 +1,41 @@
+﻿@using CameraMap.Models.Master.FishKind
+@using CameraMap.Models.Master.FishSpecies
+@using CameraMap.Configs
+@using CameraMap.Models.UserControl
+@model FishSpeciesSelectMenuPartialViewMode
+
+@{
+    var item = Model;
+    var organizationID = Session[SessionKeyConfig.OrganizationID].ToString();
+    if (string.IsNullOrEmpty(Model.OrganizationID))
+    {
+        Model.SetList(organizationID);
+    }
+    var selectedValue = 0L;
+    if (Model.SelectedValue.HasValue)
+    {
+        selectedValue = Model.SelectedValue.Value;
+    }
+}
+
+
+
+<div style="position:relative;display:inline-block;">
+
+    <div style="display:none">
+        <input type="hidden" value="@Model.FishSpeciesSelectedEvent" />
+        <input type="hidden" value="@Model.FishingGroundGuid" />
+        <input type="hidden" value="@Model.FishKindGuid" />
+        <input type="hidden" value="@Session[CameraMap.Configs.SessionKeyConfig.OrganizationID].ToString()" />
+        <input type="hidden" value="@Url.Action("FishSpeciesSelectMenuList", "UserControlPartial")" />
+        <input type="hidden" value="FishSpeciesSelectMenu_Menu_@item.ID" />
+        <input type="hidden" value="@Model.HideAll.ToString()" />
+        <input type="hidden" value="@Model.AutoSelectFirst.ToString()" />
+        <input type="hidden" value="FishSpeciesSelectMenu_List_@item.ID" />
+        <input type="hidden" value="@Model.IsReadOnly" />
+    </div>
+    <input type="text" style="display:none;" id="@item.ID" name="@item.Name" value="@selectedValue" />
+    <div style="display:inline-block;">
+        @Html.Partial("_FishSpeciesSelectMenuListPartial", Model)
+    </div>
+</div>

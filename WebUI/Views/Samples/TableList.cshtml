@@ -1,0 +1,33 @@
+﻿@model CameraMap.Models.Samples.TableInfoListModel
+
+@{
+    ViewBag.Title = "TableList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script id="scriptInit" type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").wijgrid({
+            allowSorting: true,
+            columns: [
+                { headerText: "テーブル", width: '100%' }
+            ]
+        });
+    });
+</script>
+
+<h2>TableList</h2>
+
+@using (Html.BeginForm())
+{
+    <table id="grid">
+        <tbody>
+            @foreach (var tableName in @Model.GetTableNames())
+            {
+                <tr>
+                    <td>@Html.ActionLink(tableName, "TableListDetail", "Samples", new { id = tableName }, new { })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

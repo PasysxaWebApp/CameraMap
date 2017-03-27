@@ -1,0 +1,88 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.Master.User.UserModelReg
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var loginInfo = CameraMap.Sessions.SessionLoginInfo.GetInstance(Session);
+}
+
+@if (loginInfo.SystemRoll == CameraMap.Enums.SystemRollEnum.SysAdmin)
+{
+    <script id="scriptInit" type="text/javascript">
+        $(document).ready(function () {
+            $("#grid").wijgrid({
+                allowSorting: true,
+                columns: [
+                    { headerText: '@LanguageResource.ItemDisplayFlag1', width: '5%', textAlignment: 'center' },
+                    { headerText: '@LanguageResource.ItemLoginName', width: '20%' },
+                    { headerText: '@LanguageResource.ItemOfficeName', width: '15%' },
+                    { headerText: '@LanguageResource.ItemUserName', width: '20%' },
+                    { headerText: '@LanguageResource.ItemUserNameEn', width: '15%' },
+                    { headerText: '@LanguageResource.ItemAuthority', width: '15%' },
+                    { headerText: '@LanguageResource.ItemLastUpdatetime', width: '10%' }
+                ]
+            });
+        });
+    </script>}
+else
+{
+    <script id="scriptInit" type="text/javascript">
+        $(document).ready(function () {
+            $("#grid").wijgrid({
+                allowSorting: true,
+                columns: [
+                    { headerText: '@LanguageResource.ItemDisplayFlag1', width: '5%', textAlignment: 'center' },
+                    { headerText: '@LanguageResource.ItemLoginName', width: '20%' },
+                    { headerText: '@LanguageResource.ItemUserName', width: '25%' },
+                    { headerText: '@LanguageResource.ItemUserNameEn', width: '25%' },
+                    { headerText: '@LanguageResource.ItemAuthority', width: '15%' },
+                    { headerText: '@LanguageResource.ItemLastUpdatetime', width: '10%' }
+                ]
+            });
+        });
+    </script>
+}
+
+<h2>@LanguageResource.ItemFormUser</h2>
+
+@using (Html.BeginForm())
+{
+    <section id="button_group">
+        <input type="submit" name="Add" value="@LanguageResource.CmdNewRegistration" />
+        <input type="submit" name="Sort" value="@LanguageResource.CmdDisplayOrderChange" />
+    </section>
+
+    <table id="grid">
+        <tbody>
+            @if (loginInfo.SystemRoll == CameraMap.Enums.SystemRollEnum.SysAdmin)
+            {
+                foreach (var user in @Model.Items)
+                {
+                    <tr>
+                        <td>@Html.Action("GetDisplay", "Common", new { flag = user.DisplayFlag })</td>
+                        <td>@Html.ActionLink(user.LoginName, "UserEdit", "User", new { id = user.Guid }, new { })</td>
+                        <td>@user.OfficeName</td>
+                        <td>@user.UserName</td>
+                        <td>@user.UserNameEn</td>
+                        <td>@user.AuthorityStr</td>
+                        <td>@Html.Action("GetFormatDate", "Common", new { date = @user.LastUpdatetime })</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                foreach (var user in @Model.Items)
+                {
+                    <tr>
+                        <td>@Html.Action("GetDisplay", "Common", new { flag = user.DisplayFlag })</td>
+                        <td>@Html.ActionLink(user.LoginName, "UserEdit", "User", new { id = user.Guid }, new { })</td>
+                        <td>@user.UserName</td>
+                        <td>@user.UserNameEn</td>
+                        <td>@user.AuthorityStr</td>
+                        <td>@Html.Action("GetFormatDate", "Common", new { date = @user.LastUpdatetime })</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}

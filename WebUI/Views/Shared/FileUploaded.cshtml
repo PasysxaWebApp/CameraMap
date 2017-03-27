@@ -1,0 +1,11 @@
+﻿@model CameraMap.Models.ResponseModel.ImageResponseModel
+@{
+    Layout = null;
+}
+{
+    "IsFail":@Model.IsFail.ToString().ToLower(),
+    "FileKey":'@Model.FileKey',
+    "FileName":'@Model.FileName',
+    "FileUrl":'@this.Server.HtmlDecode(Model.FileUrl)' ,
+    "FileUrlThumb": '@this.Server.HtmlDecode(Model.FileUrlThumb)'
+}

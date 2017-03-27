@@ -1,0 +1,96 @@
+﻿@using CameraMap.Models.Layer
+@model List<LayerModel>
+
+<input type="hidden" id="selectedlayerId" value="0" />
+<input type="hidden" id="selectedlayerName" value="0" />
+
+<table id="gridAllLayers">
+@foreach (var layer in Model)
+{
+    <tr>
+        <td>@layer.Id</td>
+        <td>@layer.LayerName</td>
+        <td>
+            <a href="javascript:void(0)" class="layerEditIcon layerView" layerid="@layer.Id" layername="@layer.LayerName"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
+        </td>
+        <td>
+            <a href="javascript:void(0)" class="layerEditIcon layerEdit" layerid="@layer.Id"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
+            <a href="javascript:void(0)" class="layerEditIcon layerDel" layerid="@layer.Id"><img src="@Url.Content("~/Contents/images/delete.png")" /></a>
+        </td>
+
+    </tr>
+}
+</table>
+
+@*<ul style="margin-left:5px;margin-right:5px;">
+    @foreach (var layer in Model)
+    {
+        <li>
+            <table style="width:100%;margin-top:5px;">
+                <tr>
+                    <td align="left">
+                        <label><input type="checkbox" class="LayoutSelector" layerkey="@layer.LayerKey" layerid="@layer.Id" />@layer.LayerName</label>
+                    </td>
+                    <td align="right">
+                        <a href="javascript:void(0)" class="layerEditIcon DeviceAdd" layerid="@layer.Id" layername="@layer.LayerName"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
+                        <a href="javascript:void(0)" class="layerEditIcon layerEdit" layerid="@layer.Id"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
+                        <a href="javascript:void(0)" class="layerEditIcon layerDel" layerid="@layer.Id"><img src="@Url.Content("~/Contents/images/delete.png")" /></a>
+                    </td>
+                </tr>
+            </table>
+        </li>
+    }
+</ul>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#gridAllLayers").wijgrid({
+            allowSorting: false,
+            columns: [
+                { headerText: "", visible: false },
+                { headerText: "图层", width: '50%', textAlignment: 'left' },
+                { headerText: "", width: '20%', textAlignment: 'center' },
+                { headerText: "", width: '30%', textAlignment: 'center' },
+            ],
+            currentCellChanged: function (e) {
+                var rowObj = $(e.target).wijgrid("currentCell").row();
+                if (rowObj) {
+                    var dataItem = rowObj.data; // current data item (after the cell is changed).
+                    selectLayer(dataItem[0], dataItem[1]);
+                }
+            },
+            loaded: function (e) {
+                var data = $(e.target).wijgrid("data");
+                if (data.length > 0)
+                {
+                    selectLayer(data[0][0], data[0][1]);
+                }
+            }
+        });
+
+        $(".LayoutSelector").wijcheckbox();
+
+        $(".layerEdit").click(function () {
+            $this = $(this);
+            setInfoToLayerEditDialog($this.attr("layerid"));
+        });
+
+        $(".layerDel").click(function () {
+            $this = $(this);
+            deleteLayerData($this.attr("layerid"));
+        });
+
+        $(".layerView").click(function () {
+            $this = $(this);
+            //openNewDevice($this.attr("layerid"), $this.attr("layername"));
+        });
+
+        function selectLayer(layerId, layerName) {
+            $("#selectedlayerId").val(layerId);
+            $("#selectedlayerName").val(layerName);
+            reloadDeviceData(layerId, layerName);
+        }
+
+    });
+</script>

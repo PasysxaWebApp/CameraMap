@@ -1,0 +1,19 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.SystemSetting.BoolSystemSetting
+
+
+<section id="detail_left">
+    @Model.SystemSettingName
+</section>
+<section id="detail_right">
+    @Html.RadioButtonFor(m => m.SystemSettingValue, 1, new { id = "Settings[" + Model.Flag + "].radioYes", @Name = "Settings[" + Model.Flag + "].Value" })<label for="Settings[@Model.Flag].radioYes">する</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    @Html.RadioButtonFor(m => m.SystemSettingValue, 0, new { id = "Settings[" + Model.Flag + "].radioNo", @Name = "Settings[" + Model.Flag + "].Value" })<label for="Settings[@Model.Flag].radioNo">しない</label>
+    @*@Html.CheckBoxFor(m => m.SystemSettingValue, new { @Name = "Settings[" + Model.Flag + "].Value" })*@
+    @Html.HiddenFor(m => m.SystemSettingKey, new { @Name = "Settings[" + Model.Flag + "].SystemSettingKey" })
+    @Html.HiddenFor(m => m.OrganizationID, new { @Name = "Settings[" + Model.Flag + "].OrganizationID", @Value = Model.OrganizationID })<br />
+    <div style="padding-top:3px;">
+        @Html.DisplayTextFor(m => m.Note)
+    </div>
+    @Html.ValidationMessageFor(m => m.Value)
+</section>
+

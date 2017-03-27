@@ -1,0 +1,8 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.UserControl.UserCtrlMode
+@*<script type="text/javascript">
+    $(function () {
+        $("select").wijdropdown();
+    });
+</script>*@
+@Html.DropDownListFor(m => m.FishKindNameMode.FishKindGuid, Model.FishKindNameMode.FishKindList, new { @style = "width:150px;height:30px;" })

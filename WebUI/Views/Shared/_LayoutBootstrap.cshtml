@@ -1,0 +1,50 @@
+﻿@using CameraMap.Configs
+@{
+    ViewBag.Title = SystemConfig.SystemTitle;
+}
+
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head id="Head1" runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        @ViewBag.Title
+    </title>
+
+    <!--bootstrap css-->
+    <link href="@Url.Content("~/Contents/bootstrap-3.0.0/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <!-- Wijmo Bootstrap CSS -->
+    <link href="@Url.Content("~/Contents/bootstrap-3.0.0/bootstrap-wijmo.css")" rel="stylesheet" type="text/css" />
+
+
+    <link href="@Url.Content("~/Contents/sweetalert/sweet-alert.css")" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="@Url.Content("~/Contents/html5shiv/3.7.2/html5shiv.min.js")"></script>
+      <script src="@Url.Content("~/Contents/respond.js/1.4.2/respond.min.js")"></script>
+    <![endif]-->
+    <!-- jQuery -->
+    <script src="@Url.Content("~/Contents/jquery/1.11.2/jquery.min.js")" type="text/javascript"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="@Url.Content("~/Contents/bootstrap-3.3.2-dist/js/bootstrap.min.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/Contents/assets/js/ie10-viewport-bug-workaround.js")"></script>
+    <script src="@Url.Content("~/Contents/sweetalert/sweet-alert.min.js")" type="text/javascript"></script>
+
+    @RenderSection("Style", false)
+
+
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>

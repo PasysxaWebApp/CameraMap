@@ -1,0 +1,3 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.UserControl.UserCtrlMode
+@Html.DropDownListFor(m => m.FishGroundNameMode.FishingGroundGuid, Model.FishGroundNameMode.FishingGroundList, new {@id="fishground",@style = "width:150px;height:30px;" })

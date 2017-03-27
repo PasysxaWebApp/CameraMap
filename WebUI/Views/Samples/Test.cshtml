@@ -1,0 +1,62 @@
+﻿@model CameraMap.Models.Samples.TestModelList
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Script{
+    <script type="text/javascript">
+        $(function () {
+            $("#menu").wijmenu();
+            $("#menu").wijmenu(
+                "option", "animation", { option: { direction: "right" }, duration: 50, easing: null });
+
+            $("#grid").wijgrid({
+                allowSorting: true,
+                columns: [
+                    { headerText: "ユーザー名", width: '15%' },
+                    { headerText: "年齢", width: '15%' },
+                    { headerText: "生年月日", width: '15%' },
+                    { headerText: "アドレース", width: '55%' }
+                ]
+            });
+        });
+
+    </script>
+}
+<h2>Test</h2>
+<ul id="menu">
+    <li>
+        <a>Menu Item 1</a>
+        <ul>
+            <li><a>Menu Item 1a</a></li>
+            <li><a>Menu Item 2a</a></li>
+        </ul>
+    </li>
+    <li><a>Menu Item 2</a></li>
+    <li><a>Menu Item 3</a></li>
+</ul>
+
+<table id="grid">
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Birthday</td>
+                <td>@item.Address</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <input id="btnSave" type="button" value="登録" style="margin-right:10px;" />
+                    <input id="textName" type="text" style="margin-right:10px;" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+

@@ -1,0 +1,171 @@
+﻿@using CameraMap.Models.Samples;
+@model TableInfoListModel
+@{
+    ViewBag.Title = "CreateTigger";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    span {
+        font-weight: bold;
+    }
+</style>
+<h2>CreateTigger</h2>
+
+
+<div>
+
+    @foreach (var tableName in @Model.GetTableNames())
+    {
+        if (tableName == "t_tablehistory")
+        {
+            continue;
+        }
+        var tn = tableName.ToLower();
+        <div>drop trigger if exists <span>@tn</span>_trigger_beforeInsert;</div>
+        <div>drop trigger if exists <span>@tn</span>_trigger_beforeUpdate;</div>
+        <div>drop trigger if exists <span>@tn</span>_trigger_beforeDelete;</div>
+        <div></div>
+    }
+
+    <div>commit;</div>
+    @foreach (var tableName in @Model.GetTableNames())
+    {
+        if (tableName == "t_tablehistory" ||
+        tableName == "m_dbver" ||
+        tableName == "m_systemmenu" ||
+        tableName == "m_systemmenu_roll")
+        {
+            continue;
+        }
+        var tn = tableName.ToLower();
+        var tableInfo = new TableInfoModel(tableName);
+
+        @*foreach (var item in tableInfo.ColumnInfos)
+            {
+                <h3>@item.Field</h3>
+            }*@
+
+        <div>
+            <h2>/*@tableName*/</h2>
+            <div></div>
+            @*<div>drop trigger if exists <span>@tn</span>_trigger_beforeInsert;</div>
+            <div>drop trigger if exists <span>@tn</span>_trigger_beforeUpdate;</div>
+            <div>drop trigger if exists <span>@tn</span>_trigger_beforeDelete;</div>
+            <div>commit;</div>*@
+            <div>/*for insert*/</div>
+            <div>drop trigger if exists <span>@tn</span>_trigger_beforeInsert;</div>
+            <div>commit;</div>
+            <div>delimiter $</div>
+            <div>create trigger <span>@tn</span>_trigger_beforeInsert before insert on <span>@tn</span>  for each row </div>
+            <div>begin </div>
+            <div>INSERT INTO `t_tablehistory`</div>
+            <div>(`Guid`,</div>
+            <div>`TableName`,</div>
+            @for (int i = 1; i <= tableInfo.ColumnInfos.Count; i++) {
+                <h3>`FieldName<span>@i</span>`,</h3>
+            }
+            @for (int i = 1; i <= tableInfo.ColumnInfos.Count; i++) {
+                <h3>`FieldData<span>@i</span>`,</h3>
+            }
+            <div>`StatusFlag`,</div>
+            <div>`LastUserID`,</div>
+            <div>`LastUpdatetime`)</div>
+            <div>VALUES</div>
+            <div>(uuid_short(),</div>
+            <div>'<span>@tn</span>',</div>
+            @foreach (var item in tableInfo.ColumnInfos)
+            {
+                <h3>'@item.Field',</h3>
+            }
+            @foreach (var item in tableInfo.ColumnInfos)
+            {
+                <h3>New.@item.Field,</h3>
+            }
+            <div>0,</div>
+            <div>0,</div>
+            <div>now());</div>
+            <div>end; </div>
+            <div>$</div>
+            <div>delimiter ;</div>
+            <div>commit;</div>
+            <div></div>
+            <div>/*for update*/</div>
+            <div>drop trigger if exists <span>@tn</span>_trigger_beforeUpdate;</div>
+            <div>commit;</div>
+            <div>delimiter $</div>
+            <div>create trigger <span>@tn</span>_trigger_beforeUpdate before update on <span>@tn</span>  for each row </div>
+            <div>begin </div>
+            <div>INSERT INTO `t_tablehistory`</div>
+            <div>(`Guid`,</div>
+            <div>`TableName`,</div>
+            @for (int i = 1; i <= tableInfo.ColumnInfos.Count; i++)
+            {
+                <h3>`FieldName<span>@i</span>`,</h3>
+            }
+            @for (int i = 1; i <= tableInfo.ColumnInfos.Count; i++)
+            {
+                <h3>`FieldData<span>@i</span>`,</h3>
+            }
+            <div>`StatusFlag`,</div>
+            <div>`LastUserID`,</div>
+            <div>`LastUpdatetime`)</div>
+            <div>VALUES</div>
+            <div>(uuid_short(),</div>
+            <div>'<span>@tn</span>',</div>
+            @foreach (var item in tableInfo.ColumnInfos)
+            {
+                <h3>'@item.Field',</h3>
+            }
+            @foreach (var item in tableInfo.ColumnInfos)
+            {
+                <h3>New.@item.Field,</h3>
+            }
+            <div>8,</div>
+            <div>0,</div>
+            <div>now());</div>
+            <div>end; </div>
+            <div>$</div>
+            <div>delimiter ;</div>
+            <div>commit;</div>
+            <div>drop trigger if exists <span>@tn</span>_trigger_beforeDelete;</div>
+            <div>commit;</div>
+            <div>delimiter $</div>
+            <div>create trigger <span>@tn</span>_trigger_beforeDelete before delete on <span>@tn</span>  for each row </div>
+            <div>begin </div>
+            <div>INSERT INTO `t_tablehistory`</div>
+            <div>(`Guid`,</div>
+            <div>`TableName`,</div>
+            @for (int i = 1; i <= tableInfo.ColumnInfos.Count; i++)
+            {
+                <h3>`FieldName<span>@i</span>`,</h3>
+            }
+            @for (int i = 1; i <= tableInfo.ColumnInfos.Count; i++)
+            {
+                <h3>`FieldData<span>@i</span>`,</h3>
+            }
+            <div>`StatusFlag`,</div>
+            <div>`LastUserID`,</div>
+            <div>`LastUpdatetime`)</div>
+            <div>VALUES</div>
+            <div>(uuid_short(),</div>
+            <div>'<span>@tn</span>',</div>
+            @foreach (var item in tableInfo.ColumnInfos)
+            {
+                <h3>'@item.Field',</h3>
+            }
+            @foreach (var item in tableInfo.ColumnInfos)
+            {
+                <h3>OLD.@item.Field,</h3>
+            }
+            <div>2,</div>
+            <div>0,</div>
+            <div>now());</div>
+            <div>end; </div>
+            <div>$</div>
+            <div>delimiter ;</div>
+            <div>commit;</div>
+            <div></div>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function () {
+        $("#dialog").dialog({
+            modal: true,
+            autoOpen: true,
+            hide: "explode",
+            closeOnEscape: false,
+            open: function () {
+                // Hide close button 
+                $(this).parent().children().children(".ui-dialog-titlebar-close").hide();
+            }
+        });
+    });
+</script>
+
+<div id="dialog" title="システムエラー">
+
+        <p>システムエラーが発生しました。<br>大変お手数ですが、サイト管理者までご連絡ください。</p>
+
+        @using (Html.BeginForm()) {
+            <div>
+                @Html.ActionLink("ログイン画面へ", "LogOn", "Account")
+            </div>
+        }
+</div>

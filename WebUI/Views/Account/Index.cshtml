@@ -1,0 +1,110 @@
+﻿@using CameraMap.Configs
+@model CameraMap.Models.Master.Account.LogOnModel
+@{
+    ViewBag.Title = "ログイン";
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+}
+
+<style type="text/css">
+    .validation-summary-errors,.field-validation-error {
+        color: red;
+    }
+</style>
+
+<div class="container">
+    <div class="panel " style="margin: 100px auto; width: 400px; border:1px solid #3399dd;padding: 30px;">
+        <div class="panel-heading">
+            <div style="color: #3399dd;">
+                <p class="h2 text-center">
+                    @SystemConfig.SystemTitle
+                </p>
+                <p class="h4 text-center">
+
+                </p>
+            </div>
+        </div>
+        <div class="bg-danger">
+            <p>@Html.ValidationMessage("Err01")</p>
+            <p>@Html.ValidationMessage("Err02")</p>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @Html.HiddenFor(m => m.OrganizationID)
+                <div class="form-group">
+                    <label for="UserID" class="sr-only">
+                        ユーザーID
+                    </label>
+                    @Html.TextBoxFor(m => m.UserID, new { style = "ime-mode:inactive", @Class = "form-control", placeholder = "ユーザーID" })
+                </div>
+                <div class="form-group">
+                    <label for="Password" class="sr-only">
+                        パスワード
+                    </label>
+                    @Html.PasswordFor(m => m.Password, new { @Class = "form-control", placeholder = "パスワード" })
+                </div>
+                <div class="checkbox">
+                    <label style="color: #3399dd;">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        ログイン情報を記録
+                    </label>
+                </div>
+                <button type="submit" class="btn " style="width: 100%; background-color: #3399dd;
+                    color: #ffffff;">
+                    ログイン
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("BUTTON[type='submit']").click(function () {
+            saveInfo();
+        });
+
+        var CloudFram = localStorage.CloudFram;
+        if (CloudFram != undefined && Boolean(CloudFram) == true) {
+            var chk = localStorage.CloudFramchkSave;
+            if (chk == "false") {
+                $("#RememberMe").removeAttr("checked");
+            }
+            else {
+                $("#RememberMe").attr("checked", "checked");
+            }
+            $("#UserID").val(localStorage.CloudFramUserID);
+            $("#Password").val(localStorage.CloudFramPassword);
+        }
+    });
+
+    function saveInfo() {
+        localStorage.CloudFram = true;
+        var chkBox = $("#RememberMe");
+        var chk = chkBox.is(':checked')
+        if (chk) {
+            localStorage.CloudFramchkSave = true;
+            localStorage.CloudFramUserID = $("#UserID").val();
+            localStorage.CloudFramPassword = $("#Password").val();
+        }
+        else {
+            localStorage.CloudFramchkSave = false;
+            localStorage.CloudFramUserID = "";
+            localStorage.CloudFramPassword = "";
+        }
+    }
+
+    var state = {
+        title: document.title,
+        url: document.location.href,
+    };
+    history.pushState(state, document.title, document.location.href);
+    window.addEventListener('popstate', function (event) {
+        history.pushState(state, document.title, document.location.href);
+    }, false);
+
+</script>
+
+

@@ -1,0 +1,164 @@
+﻿
+<style type="text/css">
+    .layerEditIcon {
+        width: 16px;
+        height: 16px;
+        decoration: none;
+    }
+</style>
+
+<script src="@Url.Content("~/Contents/Scripts/ajaxfileupload.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //editDialog
+        $('#layerEditDialog').wijdialog({
+            autoOpen: false,
+            modal: true,
+            width: 650,
+            resizable: false,
+            captionButtons: {
+                pin: { visible: false },
+                refresh: { visible: false },
+                toggle: { visible: false },
+                minimize: { visible: false },
+                maximize: { visible: false }
+            },
+            buttons: [
+            {
+                text: "保存",
+                click: function () {
+                    saveLayerData();
+                }
+            },
+            {
+                text: "关闭",
+                click: function () {
+                    closeLayerDialog();
+                }
+            }],
+        });
+
+
+    });
+
+    //$(document).on("click", ".layerEdit", function () {
+    //    $this = $(this);
+    //    setInfoToLayerEditDialog($this.attr("layerid"));
+    //});
+
+    //$(document).on("click", ".layerDel", function () {
+    //    $this = $(this);
+    //    deleteLayerData($this.attr("layerid"));
+    //});
+
+
+    function openNewLayer() {
+        $("#selectedLayerId").val("0");
+        $("#LayerKey").val("");
+        $("#LayerName").val("");
+        $("#IconFileKey").val("0");
+        $("#layerIcon").attr("src", "");
+        $("#layerIcon").attr("title", "");
+
+        $('#layerEditDialog').wijdialog("open");
+    }
+    function closeLayerDialog() {
+        $('#layerEditDialog').wijdialog("close");
+    }
+
+    function setInfoToLayerEditDialog(Id) {
+        var url = '@Url.Action("GetLayerModel", "Layer")';
+        var postData = { Id: Id };
+        $.post(url, postData, function (data) {
+            var model = data.Model;
+            $("#selectedLayerId").val(model.Id);
+            $("#LayerKey").val(model.LayerKey);
+            $("#LayerName").val(model.LayerName);
+            $("#IconFileKey").val(model.IconFile);
+            $("#layerIcon").attr("src", model.IconFileUrl);
+            $("#layerIcon").attr("title", model.IconFileName);
+            $('#layerEditDialog').wijdialog('open');
+        });
+    }
+
+    function saveLayerData() {
+        var url = '@Url.Action("EditLayerAjax", "Layer")';
+        var postData = $("#LayerMstFrm").serialize();
+        $.post(url, postData, function (data) {
+            if (data.Success) {
+                closeLayerDialog();
+                reloadLayerData();
+            }
+            else {
+                alert("保存失败!");
+            }
+        });
+    }
+
+    function deleteLayerData(Id) {
+        var bl = confirm("删除数据，继续吗？");
+        if (!bl) {
+            return;
+        }
+        var url = '@Url.Action("DeleteLayerAjax", "Layer")';
+        var postData = { Id: Id };
+        $.post(url, postData, function (data) {
+            if (data.Success) {
+                closeLayerDialog();
+                reloadLayerData();
+            }
+            else {
+                alert("删除失败!");
+            }
+        });
+    }
+
+
+</script>
+
+<script type="text/javascript">
+
+
+    function fileinput_change(file) {
+        var guid = $(file).attr("guid");
+        var imgidx = $(file).attr("imgidx");
+        var url = '@Url.Action("SetLayerIconFile", "Layer")';
+        var sendObjdata = {};
+        ajaxFileUpload($(file).attr("id"), url, sendObjdata, guid, imgidx);
+    }
+
+    function ajaxFileUpload(elementId, url, sendObjdata, guid, imgidx) {
+        var obj = {
+            url: url,
+            secureuri: false,
+            fileElementId: elementId,
+            dataType: 'json',
+            data: sendObjdata,
+            success: function (data, status) {
+                createUploadedFile(elementId, data, guid, imgidx);
+            },
+            error: function (data, status, e) {
+                alert("保存失败");
+            }
+        };
+        $.ajaxFileUpload(obj);
+        return false;
+    }
+
+    function createUploadedFile(elementId, data, guid, imgidx) {
+        var imgID = "layerIcon";
+        var fileKey = "IconFileKey";
+        $("#" + imgID).attr("src", data.FileUrl);
+        $("#" + fileKey).val(data.FileKey);
+    }
+
+    function ClearLayerIconFile() {
+        var imgID = "layerIcon";
+        var fileKey = "IconFileKey";
+        $("#" + imgID).attr("src", "");
+        $("#" + fileKey).val("0");
+    }
+
+    $("#btnClearImg").click(function () { ClearLayerIconFile() });
+
+</script>

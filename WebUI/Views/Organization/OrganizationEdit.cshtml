@@ -1,0 +1,424 @@
+﻿@using CameraMap.App_GlobalResources
+
+@model CameraMap.Models.Master.Organization.OrganizationModel
+@{
+    ViewBag.Title = LanguageResource.ItemOrganizationEditTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var systemRoll = CameraMap.Sessions.SessionLoginInfo.GetInstance(Session).SystemRoll;
+}
+
+@{
+    var item = Model;
+
+    string urlA1 = "javascript:void(0);", urlA2 = "javascript:void(0);";
+    string url1 = "", url2 = "";
+
+    if (item.FarmPic.HasValue && item.FarmPic.Value>0)
+    {
+        urlA1 = url1 = Url.RouteUrl("DownloadURL", new { controller = "ImageMng", action = "GetImageFile", FileID = item.FarmPic, FileName = (item.FarmPicName ?? "f.png") });
+    }
+    if (item.FishinggroundPic.HasValue  && item.FishinggroundPic.Value>0)
+    {
+        urlA2 = url2 = Url.RouteUrl("DownloadURL", new { controller = "ImageMng", action = "GetImageFile", FileID = item.FishinggroundPic, FileName =( item.FishinggroundPicName ?? "f.png") });
+    }
+}
+
+
+<style type="text/css">
+    .FileSelectButton {
+        width: 141px;
+    }
+
+    .FileSelectHideObj {
+        width: 141px;
+        height: 34px;
+        overflow: hidden;
+        position: relative;
+        background-image: none;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        background-size: auto;
+        background-origin: padding-box;
+        background-clip: border-box;
+        background-color: transparent;
+        margin-top: -34px;
+        z-index: 9999;
+    }
+
+        .FileSelectHideObj input {
+            height: 34px;
+            right: 0px;
+            bottom: 0px;
+            font-size: 20px;
+            filter: alpha(opacity=0);
+            -webkit-filter: opacity(0%);
+            position: absolute;
+            cursor: pointer;
+            outline-width: medium;
+            outline-style: none;
+            outline-color: invert;
+            opacity: 0;
+        }
+</style>
+
+<style type="text/css">
+        .ImgTable {
+            width:100%;        
+        }
+
+        .Img {
+            margin-top:10px;
+            max-width:100%;
+            height:200px;        
+        }
+
+</style>
+
+<script src="@Url.Content("~/Contents/Scripts/ajaxfileupload.js")" type="text/javascript"></script>
+
+<script id="script1" type="text/javascript">
+    $(document).ready(function () {
+        $(".Fullwidth,.NumABC,.NumPhone").wijtextbox();
+        //$("input[type='checkbox']").wijcheckbox();
+        $("select").wijdropdown();
+
+        $(".NumText").wijinputnumber({
+            type: 'numeric',
+            decimalPlaces: 0
+        });
+
+        //$("a[type='button']").button();
+
+        $(".ImgA").each(function (obj, idx) {
+            var a = $(this);
+            if (a.attr("href").length > 1 && a.attr("href")!="javascript:void(0);")
+            {
+                a.attr("target", "_blank");
+            }
+        });
+
+        $(".btnClearImg").click(function () {
+            var btn = $(this);
+            var guid = btn.attr("guid");
+            var imgidx = btn.attr("imgidx");
+
+            var imgID = "Img_" + guid + "_" + imgidx + "";
+            var fileKey = "imageFileKey_" + guid + "_" + imgidx + "";
+
+            $("#" + imgID).attr("src", "");
+            $("#" + fileKey).val("-1");
+            var a = $("#" + imgID).parent();
+            a.removeAttr("target");
+            a.attr("href", "javascript:void(0);");
+        });
+    });
+</script>
+
+<script type="text/javascript">
+
+
+    function fileinput_change(file) {
+        var guid = $(file).attr("guid");
+        var imgidx = $(file).attr("imgidx");
+        var url = '@Url.Action("SetImgageFile")';
+        var sendObjdata = {};
+        ajaxFileUpload($(file).attr("id"), url, sendObjdata, guid, imgidx);
+    }
+
+    function ajaxFileUpload(elementId, url, sendObjdata, guid, imgidx) {
+        var obj = {
+            url: url,
+            secureuri: false,
+            fileElementId: elementId,
+            dataType: 'json',
+            data: sendObjdata,
+            success: function (data, status) {
+                if (data.IsFail)
+                {
+                    alert("保存が失敗しました");
+                    return;
+                }
+                createUploadedFile(elementId, data, guid, imgidx);
+            },
+            error: function (data, status, e) {
+                alert("保存が失敗しました");
+            }
+        };
+        $.ajaxFileUpload(obj);
+        return false;
+    }
+
+    function createUploadedFile(elementId, data, guid, imgidx) {
+        var imgID = "Img_" + guid + "_" + imgidx + "";
+        var fileKey = "imageFileKey_" + guid + "_" + imgidx + "";
+        $("#" + imgID).attr("src", data.FileUrl);
+        var linkObj = $("#" + imgID).parent();
+        linkObj.attr("href", data.FileUrl);
+        linkObj.attr("target", "_blank");
+        $("#" + fileKey).val(data.FileKey);
+    }
+
+    function DeleteFile(obj) {
+        var idx = $(obj).attr("idx");
+        var url = '<%: Url.Action("DeleteConsentFile") %>'
+        var sendObjdata = { ConsentFileKey: $("#ConsentFileKey" + idx).val(), Index: idx };
+        $.post(url, sendObjdata, function (result) {
+
+        });
+        var fileLinkDiv = $(obj).parentsUntil(".fileLinkDiv").parent();
+        fileLinkDiv.empty();
+        $("#ConsentFileName" + idx).val("");
+        $("#upload_img0").removeAttr("disabled");
+    }
+</script>
+
+
+
+<h2>@LanguageResource.ItemOrganizationEditTitle</h2>
+
+@using (Html.BeginForm())
+{
+    <section id="button_group">
+        <input type="submit" style="width:80px;" name="btnSave" value=@LanguageResource.CmdRegister />
+        @if (systemRoll==CameraMap.Enums.SystemRollEnum.SysAdmin ){
+            @Html.ActionLink(LanguageResource.CmdBack, "Index", "Organization", new { }, new { style = "width: 80px;", type = "button" })
+        }
+   </section>
+
+    <section id="container_group">
+        <section id="container_detail_top">
+            <section id="detail_left">
+                @LanguageResource.labOrganizationCode<span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.OrganizationCode, new { @class = "NumABC", style = "width:60%;", maxLength = "3" })
+                <br />
+                @Html.ValidationMessageFor(m => m.OrganizationCode)
+            </section>
+        </section>
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemOfficeName<span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.OfficeName, new { @class = "Fullwidth", style = "width:60%;", maxLength = "100" })
+                <br />
+                @Html.ValidationMessageFor(m => m.OfficeName)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemOfficeNameEn
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.OfficeNameEn, new { @class = "NumABC", style = "width:60%;", maxLength = "100" })
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemStaffName<span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.StaffName, new { @class = "Fullwidth", style = "width:30%;", maxLength = "50" })
+                <br />
+                @Html.ValidationMessageFor(m => m.StaffName)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemStaffNameEn
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.StaffNameEn, new { @class = "NumABC", style = "width:30%;", maxLength = "50" })
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemPostal<span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.Postal, new { @class = "NumABC", style = "width:30%;text-align:left;", maxLength = "20" })
+                <br />
+                @Html.ValidationMessageFor(m => m.Postal)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemStateCode<span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.DropDownListFor(m => m.StateCode, new SelectList(Model.StateCodeList, "Value", "Text"), new { @style = "width:20%;" })
+                <br />
+                @Html.ValidationMessageFor(m => m.StateCode)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemAddress1<span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.Address1, new { @class = "Fullwidth", style = "width:100%;", maxLength = "200" })
+                <br />
+                @Html.ValidationMessageFor(m => m.Address1)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemAddress2
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.Address2, new { @class = "Fullwidth", style = "width:100%;", maxLength = "200" })
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemAddressEn
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.AddressEn, new { @class = "NumABC", style = "width:100%;", maxLength = "200" })
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemMailAddress<span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.MailAddress, new { @class = "NumABC", style = "width:60%;", maxLength = "100" })
+                <br />
+                @Html.ValidationMessageFor(m => m.MailAddress)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemPhoneNumber<span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "NumPhone", style = "width:60%;", maxLength = "20" })
+                <br />
+                @Html.ValidationMessageFor(m => m.PhoneNumber)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemFax
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.FaxNumber, new { @class = "NumABC", style = "width:60%;", maxLength = "20" })
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                日別一括登録方式
+            </section>
+            <section id="detail_right">
+                @Html.DropDownListFor(m => m.BatchSaveWithDayMode, new SelectList(Model.BatchSaveWithDayModeList, "Value", "Text"), new { @style = "width:20%;" })
+            </section>
+        </section>
+        <section id="container_detail_bottom">
+            <section id="detail_left">
+                URL
+            </section>
+            <section id="detail_right" style="padding-top:10px;">
+                <span>@this.Request.Url.AbsoluteUri.Replace(this.Request.Url.PathAndQuery, "").Trim()</span><span>@Url.Action("Index", "Account", new { OrganizationID = Model.OrganizationID }).Replace(" ", "").Trim()</span>
+            </section>
+        </section>
+
+        <section id="container_detail_top">
+            <section id="detail_left">
+                生産者写真
+            </section>
+            <section id="detail_right" style="padding-top:10px;">
+                <table class="ImgTable">
+                    <tr>
+                        <td>
+                            <div>
+                                <div style="padding-left: 10px;float:left;">
+                                    <input class="FileSelectButton" type="button" value="ファイル参照..." />
+                                    <div class="FileSelectHideObj">
+                                        <input name="file" id="upload_img_0_1" onchange="return fileinput_change(this);" type="file" guid="0" imgidx="1" />
+                                    </div>
+                                </div>
+                                <div style="padding-left: 10px;float:left;">
+                                    <input type="button" value="クリア" guid="0" imgidx="1" class="btnClearImg" />
+                                </div>
+                                <div style="clear:both"></div>
+                            </div>       
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="@urlA1" class="ImgA">
+                                <img id="Img_0_1" class="Img" src="@url1" />
+                            </a>
+                            <input type="text" id="imageFileKey_0_1" name="FarmPic" value="@Model.FarmPic" style="display:none;" />
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section id="container_detail_center">
+            <section id="detail_left">
+                生産者コメント
+            </section>
+            <section id="detail_right" style="padding-top:10px;">
+                @Html.TextAreaFor(m => m.FarmNote, new { @style = "width:60%; height:150px;", @class = "Fullwidth" })
+            </section>
+        </section>
+        <section id="container_detail_center">
+            <section id="detail_left">
+                漁場写真
+            </section>
+            <section id="detail_right" style="padding-top:10px;">
+                <table class="ImgTable">
+                    <tr>
+                        <td>
+                            <div>
+                                <div style="padding-left: 10px;float:left;">
+                                    <input class="FileSelectButton" type="button" value="ファイル参照..." />
+                                    <div class="FileSelectHideObj">
+                                        <input name="file" id="upload_img_img_0_2" onchange="return fileinput_change(this);" type="file" guid="0" imgidx="2" />
+                                    </div>
+                                </div>
+                                <div style="padding-left: 10px;float:left;">
+                                    <input type="button" value="クリア" guid="0" imgidx="2" class="btnClearImg" />
+                                </div>
+                                <div style="clear:both"></div>
+                            </div>                       
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <a href="@urlA2" class="ImgA">
+                                <img id="Img_0_2" class="Img" src="@url2" />
+                            </a>
+                            <input type="text" id="imageFileKey_0_2" name="FishinggroundPic" value="@Model.FishinggroundPic" style="display:none;" />
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </section>
+        <section id="container_detail_bottom">
+            <section id="detail_left">
+                漁場コメント
+            </section>
+            <section id="detail_right" style="padding-top:10px;">
+                @Html.TextAreaFor(m => m.FishinggroundNote, new { @style = "width:60%; height:150px;", @class = "Fullwidth" })
+            </section>
+        </section>
+
+    </section>
+}

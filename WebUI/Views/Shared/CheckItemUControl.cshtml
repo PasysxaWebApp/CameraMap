@@ -1,0 +1,11 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.UserControl.UserCtrlMode
+<script type="text/javascript">
+    $(function () {
+        //$("select").wijdropdown();
+        $("select").wijcombobox({
+            isEditable: false
+        });
+    });
+</script>
+@Html.DropDownListFor(m => m.CheckItemMode.CheckItemGuid, Model.CheckItemMode.CheckItemList, new { @style = "width:150px;height:30px;" })

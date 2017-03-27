@@ -1,0 +1,17 @@
+﻿@using CloudFarm.App_GlobalResources
+@model CloudFarm.Models.UserControl.UserCtrlMode
+<script type="text/javascript">
+    $(function () {
+        $("#MonthMode1_Month").wijinputdate(
+        {
+            dateFormat: '@Model.DateFormat',
+            culture: '@LanguageResource.ItemCulture'
+        });
+        $("select").wijcombobox({
+            isEditable: false
+        });
+        //$("select").wijdropdown();
+    });
+</script>
+
+<span>@Html.TextBoxFor(m => m.Month, new { @style = "width:120px" })</span><span style="margin-left:10px;">@Html.DropDownListFor(m => m.MonthCount, Model.MonthCountList, new { @style = "height:30px;" })</span> 

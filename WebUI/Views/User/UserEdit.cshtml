@@ -1,0 +1,188 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.Master.User.UserModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var loginInfo = CameraMap.Sessions.SessionLoginInfo.GetInstance(Session);
+}
+
+@section Script{
+    <script src="@Url.Content("~/Contents/jquery/jquery.password-strength.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".Fullwidth,.NumABC").wijtextbox();
+            $("select").wijdropdown();
+            $("input[id='Password']").password_strength();
+
+            if ('@Model.Guid' != "0") {
+                $("#btnDel").css("display", "");
+            } else {
+                $("#btnDel").css("display", "none");
+            }
+
+        });
+
+        function delComfire() {
+            if (confirm("@LanguageResource.ConfirmDelete")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+}
+
+<h2>@LanguageResource.ItemFormUserEdit</h2>
+@using (Html.BeginForm())
+{
+    <section id="button_group">
+        <input type="submit" name="OK" value="@LanguageResource.CmdRegister" style="display:inline-block;width:80px;" />
+        <input type="submit" id="btnDel" name="Del" value="@LanguageResource.CmdDelete" onclick="return delComfire();" style="display:inline-block;width:80px;" @if (!ViewBag.DeleteCheck){ @Html.Raw("disabled=\"disabled\"")} />
+        <input type="submit" name="Back" value=@LanguageResource.CmdBack style="display:inline-block;width:80px;" />
+    </section>
+
+    <section id="container_group">
+        @Html.HiddenFor(m => m.Guid)
+        <section id="container_detail_top">
+            <section id="detail_left">
+                @LanguageResource.ItemLoginName
+                <span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.LoginName, new { @class = "NumABC", @style = "width:300px;", maxlength = 100 })
+                <br />
+                @Html.ValidationMessageFor(m => m.LoginName)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemPassword
+                <span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @*@Html.PasswordFor(m => m.Password, new { @style = "width:250px;margin-right:20px;", maxlength = "20" })*@
+                @Html.Password("Password", Model.Password, new { @class = "NumABC", @style = "margin-right:20px;", maxlength = "20" })
+                <br />
+                @Html.ValidationMessageFor(m => m.Password)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemConfirmPassword
+                <span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @*@Html.PasswordFor(m => m.ConfirmPassword, new { @style = "width:250px;", maxlength = "20" })*@
+                @Html.Password("ConfirmPassword", Model.ConfirmPassword, new { @class = "NumABC", maxlength = "20" })
+                <br />
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemUserName
+                <span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "Fullwidth", maxlength = "20" })
+                <br />
+                @Html.ValidationMessageFor(m => m.UserName)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemUserNameKana
+                <span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.UserNameKana, new { @class = "Fullwidth", maxlength = "20" })
+                <br />
+                @Html.ValidationMessageFor(m => m.UserNameKana)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemUserNameEn
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.UserNameEn, new { @class = "NumABC", maxlength = "20" })
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemAuthority
+            </section>
+            <section id="detail_right">
+                @Html.DropDownListFor(m => m.Authority, Model.AuthorityList, new { @style = "min-width:150px;" })
+            </section>
+        </section>
+        @if (loginInfo.SystemRoll == CameraMap.Enums.SystemRollEnum.SysAdmin)
+        {
+            <section id="container_detail_center">
+                <section id="detail_left">
+                    @LanguageResource.ItemOfficeName
+                </section>
+                <section id="detail_right">
+                    @Html.DropDownListFor(m => m.OrganizationID, Model.Organizations, new { @style = "min-width:300px;" })
+                </section>
+            </section>
+        }
+        else
+        {
+            <section id="container_detail_center">
+                <section id="detail_left">
+                    @LanguageResource.ItemOfficeName
+                </section>
+                <section id="detail_right" style="padding-top:10px;">
+                    @Html.HiddenFor(m => m.OrganizationID)
+                    @Model.OfficeName
+                </section>
+            </section>
+        }
+
+        <section id="container_detail_bottom">
+            <section id="detail_left">
+                @LanguageResource.ItemDisplayFlag1
+            </section>
+            <section id="detail_right">
+                @Html.CheckBoxFor(m => m.DisplayFlag)
+            </section>
+        </section>
+
+        @if (loginInfo.SystemRoll == CameraMap.Enums.SystemRollEnum.SysAdmin)
+        {
+            <section id="container_detail_bottom">
+                <section id="detail_left">
+                    統合事業所
+                </section>
+                <section id="detail_right">
+                    <table>
+                    @for (var i = 0; i < Model.UnionOrganizations.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Html.HiddenFor(m => m.UnionOrganizations[i].OrganizationID)
+                                @Html.HiddenFor(m => m.UnionOrganizations[i].UserId, new { @Value=Model.Guid})
+                                @Html.CheckBoxFor(m => m.UnionOrganizations[i].Checked, new { @checked = Model.UnionOrganizations[i].Checked, id = "UnionOrganizations_" + Model.UnionOrganizations[i].OrganizationID, OrganizationID = Model.UnionOrganizations[i].OrganizationID }) 
+                            </td>
+                            <td>
+                                <label for='@string.Format("UnionOrganizations_{0}" ,Model.UnionOrganizations[i].OrganizationID)'>@Model.UnionOrganizations[i].OfficeName</label>
+                            </td>
+                        </tr>
+                    }
+                    </table>
+                </section>
+
+            </section>
+
+        }
+
+    </section>
+}
+
+

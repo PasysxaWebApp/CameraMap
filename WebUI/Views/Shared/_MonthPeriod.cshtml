@@ -1,0 +1,72 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.UserControl.MonthPeriodPartialViewMode
+@{
+    var monthCountList = new List<SelectListItem>();
+    for (int i = 1; i <= 12; i++)
+    {
+        SelectListItem itm = new SelectListItem()
+        {
+            Value = string.Format("{0}", i),
+            Text = string.Format("{0}ヶ月", i)
+        };
+        monthCountList.Add(itm);
+    }
+}
+<script type="text/javascript">
+    $(function () {
+        $("#MonthPeriod_Text_@Model.ID").wijinputdate(
+        {
+            dateFormat: 'yyyy-MM',
+            displayFormat: 'yyyy-MM',
+            culture: '@LanguageResource.ItemCulture',
+            dateChanged: function (e, data) {
+                MonthPeriod_doResult();
+            }
+        });
+        $("#MonthPeriod_Select_@Model.ID").wijcombobox({
+            isEditable: false,
+            changed: function (e, data)
+            {
+                MonthPeriod_doResult();
+            }
+        });
+
+        function MonthPeriod_doResult() {
+            var date = $("#MonthPeriod_Text_@Model.ID").wijinputdate("option", "date");
+            var items= $("#MonthPeriod_Select_@Model.ID").wijcombobox("getSelectedItems");            
+            $("#@Model.ID").val(date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "," + items.value);
+
+            var e = new Object();
+            e.targert = document.getElementById("Model.ID");
+            var data = new Object();
+            data.SelectedDate = date;
+            data.MonthPeriod = items.value;
+
+            @if (!string.IsNullOrEmpty(Model.MonthPeriodChangedEvent))
+            {
+                @Html.Raw(string.Format("{0}(e,data);", Model.MonthPeriodChangedEvent));
+            }
+
+
+        }
+
+    });
+</script>
+
+<div style="position:relative;">
+    <input id="@Model.ID" name="@Model.Name" type="text" value="@string.Format("{0:yyyy-MM-dd},{1}",Model.SelectedDate,Model.MonthPeriod)" style="display:none;" />
+    <input type="text" id="MonthPeriod_Text_@Model.ID" style="width:80px" value="@Model.SelectedDate.ToString("yyyy-MM-dd")" />
+    <select id="MonthPeriod_Select_@Model.ID" style="width:80px;">
+        @foreach (var itm in monthCountList)
+        {
+            if (@Model.MonthPeriod == Convert.ToInt32(itm.Value))
+            {
+                <option value="@itm.Value" selected="selected">@itm.Text</option>
+            }
+            else
+            {
+                <option value="@itm.Value">@itm.Text</option>
+            }
+        }
+    </select>
+</div>

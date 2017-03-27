@@ -1,0 +1,67 @@
+﻿@model CameraMap.Models.Account.LogOnModel
+
+@{
+    ViewBag.Title = "Log On";
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function () {
+        $("#dialog").dialog({
+            modal: true,
+            autoOpen: true,
+            hide: "explode",
+            width: "350px",
+            closeOnEscape: false,
+            open: function () {
+                // Hide close button 
+                $(this).parent().children().children(".ui-dialog-titlebar-close").hide();
+            }
+        });
+
+        $(".ui-dialog-titlebar").css("display", "none");
+
+        /* ボタンの初期化 */
+        $("input:button, input:submit").button();
+        $("input:text").text();
+        $("textarea").text();
+    });
+</script>
+
+<div id="dialog" title="">
+
+    <p style="font-weight:bold;font-family:Meiryo; ">ログイン</p>
+
+    @using (Html.BeginForm()) {
+        <div style="color:Red;">
+            @Html.ValidationSummary(true, "ユーザー名またはパスワードが確認できませんでした。入力内容をご確認ください。")
+        </div>
+
+        <div>
+            <fieldset>
+                <legend>アカウント情報</legend>
+                <table style="width:inherit; height:100px;">
+                    <tr>
+                        <td>@Html.LabelFor(m => m.UserID)</td>
+                        <td>@Html.TextBoxFor(m => m.UserID, new { style = "font-family:'ＭＳ Ｐゴシック';font-size: 16px; " })</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(m => m.Password)</td>
+                        <td>@Html.PasswordFor(m => m.Password, new { style = "font-family:'ＭＳ Ｐゴシック';font-size: 16px;" })</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.CheckBoxFor(m => m.RememberMe, new { @Class = "checkbox" }) @Html.LabelFor(m => m.RememberMe)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="ログイン" /></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    }
+</div>

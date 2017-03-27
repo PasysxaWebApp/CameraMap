@@ -1,0 +1,4 @@
+﻿<itext creationdate="@DateTime.Now.ToString()" producer="RazorPDF" orientation="landscape" pagesize="A4">
+    <registerfont path="@string.Format("{0},0", Server.MapPath("~/Contents/fonts/meiryo.ttc"))" alias="meiryo"></registerfont>
+    @RenderBody()
+</itext>

@@ -1,0 +1,93 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.Samples.TableInfoModel
+
+@{
+    ViewBag.Title = "TableListDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script id="scriptInit" type="text/javascript">
+    $(document).ready(function () {
+        $(":input[type='text']").wijtextbox();
+    });
+
+    $(document).ready(function () {
+        $("#grid").wijgrid({
+            allowSorting: true,
+            columns: [
+                { headerText: '@LanguageResource.ItemSampleField', width: '15%' },
+                { headerText: '@LanguageResource.ItemSampleType', width: '15%' },
+                { headerText: '@LanguageResource.ItemSampleNull', width: '15%' },
+                { headerText: '@LanguageResource.ItemSampleKey', width: '15%' },
+                { headerText: '@LanguageResource.ItemSampleDefault', width: '15%' },
+                { headerText: '@LanguageResource.ItemSampleExtra', width: '15%' }
+            ]
+        });
+    });
+
+</script>
+
+<h2>TableListDetail</h2>
+
+@using (Html.BeginForm())
+{
+    <section id="button_group">
+        <input type="submit" name="Back" value=@LanguageResource.CmdBack />
+        @Html.ActionLink("表示順変更", "SortList", "Sorts", new { @class = "btn btn-default",style="min-width:80px;" })
+    </section>
+
+    <section id="container_group">
+        
+        <section id="container_detail_top">
+            <section id="detail_left">
+                @LanguageResource.ItemSampleTableName
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.TableName)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemSampleEngine
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.Engine)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                @LanguageResource.ItemSampleCollation
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.Collation)
+            </section>
+        </section>
+
+        <section id="container_detail_bottom">
+            <section id="detail_left">
+                @LanguageResource.ItemSampleTableRowCount
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.TableRowCount)
+            </section>
+        </section>
+    </section>
+
+    <table id="grid">
+        <tbody>
+            @foreach (var item in @Model.ColumnInfos)
+            {
+                <tr>
+                    <td>@item.Field</td>
+                    <td>@item.Type</td>
+                    <td>@item.Null</td>
+                    <td>@item.Key</td>
+                    <td>@item.Default</td>
+                    <td>@item.Extra</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

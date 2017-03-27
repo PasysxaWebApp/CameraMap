@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "RolloutRedirect";
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+<script type="text/javascript">
+
+    jQuery(document).ready(function () {
+        $("#dialog").dialog({
+            modal: false,
+            autoOpen: true,
+            hide: "explode",
+            closeOnEscape: false,
+            open: function () {
+                // Hide close button
+                $(this).parent().children().children(".ui-dialog-titlebar-close").hide();
+            }
+        });
+    });
+</script>
+
+<div id="dialog" title="権限がありません">
+    <p>
+        権限がありません<br /> 再度ログインを行ってください。
+    </p>
+
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.ActionLink("ログイン画面へ", "Index", "Account", new { OrganizationID = ViewBag.OrganizationID },null)
+        </div>
+    }
+</div>

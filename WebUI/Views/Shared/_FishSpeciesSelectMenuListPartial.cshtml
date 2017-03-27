@@ -1,0 +1,173 @@
+﻿@using CameraMap.Models.UserControl
+@model FishSpeciesSelectMenuPartialViewMode
+@{
+    var item = Model;
+
+    var selectedValue = 0L;
+    if (Model.SelectedValue.HasValue)
+    {
+        selectedValue = Model.SelectedValue.Value;
+    }
+    
+    
+
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("body").append($("#FishSpeciesSelectMenu_Menu_@item.ID"));
+
+        $("#FishSpeciesSelectMenu_List_@item.ID").wijinputtext({
+            showDropDownButton: true,
+            readonly: true,
+            dropDownButtonMouseDown: function (e) {
+                //debugger;
+                $(e.target).click();
+                var menuid = $(e.target).attr("menuid");
+                var menudiv = $("#" + menuid).parent().parent();
+                var div = $(e.target).parent().parent().parent().parent();//  $("#" + menuid).parent().parent();
+                var pos = div.position();
+                var h = div.outerHeight(true);
+                menudiv.css("left", pos.left);
+                menudiv.css("top", pos.top + h);
+            }
+        });
+
+
+        $("#FishSpeciesSelectMenu_Menu_@item.ID").wijmenu({
+            orientation: 'vertical',
+            showDelay: 0,
+            trigger: "#FishSpeciesSelectMenu_List_@item.ID",
+            showing: function (e, item) {
+            },
+            hidden: function (e, item) {
+            },
+            shown: function (e, item) {
+                //debugger;
+                var id = $(e.target).attr("bindto");
+                var div = $("#" + id).parent();// $(e.target).parent().parent();
+                var pos = div.position();
+                var h = div.outerHeight(true);
+                var menuDIV = $(e.target).parent().parent();
+                menuDIV.css("left", pos.left);
+                menuDIV.css("top", pos.top + h);
+            },
+            select: function (e, data) {
+                if (data.item == null || data.item.options.items.length > 0) {
+                    return;
+                }
+
+                //debugger;
+                var id = $(e.target).attr("bindto");
+                var txtId = $(e.target).attr("txtbindto");
+
+                $("#" + txtId).val($(data.item.element).attr("bindtext"));
+                $("#" + txtId).wijinputtext("option", "text", $(data.item.element).attr("bindtext"));
+
+                $("#" + id).val($(data.item.element).attr("bindvalue"));
+
+                data.SelectedID = $(data.item.element).attr("bindvalue");
+                data.SelectedText = $(data.item.element).attr("bindtext");
+
+                @if (!string.IsNullOrEmpty(Model.FishSpeciesSelectedEvent))
+                {
+                @Html.Raw(string.Format("{0}(e,data);", Model.FishSpeciesSelectedEvent));
+                }
+            }
+        });
+        function selectFirst() {
+            //debugger;
+            $("#FishSpeciesSelectMenu_Menu_FishSpeciesSelectMenu2").wijmenu("deactivate", null, itm);
+            var menuItems = $("#FishSpeciesSelectMenu_Menu_@item.ID").wijmenu("getItems");
+            var items = menuItems[0].getItems();//.options.items;
+            //var items = $("#FishSpeciesSelectMenu_Menu_@item.ID").wijmenu("option", "items");
+            for (var i = 0; i < items.length; i++) {
+                var itm = items[i];
+                $("#FishSpeciesSelectMenu_Menu_@item.ID").wijmenu("activate", null, itm);
+                $("#FishSpeciesSelectMenu_Menu_@item.ID").wijmenu("select", null);
+                break;
+            }
+        }
+        function setReadOnly(status) {
+            var menu = $("#FishSpeciesSelectMenu_Menu_@item.ID");
+            var text = $("#FishSpeciesSelectMenu_List_@item.ID");
+
+            if (status) {
+                menu.wijmenu("option", "trigger", "");
+                text.wijinputtext("option", "showDropDownButton", false);
+            }
+            else {
+                menu.wijmenu("option", "trigger", "#FishSpeciesSelectMenu_List_@item.ID");
+                text.wijinputtext("option", "showDropDownButton", true);
+            }
+        }
+        @if (selectedValue == 0L && Model.AutoSelectFirst)
+        {
+            @Html.Raw(string.Format("selectFirst();"));
+        }
+
+        @if (Model.IsReadOnly)
+        {
+            @Html.Raw(string.Format("setReadOnly(true);"));
+        }
+
+    });
+
+</script>
+
+<input id="FishSpeciesSelectMenu_List_@item.ID" class="FishSpeciesSelectMenuList" menuid="FishSpeciesSelectMenu_Menu_@item.ID" value="@if (Model.SelectedItem != null){ @Html.Raw(Model.SelectedItem.FishSpeciesName);}" />
+<ul id="FishSpeciesSelectMenu_Menu_@item.ID" class="FishSpeciesSelectMenuMenu" bindto="@item.ID" txtbindto="FishSpeciesSelectMenu_List_@item.ID">
+    @if (!Model.HideAll) { 
+    <li>
+        <a href="#">
+            <div>
+                @Model.AllStr1
+            </div>
+            <div style="padding-left:5px;font-size:80%;">
+                @Model.AllStr2
+            </div>
+        </a>
+        <ul>
+            <li bindvalue="0" bindtext="@Model.AllStr2">
+                <a><span>@Model.AllStr2</span></a>
+            </li>
+        </ul>
+    </li>
+    }
+    @foreach (var fishkind in Model.FishKinds)
+    {
+        var subFishSpecies = Model.FishSpecies.FindAll(m => m.FishKindGuid == fishkind.Guid && m.DisplayFlag == true);
+
+        <li>
+            <a href="#">
+                <div>
+                    @fishkind.FishKindName
+                </div>
+                <div style="padding-left:5px;font-size:80%;">
+                    @fishkind.Note
+                </div>
+            </a>
+            <ul>
+                @foreach (var subFishSpecie in subFishSpecies)
+                {
+                    //string selectedClass = "";
+                    //if (selectedItem != null && selectedItem.Guid == subFishSpecie.Guid)
+                    //{
+                    //    selectedClass = "ui-state-hover ui-state-default";
+                    //}
+                    <li bindvalue="@subFishSpecie.Guid" bindtext="@subFishSpecie.FishSpeciesName">
+                        <a>
+                            <span>@string.Format("{0}", subFishSpecie.FishSpeciesName,subFishSpecie.FishSpeciesNameEn)</span>
+                            <p></p>
+                            <span style="padding-left:5px;font-size:80%;">@subFishSpecie.Note</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
+
+
+

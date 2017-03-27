@@ -1,0 +1,424 @@
+﻿@using CameraMap.App_GlobalResources
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Style{
+    <style type="text/css">
+        #layerOpts {
+        }
+
+        #container {
+            min-height: 700px;
+            width: 100%;
+            margin: 0px;
+        }
+    </style>
+
+    <style type="text/css">
+        .LayerIcons {
+            width: 30px;
+            height: 30px;
+        }
+
+        .EditTable td {
+            padding-bottom: 5px;
+            padding-right: 10px;
+            vertical-align: middle;
+        }
+    </style>
+
+    <style type="text/css">
+        .FileSelectButton {
+            width: 141px;
+        }
+
+        .FileSelectHideObj {
+            width: 141px;
+            height: 34px;
+            overflow: hidden;
+            position: relative;
+            background-image: none;
+            background-attachment: scroll;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            background-size: auto;
+            background-origin: padding-box;
+            background-clip: border-box;
+            background-color: transparent;
+            margin-top: -34px;
+            z-index: 9999px;
+        }
+
+        .FileSelectHideObj input {
+            height: 34px;
+            right: 0px;
+            bottom: 0px;
+            font-size: 20px;
+            filter: alpha(opacity=0);
+            -webkit-filter: opacity(0%);
+            position: absolute;
+            cursor: pointer;
+            outline-width: medium;
+            outline-style: none;
+            outline-color: invert;
+            opacity: 0;
+        }
+    </style>
+
+}
+@section PrepareScript{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".NumABC,.Fullwidth").wijtextbox();
+            $("#LayerId").wijcombobox();
+
+            reloadLayerData();
+            loadLayerEditPartial();
+
+            $("#btnCreateLayer").click(function () {
+                openNewLayer();
+            });
+
+            $("#btnCreateDevice").click(function () {
+                var layerId = $("#selectedlayerId").val();
+                var layerName = $("#selectedlayerName").val();
+                openNewDevice(layerId, layerName);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#vsplitter").wijsplitter({
+                panel1: { minSize: 200 },
+                fullSplit: true,
+                showExpander: false,
+                expanded: function (e) { $("#hsplitter").wijsplitter("refresh"); },
+                collapsed: function (e) { $("#hsplitter").wijsplitter("refresh"); },
+                sized: function (e) { $("#hsplitter").wijsplitter("refresh"); }
+            });
+            $("#hsplitter").wijsplitter({
+                panel1: { minSize: 300 },
+                showExpander: false,
+                orientation: "horizontal",
+                fullSplit: true
+            });
+        });
+
+        function reloadLayerData() {
+            var url = '@Url.Action("GetAllLayersPartial", "Home")';
+            $.post(url, null, function (data, status, jqXHR) {
+                $("#allLayers").empty();
+                $("#allLayers").append(data);
+            }, "html");
+        }
+
+        function reloadDeviceData(layerId, layerName) {
+            layerId = layerId || $("#selectedlayerId").val();
+            layerName = layerName || $("#selectedlayerName").val();
+
+            var url = '@Url.Action("GetAllDevicesPartial", "Home")';
+            var postData = { LayerId: layerId }
+            $.post(url, postData, function (data, status, jqXHR) {
+                $("#allDevices").empty();
+                $("#allDevices").append(data);
+            }, "html");
+
+            loadDevicePoints(layerId);
+
+        }
+
+        function loadLayerEditPartial() {
+            if ($("#layerEditPartialParent").children().length == 0) {
+                var url = '@Url.Action("GetLayerEditPartial", "Home")';
+                $.post(url, null, function (data, status, jqXHR) {
+                    $("#layerEditPartialParent").append(data);
+                }, "html");
+            }
+        }
+
+    </script>
+}
+
+<div id="vsplitter">
+    <div style="border-right:solid 1px lightgray;">
+        <div id="hsplitter">
+            <div>
+                <div class="mapToolbar" style="text-align:right;height:35px;line-height:35px;padding:5px;border-bottom:solid 1px lightgray;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td align="left"><label>图层</label></td>
+                            <td align="right"><input type="button" id="btnCreateLayer" value="新增..." /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="layerOpts">
+                    <div id="allLayers">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="mapToolbar" style="text-align:right;height:35px;line-height:35px;padding:5px;border-bottom:solid 1px lightgray;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td align="left"><label>设备</label></td>
+                            <td align="right"><input type="button" id="btnCreateDevice" value="新增..." /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="deviceOpts">
+                    <div id="allDevices">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="container"></div>
+    </div>
+
+</div>
+
+<div id="layerEditDialog" title="图层" style="display:none;">
+    @using (Html.BeginForm("LayerEdit", "Layer", FormMethod.Post, new { @ID = "LayerMstFrm" }))
+    {
+        <input type="hidden" id="selectedLayerId" name="Id" value="0" />
+        <table id="selectLayerDataEditTable" class="EditTable">
+            <tr>
+                <td><label>标识</label></td>
+                <td><input type="text" name="LayerKey" id="LayerKey" class="NumABC" style="width:150px;" /></td>
+            </tr>
+            <tr>
+                <td><label>名称</label></td>
+                <td><input type="text" name="LayerName" id="LayerName" class="Fullwidth" style="width:150px;" /></td>
+            </tr>
+            <tr>
+                <td><label>图标</label></td>
+                <td>
+                    <div>
+                        <div style="float:left;width:200px;">
+                            <img id="layerIcon" src="" title="" class="LayerIcons" />
+                            <input type="text" id="IconFileKey" name="IconFile" style="display:none;" value="0" />
+                        </div>
+                        <div style="float:left;">
+                            <input class="btn FileSelectButton" type="button" value="选择..." />
+                            <div class="FileSelectHideObj">
+                                <input name="file" id="upload_img_img" onchange="return fileinput_change(this);" type="file" guid="0" imgidx="1" />
+                            </div>
+                        </div>
+                        <div style="padding-left: 10px;float:left;">
+                            <input type="button" value="清除" guid="0" imgidx="1" class="btn btnClearImg" />
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+
+</div>
+
+<div id="deviceEditDialog" title="设备" style="display:none;">
+    @using (Html.BeginForm("DeviceEdit", "Layer", FormMethod.Post, new { @ID = "DeviceMstFrm" }))
+    {
+        <input type="hidden" id="selectedDeviceId" name="DeviceId" value="0" />
+        <input type="hidden" id="selectedDeviceLayerId" name="LayerId" value="0" />
+        <table id="selectDeviceDataEditTable" class="EditTable">
+            <tr>
+                <td><label>图层</label></td>
+                <td><label id="selectedDeviceLayerName">图层名称</label></td>
+            </tr>
+            <tr>
+                <td><label>标识</label></td>
+                <td><input type="text" name="DeviceKey" id="DeviceKey" class="NumABC" style="width:150px;" /></td>
+            </tr>
+            <tr>
+                <td><label>名称</label></td>
+                <td><input type="text" name="DeviceName" id="DeviceName" class="Fullwidth" style="width:150px;" /></td>
+            </tr>
+            <tr>
+                <td><label>Url</label></td>
+                <td><input type="text" name="DeviceUrl" id="DeviceUrl" class="NumABC" style="width:500px;" /></td>
+            </tr>
+            <tr>
+                <td><label>纬度(Lat)</label></td>
+                <td><input type="text" name="Lat" id="DeviceLat" class="NumABC" style="width:150px;" /></td>
+            </tr>
+            <tr>
+                <td><label>经度(Lng)</label></td>
+                <td><input type="text" name="Lng" id="DeviceLng" class="NumABC" style="width:150px;" /></td>
+            </tr>
+            <tr>
+                <td><label>描述</label></td>
+                <td>
+                    <textarea id="DeviceNote" name="Note" maxlength="500" class="Fullwidth" style="width:500px;height:100px;"></textarea>
+                </td>
+            </tr>
+        </table>
+    }
+
+</div>
+
+
+<div id="layerEditPartialParent"></div>
+
+<div id="deviceEditPartialParent"></div>
+
+
+@section Script{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#deviceEditDialog').wijdialog({
+                autoOpen: false,
+                modal: true,
+                width: 650,
+                resizable: false,
+                captionButtons: {
+                    pin: { visible: false },
+                    refresh: { visible: false },
+                    toggle: { visible: false },
+                    minimize: { visible: false },
+                    maximize: { visible: false }
+                },
+                buttons: [
+                {
+                    text: "保存",
+                    click: function () {
+                        saveDeviceData();
+                    }
+                },
+                {
+                    text: "关闭",
+                    click: function () {
+                        closeDeviceDialog();
+                    }
+                }],
+            });
+        });
+
+        function openNewDevice(LayerId, LayerName) {
+            $("#selectedDeviceId").val("0");
+            $("#selectedDeviceLayerId").val(LayerId);
+            $("#selectedDeviceLayerName").text(LayerName);
+            $("#DeviceKey").val("");
+            $("#DeviceName").val("");
+            $("#DeviceUrl").val("");
+            $("#DeviceLng").val("");
+            $("#DeviceLat").val("");
+            $("#DeviceNote").text("");
+
+            $('#deviceEditDialog').wijdialog("open");
+        }
+        function closeDeviceDialog() {
+            $('#deviceEditDialog').wijdialog("close");
+        }
+
+        function setInfoToDeviceEditDialog(Id) {
+            var url = '@Url.Action("GetDeviceModel", "Device")';
+            var postData = { Id: Id };
+            $.post(url, postData, function (data) {
+                var model = data.Model;
+                $("#selectedDeviceId").val(model.DeviceId);
+                $("#selectedDeviceLayerId").val(model.LayerId);
+                $("#selectedDeviceLayerName").text(model.LayerName);
+                $("#DeviceKey").val(model.DeviceKey);
+                $("#DeviceName").val(model.DeviceName);
+                $("#DeviceUrl").val(model.DeviceUrl);
+                $("#DeviceLng").val(model.Lng);
+                $("#DeviceLat").val(model.Lat);
+                $("#DeviceNote").text(model.Note);
+                $('#deviceEditDialog').wijdialog("open");
+            });
+        }
+
+
+        function saveDeviceData() {
+            var url = '@Url.Action("EditDeviceAjax", "Device")';
+            var postData = $("#DeviceMstFrm").serialize();
+            $.post(url, postData, function (data) {
+                if (data.Success) {
+                    closeDeviceDialog();
+                    reloadDeviceData();
+                }
+                else {
+                    alert("保存失败!");
+                }
+            });
+        }
+
+        function deleteDeviceData(Id) {
+            var bl = confirm("删除数据，继续吗？");
+            if (!bl) {
+                return;
+            }
+            var url = '@Url.Action("DeleteDeviceAjax", "Device")';
+            var postData = { DeviceId: Id };
+            $.post(url, postData, function (data) {
+                if (data.Success) {
+                    closeDeviceDialog();
+                    reloadDeviceData();
+                }
+                else {
+                    alert("删除失败!");
+                }
+            });
+        }
+
+    </script>
+
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=jIhMZ1oRb0xHeDaSGVzzAgg4Ez8dcNrA" type="text/javascript"></script>
+    <script type="text/javascript">
+        var map;
+        $(document).ready(function () {
+            map = new BMap.Map("container");          // 创建地图实例
+            var point = new BMap.Point(107.756034, 34.280494);  // 创建点坐标
+            map.centerAndZoom(point, 14);  // 初始化地图，设置中心点坐标和地图级别
+            map.enableScrollWheelZoom();
+            map.disableDoubleClickZoom(true);
+            map.addControl(new BMap.NavigationControl());
+
+            loadPoints();
+        });
+
+        function loadPoints() {
+
+            var bounds = map.getBounds();
+            var sw = bounds.getSouthWest();
+            var ne = bounds.getNorthEast();
+            var lngSpan = Math.abs(sw.lng - ne.lng);
+            var latSpan = Math.abs(ne.lat - sw.lat);
+
+            //创建小狐狸
+            var pt = new BMap.Point(107.756034, 34.280494);
+            var marker = new BMap.Marker(pt);// 创建标注
+            map.addOverlay(marker);             // 将标注添加到地图中
+            //var label = new BMap.Label("小狐狸", { offset: new BMap.Size(20, -10) });
+            //marker.setLabel(label);
+            var myIcon = new BMap.Icon("http://developer.baidu.com/map/jsdemo/img/fox.gif", new BMap.Size(300, 157));
+            var marker2 = new BMap.Marker(pt, { icon: myIcon });  // 创建标注
+            map.addOverlay(marker2);              // 将标注添加到地图中
+        }
+
+        function loadDevicePoints(layerId) {
+            @*map.clearOverlays()
+            layerId = layerId || $("#selectedlayerId").val();
+            var url = '@Url.Action("GetAllDeviceDatas", "Device")';
+            var postData = { LayerId: layerId }
+            $.post(url, postData, function (data, status, jqXHR) {
+                for( m in data.Datas){
+                    //debugger;
+                    var pt = new BMap.Point(m.Lat, m.Lng);
+                    var marker = new BMap.Marker(pt);// 创建标注
+                    map.addOverlay(marker);             // 将标注添加到地图中
+                    var label = new BMap.Label(m.DeviceName, { offset: new BMap.Size(20, -10) });
+                    marker.setLabel(label);
+                }
+            });*@
+        }
+
+    </script>
+}

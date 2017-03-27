@@ -1,0 +1,180 @@
+﻿@using CameraMap.App_GlobalResources
+
+@model  CameraMap.Models.Notice.NoticeModel
+
+@{
+    ViewBag.Title = "お知らせ登録";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Contents/Scripts/base64.js")" type="text/javascript" charset="utf-8"></script>
+<script src="@Url.Content("~/Contents/ueditor1.4.3.3/ueditor.config.js")" type="text/javascript" charset="utf-8"></script>
+<script src="@Url.Content("~/Contents/ueditor1.4.3.3/ueditor.all.js")" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+    var editor;
+    function delComfire() {
+        if (confirm("@LanguageResource.ConfirmDelete")) {
+            $("#ContentTxt").text("");
+            $("#ContentDesc").text("");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function deleteRow(obj)
+    {
+        $("#AttachmentFileID1").val("-1");
+        $(obj).parent().detach();
+    }
+
+    $(function () {
+        $(".Fullwidth,.NumABC").wijtextbox();
+        $("#PublicFishKindGuid").wijdropdown();
+        var contentType = parseInt( $("#ContentType").val());
+        if (contentType == 1) {
+            initEditor();
+        }
+        else {
+            $("#ContentTxt").show();
+        }
+        $("#btnBack").click(function () {
+            $("#ContentTxt").text("");
+            $("#ContentDesc").text("");
+        });
+
+        $("#btnRegister").click(function () {
+            var contentType = parseInt( $("#ContentType").val());
+            if (contentType == 1) {
+                var content = editor.getContent();
+                var text = StringUtil.Base64Encode(content);
+                $("#ContentTxt").text(text);
+                var contextTxt = editor.getContentTxt();
+                var descText = StringUtil.Base64Encode(contextTxt);
+                $("#ContentDesc").val(descText);
+            }
+            var currentForm = this.form;
+            var url = '@Url.Action("SaveCheck")';
+            var sendData = $(currentForm).serialize();
+            var checkResult = false;
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: sendData,
+                async: false,
+                success: function (msg, status, jqXHR) {
+                    checkResult = msg.CheckReault;
+                    if (!checkResult)
+                    {
+                        alert(msg.ErrorMessage);
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("@LanguageResource.AlertTxt_SaveFail");
+                },
+                dataType: "json"
+            });
+            return checkResult;
+        });
+
+        $("#NoticeDateTime").wijinputdate({
+            dateFormat: "yyyy/MM/dd(ddd)",
+            culture: '@LanguageResource.ItemCulture',
+        });
+
+        SetDateFormatOnSubmit(".InputDate");
+    });
+
+    function initEditor()
+    {
+        var height = 500;
+        var width = $("#detail_right").innerWidth();
+        var options = JSON.parse(' { "initialFrameWidth": ' + width + ', "initialFrameHeight": ' + height + '}');
+        editor = new UE.ui.Editor(options);
+        editor.render("EditorContentTxt");
+        editor.addListener('ready', function (e) {
+            //editor.setContent($("#ContentTxt").text());
+        });
+    }
+
+</script>
+<h2>お知らせ登録</h2>
+@using (Html.BeginForm("Edit", "Notice", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.NoticeID)
+    @Html.HiddenFor(m => m.PageIndex)
+    @Html.HiddenFor(m => m.PageSize)
+    @Html.HiddenFor(m => m.ContentType)
+    <input type="hidden" id="ContentDesc" name="ContentDesc" />
+    <section id="button_group">
+        <input type="submit" name="OK" style="width:80px" value="@LanguageResource.CmdRegister" id="btnRegister" />
+        @if (Model.NoticeID > 0)
+        {
+            <input type="submit" name="Delete" style="width:80px" onclick="return delComfire()" value="@LanguageResource.CmdDelete"  />
+        }
+        <input type="submit" id="btnBack" name="Back" style="width:80px" value="@LanguageResource.CmdBack" />
+    </section>
+    @Html.ValidationSummary(true)
+    <section id="container_group">
+
+        <section id="container_detail_top">
+            <section id="detail_left">
+                タイトル<span style="color:red">*</span>
+            </section>
+            <section id="detail_right">
+                <table>
+                    <tr>
+                        <td>
+                            @Html.TextBoxFor(m => m.Title, new { @class = "Fullwidth", maxLength = "50", style = "min-width:350px;" })
+                        </td>
+                        <td style="padding-left:10px;">
+                            <label>@Html.CheckBoxFor(m => m.Sticky)@string.Format("Top")</label>
+                        </td>
+                    </tr>
+                </table>
+                @Html.ValidationMessageFor(m => m.Title)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                登録日付
+            </section>
+            <section id="detail_right">
+                @Html.TextBoxFor(m => m.NoticeDateTime, new { @style = "width:160px", @class = "InputDate" })
+                @Html.ValidationMessageFor(m => m.NoticeDateTime)
+            </section>
+        </section>
+
+        <section id="container_detail_center">
+            <section id="detail_left">
+                内容
+            </section>
+            <section id="detail_right">
+                @Html.TextAreaFor(m => m.ContentTxt, new { @style = "width:100%; height:550px;display:none;", @class = "Fullwidth" })
+                @if (Model.ContentType == 1) { 
+                    <script type="text/plain" id="EditorContentTxt">
+                        @Html.Raw(Model.ContentTxt)
+                    </script>
+                }
+            </section>
+        </section>
+        <section id="container_detail_bottom">
+            <section id="detail_left">
+                ファイル添付
+            </section>
+            <section id="detail_right">
+                @Html.HiddenFor(m => m.AttachmentFileID1)
+                @if (!string.IsNullOrEmpty(Model.AttachmentFileFileName1))
+                {
+                    <p>
+                        @Html.RouteLink(Model.AttachmentFileFileName1, "DownloadURL", new { controller = "ImageMng", action = "GetDeadFishFile", FileID = Model.AttachmentFileID1, FileName = Model.AttachmentFileFileName1 }, new { target = "_blank" })
+                        <a href="javascript:void(0)" guid="0" onclick="return deleteRow(this);"><img src="@Url.Content("~/Contents/images/delete.png")" width="16" height="16" /></a>
+                    </p>
+                }
+                <input type="file" id="AttachmentFile" name="AttachmentFile" style="width:50%;" />
+            </section>
+        </section>
+    </section>
+}

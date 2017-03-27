@@ -1,0 +1,111 @@
+﻿@using CameraMap.Models.Samples;
+@model TableInfoListModel
+@{
+    ViewBag.Title = "CreateTigger";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    
+}
+<style type="text/css">
+    
+</style>
+
+<h2>TestTigger</h2>
+
+
+@foreach (var tableName in @Model.GetTableNames())
+{
+    if (tableName == "t_tablehistory" || 
+        tableName == "m_dbver" || 
+        tableName == "m_systemmenu" ||
+        tableName == "m_systemmenu_roll" ||
+        tableName == "t_systemsetting")
+    {
+        continue;
+    }
+    
+    
+    var idx = 0;
+    var tn = tableName.ToLower();
+    var tableInfo = new TableInfoModel(tableName);
+    
+    <div>INSERT INTO `@tn`</div>
+    <div>(</div>
+    foreach (var item in tableInfo.ColumnInfos)
+    {
+        idx++;
+        <span>`@string.Format("{0}", item.Field)`</span>
+        if (idx<tableInfo.ColumnInfos.Count){
+        <span>,</span>
+        }
+        <br />    
+    }
+    <div>)</div>
+    <div>VALUES</div>
+    <div>(</div>
+    idx=0;
+    foreach (var item in tableInfo.ColumnInfos)
+    {
+        idx++;
+        <span>@CameraMap.Controllers.HomeController.GetTestValue(item)</span>
+        
+        if (idx < tableInfo.ColumnInfos.Count)
+        {
+            <span>,</span>
+        }
+        <br />
+    }
+    <div>);</div>
+    <br />
+
+    <div>UPDATE `@tn`</div>
+    <div>SET</div>
+    idx = 0;
+    foreach (var item in tableInfo.ColumnInfos)
+    {
+        idx++;
+        if (item.Key.ToLower() == "pri")
+        {
+            continue;
+        }
+        <span>`@item.Field`</span><span>=</span>
+        <span>@CameraMap.Controllers.HomeController.GetTestValue(item)</span>
+        if (idx < tableInfo.ColumnInfos.Count)
+        {
+            <span>,</span>
+        }
+        <br />
+    }
+    <div>WHERE </div>
+    foreach (var item in tableInfo.ColumnInfos)
+    {
+        idx++;
+        if (item.Key.ToLower() != "pri")
+        {
+            continue;
+        }
+        <span>`@item.Field`</span><span>=</span>
+        <span>@CameraMap.Controllers.HomeController.GetTestValue(item)</span>
+        <span>;</span>
+        <br />
+    }
+    <br />
+
+    <div>DELETE FROM `@tn`</div>
+    <div>WHERE </div>
+    foreach (var item in tableInfo.ColumnInfos)
+    {
+        idx++;
+        if (item.Key.ToLower() != "pri")
+        {
+            continue;
+        }
+        <span>`@item.Field`</span><span>=</span>
+        <span>@CameraMap.Controllers.HomeController.GetTestValue(item)</span>
+        <span>;</span>
+        <br />
+    }
+    <br />
+    
+
+}

@@ -1,0 +1,48 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.Master.Organization.OrganizationViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script id="scriptInit" type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").wijgrid({
+            allowSorting: true,
+            columns: [
+                { headerText: '事務所', width: '30%'  },
+                { headerText: '責任者', width: '20%' },
+                { headerText: '電話番号', width: '15%' },
+                { headerText: 'FAX', width: '15%' },
+                { headerText: 'メール', width: '20%' },
+            ]
+        });
+
+
+    });
+</script>
+
+<h2>事業所一覧</h2>
+
+@using (Html.BeginForm())
+{
+    <section id="button_group">
+        <input type="submit" name="Add" value="@LanguageResource.CmdNewRegistration" />
+    </section>
+
+    <table id="grid">
+        <tbody>
+            @foreach (var orga in @Model.Items)
+            {
+                <tr>
+                    <td>@Html.ActionLink(orga.OfficeName, "OrganizationEdit", "Organization", new { OrganizationID = orga.OrganizationID }, new { })</td>
+                    <td>@orga.StaffName</td>
+                    <td>@orga.PhoneNumber</td>
+                    <td>@orga.FaxNumber</td>
+                    <td>@orga.MailAddress</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

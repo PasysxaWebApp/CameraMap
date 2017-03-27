@@ -1,0 +1,14 @@
+﻿@using CameraMap.App_GlobalResources
+
+@model CameraMap.Models.ResponseModel.ImageResponseModel
+
+
+@{
+    ViewBag.Title = "FileUploaded";
+    Layout = null;
+}
+{
+    "ImageIdx":'<%: Model.ImageIdx%>',
+    "FilePath":'<%:this.Server.HtmlDecode( Model.FilePath)%>' ,
+    "FileUrl": '<%:this.Server.HtmlDecode(Model.FileUrl)%>'
+}

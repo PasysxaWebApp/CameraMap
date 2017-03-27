@@ -1,0 +1,65 @@
+﻿@using CameraMap.Models.Device
+@model List<DeviceModel>
+
+<table id="gridAllDevices">
+    @foreach (var device in Model)
+    {
+        <tr>
+            <td>@device.DeviceId</td>
+            <td>@device.DeviceName</td>
+            <td>
+                <a href="javascript:void(0)" class="deviceEditIcon DeviceView" deviceid="@device.DeviceId" devicename="@device.DeviceName"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
+            </td>
+            <td>
+                <a href="javascript:void(0)" class="deviceEditIcon DeviceEdit" deviceid="@device.DeviceId"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
+                <a href="javascript:void(0)" class="deviceEditIcon DeviceDel" deviceid="@device.DeviceId"><img src="@Url.Content("~/Contents/images/delete.png")" /></a>
+            </td>
+
+        </tr>
+    }
+</table>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#gridAllDevices").wijgrid({
+            allowSorting: false,
+            columns: [
+                { headerText: "", visible: false },
+                { headerText: "设备", width: '50%', textAlignment: 'left' },
+                { headerText: "", width: '20%', textAlignment: 'center' },
+                { headerText: "", width: '30%', textAlignment: 'center' },
+            ],
+            currentCellChanged: function (e) {
+                var rowObj = $(e.target).wijgrid("currentCell").row();
+                if (rowObj) {
+                    var dataItem = rowObj.data; // current data item (after the cell is changed).
+                    
+                }
+            },
+            loaded: function (e) {
+                var data = $(e.target).wijgrid("data");
+                if (data.length > 0)
+                {
+                   
+                }
+            }
+        });
+
+        $(".DeviceEdit").click(function () {
+            $this = $(this);
+            setInfoToDeviceEditDialog($this.attr("deviceid"));
+        });
+
+        $(".DeviceDel").click(function () {
+            $this = $(this);
+            deleteDeviceData($this.attr("deviceid"));
+        });
+
+        $(".deviceView").click(function () {
+            $this = $(this);
+        });
+
+    });
+</script>

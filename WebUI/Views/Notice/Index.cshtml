@@ -1,0 +1,71 @@
+﻿@using CameraMap.App_GlobalResources
+
+@model  CameraMap.Models.Notice.NoticeModelListViewModel
+
+@{
+    ViewBag.Title = "お知らせ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>お知らせ一覧</h2>
+
+<script id="scriptInit" type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").wijgrid({
+            allowSorting: false,
+            allowPaging:true,
+            pageIndex:@Model.PageIndex,
+            pageSize:@Model.PageSize,
+            totalRows:@Model.RowTotal,
+            ensureColumnsPxWidth:true,
+            columns: [
+                { headerText: 'タイトル', width: '25%' },
+                { headerText: '内容', width: '45%' },
+                { headerText: '登録者', width: '10%' },
+                { headerText: '登録日付', width: '10%' },
+                { headerText: '更新日時', width: '10%' }
+            ],
+            pageIndexChanged: function (e, args) {
+                changePage(args.newPageIndex);
+            }
+        });
+    });
+
+    function changePage(pageIndex)
+    {
+        var url = '@Url.Action("Index", new { PageSize=Model.PageSize })';
+        url+="&PageIndex="+pageIndex;
+        window.location.assign(url);
+    }
+
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.PageIndex)
+    @Html.HiddenFor(m => m.PageSize)
+   <section id="button_group">
+        <input type="submit" name="AddNew" value=@LanguageResource.CmdNewRegistration />
+        <input type="submit" name="Order" value=@LanguageResource.CmdDisplayOrderChange />
+    </section>
+    <table id="grid">
+        <tbody>
+            @foreach (var item in @Model.Items)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(@item.Title, "Edit", "Notice", new { id = @item.NoticeID, PageIndex = Model.PageIndex, PageSize = Model.PageSize }, new { })
+                        @if (item.Sticky)
+                        { 
+                            @Html.Raw("[Top]");
+                        }
+                    </td>
+                    <td>@item.ContextTxtForList </td>
+                    <td>@item.CreateUserName </td>
+                    <td>@Html.Action("GetFormatOnlyDate", "Common", new { date = @item.NoticeDateTime }) </td>
+                    <td>@Html.Action("GetFormatDate", "Common", new { date = @item.LastUpdatetime })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

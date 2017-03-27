@@ -1,0 +1,248 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.SystemSetting.SystemSettingViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    //$(document).keydown(function (event) {
+    //    switch (event.keyCode) {
+    //        case 13:
+    //            var e = $(document.activeElement);
+    //            if (e != null && e.prop("tagName").toLowerCase() == "textarea") {
+    //                return true;
+    //            }
+    //            else if (e != null && e.attr("type") != undefined && (e.attr("type").toLowerCase() == "button" || e.attr("type").toLowerCase() == "submit")) {
+    //                return true;
+    //            }
+    //            else {
+    //                return false;
+    //            }
+    //        default:
+    //            break;
+    //    }
+    //}); 
+
+    $(document).ready(function () {
+        $(".Fullwidth,.NumABC,.NumText").wijtextbox();
+        $("select").wijcombobox({
+            isEditable: false
+        });
+
+        $("#btnDisplay").click(function () {
+            $("#btnName").val("表示");
+            document.forms[0].submit();
+        });
+
+        $("#btnSave").click(function () {
+            $("#btnName").val("登録");
+            document.forms[0].submit();
+        });
+
+        $(".NumText").blur(function () {
+            var min = $(this).attr("min");
+            var max = $(this).attr("max");
+            var patt1 = new RegExp(/^(-?\d+)(\.\d+)?/);
+
+            var value = $(this).val();
+            if (value == '') {
+                //$(this).val(0);
+                value = 0;
+            }
+            var result = patt1.test(value);
+
+
+
+            if (result == false) {
+                //$(this).val(0);
+                value = 0;
+            }
+            else {
+                var res = patt1.exec(value);
+                if (res.length > 0) {
+                    //$(this).val(res[0]);
+                    value = res[0];
+                }
+            }
+
+
+            //var val = $(this).val();
+            if (parseFloat(min) > parseFloat(value)) {
+                $(this).val(min);
+            } else if (parseFloat(max) < parseFloat(value)) {
+                $(this).val(max);
+            }
+        });
+
+
+
+        $('#selOrganization').change(function () {
+            $("#btnName").val("表示");
+            document.forms[0].submit();
+        });
+    });
+
+    function setBlue(obj, minN, maxN) {
+        alert($(obj).val());
+        alert(minN);
+    }
+</script>
+
+@{
+    //基本設定
+    //var groupJ = Model.Settings.FindAll(m => m.SettingGroup == CameraMap.Models.SystemSetting.SystemSettingGroupEnum.BaseSetting);
+    //var lengthJ = groupJ.Count / 2;
+    //string[] postionsJ = new string[lengthJ];
+    //postionsJ[0] = "container_detail_top";
+    //for (var i = 1; i < lengthJ - 1; i++)
+    //{
+    //    postionsJ[i] = "container_detail_center";
+    //}
+    //postionsJ[lengthJ - 1] = "container_detail_bottom";
+
+    ////詳細設定
+    //var groupX = Model.Settings.FindAll(m => m.SettingGroup == CameraMap.Models.SystemSetting.SystemSettingGroupEnum.AdvanceSetting);
+    //var lengthX = groupJ.Count / 2;
+    //string[] postionsX = new string[lengthX];
+    //postionsX[0] = "container_detail_top";
+    //for (var i = 1; i < lengthX - 1; i++)
+    //{
+    //    postionsX[i] = "container_detail_center";
+    //}
+    //postionsX[lengthX - 1] = "container_detail_bottom";
+
+
+
+    var groupJA = Model.Settings.FindAll(m => m.SettingGroup == CameraMap.Models.SystemSetting.SystemSettingGroupEnum.BaseSetting && m.IsPasysOnly == true);
+    var groupXA = Model.Settings.FindAll(m => m.SettingGroup == CameraMap.Models.SystemSetting.SystemSettingGroupEnum.AdvanceSetting && m.IsPasysOnly == true);
+    var groupJB = Model.Settings.FindAll(m => m.SettingGroup == CameraMap.Models.SystemSetting.SystemSettingGroupEnum.BaseSetting && m.IsPasysOnly == false);
+    var groupXB = Model.Settings.FindAll(m => m.SettingGroup == CameraMap.Models.SystemSetting.SystemSettingGroupEnum.AdvanceSetting && m.IsPasysOnly == false);
+
+    string[] postionsJA = new string[groupJA.Count];
+    string[] postionsXA = new string[groupXA.Count];
+    string[] postionsJB = new string[groupJB.Count];
+    string[] postionsXB = new string[groupXB.Count];
+    List<string[]> ps = new List<string[]>();
+    ps.Add(postionsJA);
+    ps.Add(postionsXA);
+    ps.Add(postionsJB);
+    ps.Add(postionsXB);
+
+    foreach (var p in ps)
+    {
+        if (p.Length > 0)
+        {
+            if (p.Length == 1)
+            {
+                p[0] = "container_detail_single";
+            }
+            else
+            {
+                p[0] = "container_detail_top";
+                for (var i = 1; i < p.Length - 1; i++)
+                {
+                    p[i] = "container_detail_center";
+                }
+                p[p.Length - 1] = "container_detail_bottom";
+            }
+        }
+    }
+
+
+    var systemRoll = CameraMap.Sessions.SessionLoginInfo.GetInstance(Session).SystemRoll;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.btnName)
+    <section id="button_group">
+        @{
+    if (systemRoll == CameraMap.Enums.SystemRollEnum.Administrator)
+    {
+        @Html.DropDownListFor(m => m.OrganizationID, Model.OrganizationList, new { id = "selOrganization", Value = Model.OrganizationID })
+            <input type="submit" id="btnDisplay" name="btnName" style="width:80px;margin-left:10px;" value="表示" />
+    }
+        }
+        <input type="submit" id="btnSave" name="btnName" style="width:80px;margin-left:950px;" value=@LanguageResource.CmdRegister />
+    </section>
+    if (systemRoll == CameraMap.Enums.SystemRollEnum.Administrator && (groupJA.Count + groupXA.Count) > 0)
+    {
+        <div style="background-color: #4876FF; color: white; font-size: 16px; height: 26px; margin-left: 10px; margin-right: 5px; margin-bottom: 5px; padding-left: 10px; padding-top: 4px;">
+            管理者設定
+        </div>
+        if (groupJA.Count > 0)
+        {
+            <div style="background-color: #5CACEE; color: white; font-size: 12px; height: 18px; margin-left: 15px; margin-right: 5px; margin-bottom: 5px; padding-left: 10px;padding-top:2px; ">
+                @*基本設定*@
+                @groupJA[0].SettingGroupName
+            </div>
+            <section id="container_group" style="margin-left: 20px; margin-right: 5px; margin-bottom: 5px;">
+
+                @for (int i = 0; i < groupJA.Count; i++)
+                {
+                    <section id="@Html.Raw(postionsJA[i])">
+                        @Html.Partial(groupJA[i].PartialViewName, groupJA[i])
+                    </section>
+                }
+
+            </section>
+        }
+
+        if (groupXA.Count > 0)
+        {
+            <div style="background-color: #5CACEE; color: white; font-size: 12px; height: 18px; margin-left: 15px; margin-right: 5px; margin-bottom: 5px; padding-left: 10px;padding-top:2px; ">
+                @groupXA[0].SettingGroupName
+            </div>
+            <section id="container_group" style="margin-left: 20px; margin-right: 5px; margin-bottom: 5px;">
+
+                @for (int i = 0; i < groupXA.Count; i++)
+                {
+                    <section id="@Html.Raw(postionsXA[i])">
+                        @Html.Partial(groupXA[i].PartialViewName, groupXA[i])
+                    </section>
+                }
+
+            </section>
+        }
+    }
+    if ((groupJB.Count + groupXB.Count) > 0)
+    {
+        <div style="background-color: #4876FF; color: white; font-size: 16px; height: 26px; margin-left: 10px; margin-right: 5px; margin-bottom: 5px; padding-left: 10px; padding-top: 4px;">
+            事業所設定
+        </div>
+        if (groupJB.Count > 0)
+        {
+            <div style="background-color: #5CACEE; color: white; font-size: 12px; height: 18px; margin-left: 15px; margin-right: 5px; margin-bottom: 5px; padding-left: 10px;padding-top:2px; ">
+                @groupJB[0].SettingGroupName
+            </div>
+            <section id="container_group" style="margin-left: 20px; margin-right: 5px; margin-bottom: 5px;">
+
+                @for (int i = 0; i < groupJB.Count; i++)
+                {
+                    <section id="@Html.Raw(postionsJB[i])">
+                        @Html.Partial(groupJB[i].PartialViewName, groupJB[i])
+                    </section>
+                }
+
+            </section>
+        }
+        if (groupXB.Count > 0)
+        {
+            <div style="background-color: #5CACEE; color: white; font-size: 12px; height: 18px; margin-left: 15px; margin-right: 5px; margin-bottom: 5px; padding-left: 10px;padding-top:2px; ">
+                @groupXB[0].SettingGroupName
+            </div>
+            <section id="container_group" style="margin-left: 20px; margin-right: 5px; margin-bottom: 5px;">
+
+                @for (int i = 0; i < groupXB.Count; i++)
+                {
+                    <section id="@Html.Raw(postionsXB[i])">
+                        @Html.Partial(groupXB[i].PartialViewName, groupXB[i])
+                    </section>
+                }
+
+            </section>
+        }
+    }
+}

@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedUtilitys", "SharedUtilitys\SharedUtilitys.csproj", "{BEB81503-77C0-4308-B197-0B2A52220D16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationBaseLibs", "ApplicationBaseLibs", "{D5076033-70E6-45C5-93F3-59E9A9D24E3B}"
+	ProjectSection(SolutionItems) = preProject
+		ApplicationBaseLibs\GlobalLibrary.dll = ApplicationBaseLibs\GlobalLibrary.dll
+		ApplicationBaseLibs\iTextAsian.dll = ApplicationBaseLibs\iTextAsian.dll
+		ApplicationBaseLibs\iTextAsianCmaps.dll = ApplicationBaseLibs\iTextAsianCmaps.dll
+		ApplicationBaseLibs\itextsharp.dll = ApplicationBaseLibs\itextsharp.dll
+		ApplicationBaseLibs\itextsharp_5_5_6.dll = ApplicationBaseLibs\itextsharp_5_5_6.dll
+		ApplicationBaseLibs\MySql.Data.dll = ApplicationBaseLibs\MySql.Data.dll
+		ApplicationBaseLibs\Utility.dll = ApplicationBaseLibs\Utility.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspMvcLibrary", "AspMvcLibrary\AspMvcLibrary.csproj", "{B167E454-0B76-4E81-A401-C267D5D4D853}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPDF", "RazorPDF\RazorPDF.csproj", "{0EEB1093-C4B8-4830-BC01-2C56E618702E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "itextsharp", "itextsharp-itextsharp.4.1.6\src\core\itextsharp.csproj", "{84C4FDD9-3ED7-453B-B9DA-B3ED52CB071C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{2102CC12-1434-4482-85CC-8DA8E62A7E7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEB81503-77C0-4308-B197-0B2A52220D16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB81503-77C0-4308-B197-0B2A52220D16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB81503-77C0-4308-B197-0B2A52220D16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB81503-77C0-4308-B197-0B2A52220D16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B167E454-0B76-4E81-A401-C267D5D4D853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B167E454-0B76-4E81-A401-C267D5D4D853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B167E454-0B76-4E81-A401-C267D5D4D853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B167E454-0B76-4E81-A401-C267D5D4D853}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EEB1093-C4B8-4830-BC01-2C56E618702E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EEB1093-C4B8-4830-BC01-2C56E618702E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EEB1093-C4B8-4830-BC01-2C56E618702E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EEB1093-C4B8-4830-BC01-2C56E618702E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C4FDD9-3ED7-453B-B9DA-B3ED52CB071C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C4FDD9-3ED7-453B-B9DA-B3ED52CB071C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C4FDD9-3ED7-453B-B9DA-B3ED52CB071C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C4FDD9-3ED7-453B-B9DA-B3ED52CB071C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2102CC12-1434-4482-85CC-8DA8E62A7E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2102CC12-1434-4482-85CC-8DA8E62A7E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2102CC12-1434-4482-85CC-8DA8E62A7E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2102CC12-1434-4482-85CC-8DA8E62A7E7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

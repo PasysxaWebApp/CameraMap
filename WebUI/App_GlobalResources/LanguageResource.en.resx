@@ -1,0 +1,1705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlertMaxDate" xml:space="preserve">
+    <value>{0} Please enter the earlier date. </value>
+    <comment>{0}以前の日付を入力して下さい。</comment>
+  </data>
+  <data name="AlertMaxValue" xml:space="preserve">
+    <value>Please enter the {0} following values​​. </value>
+    <comment>{0}以下の値を入力して下さい。</comment>
+  </data>
+  <data name="AlertMinDate" xml:space="preserve">
+    <value>Please enter the dates after {0}. </value>
+    <comment>{0}以降の日付を入力して下さい。</comment>
+  </data>
+  <data name="AlertMinValue" xml:space="preserve">
+    <value>Please enter a value greater than or equal to {0}.</value>
+    <comment>{0}以上の値を入力して下さい。</comment>
+  </data>
+  <data name="AlertNumeric" xml:space="preserve">
+    <value>Please enter in numbers {0}.</value>
+    <comment>{0}は数字で入力して下さい。</comment>
+  </data>
+  <data name="AlertRegistrationError" xml:space="preserve">
+    <value>There is an error in the input content. </value>
+    <comment>入力内容に誤りが有ります。</comment>
+  </data>
+  <data name="AlertRequired" xml:space="preserve">
+    <value>Please enter the {0}.</value>
+    <comment>{0}を入力して下さい。</comment>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>Delete. Are you sure?</value>
+    <comment>削除します。よろしいですか？</comment>
+  </data>
+  <data name="ConfirmRegistration" xml:space="preserve">
+    <value>Register. Are you sure?</value>
+    <comment>登録します。よろしいですか？</comment>
+  </data>
+  <data name="InfoRegistered" xml:space="preserve">
+    <value>Was registered</value>
+    <comment>登録しました。</comment>
+  </data>
+  <data name="ItemAddress" xml:space="preserve">
+    <value />
+    <comment>住所</comment>
+  </data>
+  <data name="ItemAddress1" xml:space="preserve">
+    <value />
+    <comment>住所1</comment>
+  </data>
+  <data name="ItemAddress2" xml:space="preserve">
+    <value />
+    <comment>住所2</comment>
+  </data>
+  <data name="ItemAddressEn" xml:space="preserve">
+    <value />
+    <comment>住所英語</comment>
+  </data>
+  <data name="ItemAdjustCount" xml:space="preserve">
+    <value />
+    <comment>調整数</comment>
+  </data>
+  <data name="ItemAdjustDrugCostTotal" xml:space="preserve">
+    <value />
+    <comment>調整薬費累計</comment>
+  </data>
+  <data name="ItemAdjustFeedCostTotal" xml:space="preserve">
+    <value />
+    <comment>調整飼料費累計</comment>
+  </data>
+  <data name="ItemAdjustIndirectCostTotal" xml:space="preserve">
+    <value />
+    <comment>調整間接費累計</comment>
+  </data>
+  <data name="ItemAdjustNutrientCostTotal" xml:space="preserve">
+    <value />
+    <comment>調整栄養剤費累計</comment>
+  </data>
+  <data name="ItemAdjustReason" xml:space="preserve">
+    <value />
+    <comment>尾数調整理由</comment>
+  </data>
+  <data name="ItemAdjustReasonEn" xml:space="preserve">
+    <value />
+    <comment>尾数調整理由英語</comment>
+  </data>
+  <data name="ItemAmount" xml:space="preserve">
+    <value />
+    <comment>金額</comment>
+  </data>
+  <data name="ItemAuthority" xml:space="preserve">
+    <value />
+    <comment>利用権限</comment>
+  </data>
+  <data name="ItemBeginBreedingDay" xml:space="preserve">
+    <value />
+    <comment>初期飼育日数</comment>
+  </data>
+  <data name="ItemBeginCount" xml:space="preserve">
+    <value />
+    <comment>初期尾数</comment>
+  </data>
+  <data name="ItemBeginDeadCount" xml:space="preserve">
+    <value />
+    <comment>初期斃死数</comment>
+  </data>
+  <data name="ItemBeginDrugCost" xml:space="preserve">
+    <value />
+    <comment>初期薬費</comment>
+  </data>
+  <data name="ItemBeginExpense" xml:space="preserve">
+    <value />
+    <comment>初期経費</comment>
+  </data>
+  <data name="ItemBeginFeedCost" xml:space="preserve">
+    <value />
+    <comment>初期飼料費</comment>
+  </data>
+  <data name="ItemBeginFeedingDay" xml:space="preserve">
+    <value />
+    <comment>初期給餌日数</comment>
+  </data>
+  <data name="ItemBeginFishCount" xml:space="preserve">
+    <value />
+    <comment>初期尾数</comment>
+  </data>
+  <data name="ItemBeginIndirectCost" xml:space="preserve">
+    <value />
+    <comment>初期間接経費</comment>
+  </data>
+  <data name="ItemBeginLength" xml:space="preserve">
+    <value />
+    <comment>初期尾叉長</comment>
+  </data>
+  <data name="ItemBeginNutrientCost" xml:space="preserve">
+    <value />
+    <comment>初期栄養剤費</comment>
+  </data>
+  <data name="ItemBeginShipmentCost" xml:space="preserve">
+    <value />
+    <comment>初期出荷原価</comment>
+  </data>
+  <data name="ItemBeginShipmentCount" xml:space="preserve">
+    <value />
+    <comment>初期出荷数</comment>
+  </data>
+  <data name="ItemBeginWeight" xml:space="preserve">
+    <value />
+    <comment>初期体重</comment>
+  </data>
+  <data name="ItemBreedingDay" xml:space="preserve">
+    <value />
+    <comment>飼育日数</comment>
+  </data>
+  <data name="ItemCheckName" xml:space="preserve">
+    <value />
+    <comment>チェック項目名</comment>
+  </data>
+  <data name="ItemCheckNameEn" xml:space="preserve">
+    <value />
+    <comment>チェック項目名英語</comment>
+  </data>
+  <data name="ItemContactName" xml:space="preserve">
+    <value />
+    <comment>営業窓口者名</comment>
+  </data>
+  <data name="ItemContactNameEn" xml:space="preserve">
+    <value />
+    <comment>営業窓口者名英語</comment>
+  </data>
+  <data name="ItemContactPerson" xml:space="preserve">
+    <value />
+    <comment>担当者</comment>
+  </data>
+  <data name="ItemConversionCoefficient" xml:space="preserve">
+    <value />
+    <comment>増肉係数</comment>
+  </data>
+  <data name="ItemCount" xml:space="preserve">
+    <value />
+    <comment>尾数</comment>
+  </data>
+  <data name="ItemCount1" xml:space="preserve">
+    <value />
+    <comment>数量</comment>
+  </data>
+  <data name="ItemCreateDate" xml:space="preserve">
+    <value />
+    <comment>作成日</comment>
+  </data>
+  <data name="ItemDayFeeding" xml:space="preserve">
+    <value />
+    <comment>日間給餌率</comment>
+  </data>
+  <data name="ItemDeadCount" xml:space="preserve">
+    <value />
+    <comment>斃死数</comment>
+  </data>
+  <data name="ItemDeadCountTotal" xml:space="preserve">
+    <value />
+    <comment>斃死数累計</comment>
+  </data>
+  <data name="ItemDeadReason" xml:space="preserve">
+    <value />
+    <comment>斃死理由</comment>
+  </data>
+  <data name="ItemDeadReasonEn" xml:space="preserve">
+    <value />
+    <comment>斃死理由英語</comment>
+  </data>
+  <data name="ItemDepth" xml:space="preserve">
+    <value />
+    <comment>深さ</comment>
+  </data>
+  <data name="ItemDiary" xml:space="preserve">
+    <value />
+    <comment>日誌</comment>
+  </data>
+  <data name="ItemDisasterDate" xml:space="preserve">
+    <value />
+    <comment>災害日付</comment>
+  </data>
+  <data name="ItemDisplayFlag" xml:space="preserve">
+    <value />
+    <comment>表示フラグ</comment>
+  </data>
+  <data name="ItemDisplayNo" xml:space="preserve">
+    <value />
+    <comment>表示順</comment>
+  </data>
+  <data name="ItemDisposeName" xml:space="preserve">
+    <value />
+    <comment>処理</comment>
+  </data>
+  <data name="ItemDisposeNameEn" xml:space="preserve">
+    <value />
+    <comment>処理英語</comment>
+  </data>
+  <data name="ItemDisposeNote" xml:space="preserve">
+    <value />
+    <comment>処理備考</comment>
+  </data>
+  <data name="ItemDivisionDate" xml:space="preserve">
+    <value />
+    <comment>分割日付</comment>
+  </data>
+  <data name="ItemDosageType" xml:space="preserve">
+    <value />
+    <comment>投与物タイプ</comment>
+  </data>
+  <data name="ItemDrugCost" xml:space="preserve">
+    <value />
+    <comment>調整薬費</comment>
+  </data>
+  <data name="ItemDrugInfo" xml:space="preserve">
+    <value />
+    <comment>投薬情報</comment>
+  </data>
+  <data name="ItemDrugTotal" xml:space="preserve">
+    <value />
+    <comment>薬費累計</comment>
+  </data>
+  <data name="ItemDrugWithdrawal" xml:space="preserve">
+    <value />
+    <comment>休薬終了日</comment>
+  </data>
+  <data name="ItemEndDate" xml:space="preserve">
+    <value />
+    <comment>有効終了日</comment>
+  </data>
+  <data name="ItemEntryDate" xml:space="preserve">
+    <value />
+    <comment>登録日</comment>
+  </data>
+  <data name="ItemEnvironmentData" xml:space="preserve">
+    <value />
+    <comment>設定値</comment>
+  </data>
+  <data name="ItemEnvironmentName" xml:space="preserve">
+    <value />
+    <comment>環境データ項目名</comment>
+  </data>
+  <data name="ItemEnvironmentNameEn" xml:space="preserve">
+    <value />
+    <comment>環境データ項目名英語</comment>
+  </data>
+  <data name="ItemEnvironmentType" xml:space="preserve">
+    <value />
+    <comment>環境データ・タイプ</comment>
+  </data>
+  <data name="ItemFaxNumber" xml:space="preserve">
+    <value />
+    <comment>FAX</comment>
+  </data>
+  <data name="ItemFeedCost" xml:space="preserve">
+    <value />
+    <comment>調整飼料費</comment>
+  </data>
+  <data name="ItemFeedDivName" xml:space="preserve">
+    <value />
+    <comment>飼料区分名</comment>
+  </data>
+  <data name="ItemFeedDivNameEn" xml:space="preserve">
+    <value />
+    <comment>飼料区分名英</comment>
+  </data>
+  <data name="ItemFeedFlag" xml:space="preserve">
+    <value />
+    <comment>給餌フラグ</comment>
+  </data>
+  <data name="ItemFeedingDay" xml:space="preserve">
+    <value />
+    <comment>給餌日数</comment>
+  </data>
+  <data name="ItemFeedKindName" xml:space="preserve">
+    <value />
+    <comment>飼料種類名</comment>
+  </data>
+  <data name="ItemFeedKindNameEn" xml:space="preserve">
+    <value />
+    <comment>飼料種類名英語</comment>
+  </data>
+  <data name="ItemFeedName" xml:space="preserve">
+    <value />
+    <comment>飼料名</comment>
+  </data>
+  <data name="ItemFeedNameEn" xml:space="preserve">
+    <value />
+    <comment>飼料名英語</comment>
+  </data>
+  <data name="ItemFeedTotal" xml:space="preserve">
+    <value />
+    <comment>飼料費累計</comment>
+  </data>
+  <data name="ItemFishCount" xml:space="preserve">
+    <value />
+    <comment>尾数</comment>
+  </data>
+  <data name="ItemFishGroupNo" xml:space="preserve">
+    <value />
+    <comment>魚群番号</comment>
+  </data>
+  <data name="ItemFishingGroundName" xml:space="preserve">
+    <value />
+    <comment>漁場名</comment>
+  </data>
+  <data name="ItemFishingGroundNameEn" xml:space="preserve">
+    <value />
+    <comment>漁場名英語</comment>
+  </data>
+  <data name="ItemFishKindName" xml:space="preserve">
+    <value />
+    <comment>魚種名</comment>
+  </data>
+  <data name="ItemFishKindNameEn" xml:space="preserve">
+    <value />
+    <comment>魚種名英語</comment>
+  </data>
+  <data name="ItemFishSpeciesGroupName" xml:space="preserve">
+    <value />
+    <comment>生簀分類名</comment>
+  </data>
+  <data name="ItemFishSpeciesGroupNameEn" xml:space="preserve">
+    <value />
+    <comment>生簀分類名英語</comment>
+  </data>
+  <data name="ItemFishSpeciesName" xml:space="preserve">
+    <value />
+    <comment>生簀名</comment>
+  </data>
+  <data name="ItemFishSpeciesNameEn" xml:space="preserve">
+    <value />
+    <comment>生簀名英語</comment>
+  </data>
+  <data name="ItemFishSpeciesStatusName" xml:space="preserve">
+    <value />
+    <comment>飼育状態名</comment>
+  </data>
+  <data name="ItemFishSpeciesStatusNameEn" xml:space="preserve">
+    <value />
+    <comment>飼育状態名英語</comment>
+  </data>
+  <data name="ItemFishSpeciesToGuid" xml:space="preserve">
+    <value />
+    <comment>分割先（生簀ID）</comment>
+  </data>
+  <data name="ItemHeight" xml:space="preserve">
+    <value />
+    <comment>縦</comment>
+  </data>
+  <data name="ItemIndirectCost" xml:space="preserve">
+    <value />
+    <comment>調整間接費</comment>
+  </data>
+  <data name="ItemIndirectCostTotal" xml:space="preserve">
+    <value />
+    <comment>間接費累計</comment>
+  </data>
+  <data name="ItemIngredient" xml:space="preserve">
+    <value />
+    <comment>有効成分</comment>
+  </data>
+  <data name="ItemIngredientEn" xml:space="preserve">
+    <value />
+    <comment>有効成分英語</comment>
+  </data>
+  <data name="ItemInputDate" xml:space="preserve">
+    <value />
+    <comment>入力日</comment>
+  </data>
+  <data name="ItemIntroPhase" xml:space="preserve">
+    <value />
+    <comment>導入期</comment>
+  </data>
+  <data name="ItemIntroPhaseEn" xml:space="preserve">
+    <value />
+    <comment>導入期英語</comment>
+  </data>
+  <data name="ItemIntroTrader" xml:space="preserve">
+    <value />
+    <comment>導入業者</comment>
+  </data>
+  <data name="ItemIntroTraderEn" xml:space="preserve">
+    <value />
+    <comment>導入業者英語</comment>
+  </data>
+  <data name="ItemInviteUserGuid" xml:space="preserve">
+    <value />
+    <comment>招待者ID</comment>
+  </data>
+  <data name="ItemKgPrice" xml:space="preserve">
+    <value />
+    <comment>Kg単価</comment>
+  </data>
+  <data name="ItemLastUpdatetime" xml:space="preserve">
+    <value />
+    <comment>更新日時</comment>
+  </data>
+  <data name="ItemLastUser" xml:space="preserve">
+    <value />
+    <comment>更新者</comment>
+  </data>
+  <data name="ItemLength" xml:space="preserve">
+    <value />
+    <comment>尾叉長</comment>
+  </data>
+  <data name="ItemLoginName" xml:space="preserve">
+    <value />
+    <comment>ログイン名</comment>
+  </data>
+  <data name="ItemLotNumber" xml:space="preserve">
+    <value />
+    <comment>ロット番号</comment>
+  </data>
+  <data name="ItemMailAddress" xml:space="preserve">
+    <value />
+    <comment>Mail</comment>
+  </data>
+  <data name="ItemMakerName" xml:space="preserve">
+    <value />
+    <comment>メーカー名</comment>
+  </data>
+  <data name="ItemMakerNameEn" xml:space="preserve">
+    <value />
+    <comment>メーカー名英語</comment>
+  </data>
+  <data name="ItemMeasureFlag" xml:space="preserve">
+    <value />
+    <comment>体測フラグ</comment>
+  </data>
+  <data name="ItemMedicineDiv" xml:space="preserve">
+    <value />
+    <comment>医薬品区分</comment>
+  </data>
+  <data name="ItemMedicineDivEn" xml:space="preserve">
+    <value />
+    <comment>医薬品区分英語</comment>
+  </data>
+  <data name="ItemMedicineName" xml:space="preserve">
+    <value />
+    <comment>薬名</comment>
+  </data>
+  <data name="ItemMedicineNameEn" xml:space="preserve">
+    <value />
+    <comment>薬名英語</comment>
+  </data>
+  <data name="ItemNetName" xml:space="preserve">
+    <value />
+    <comment>網名</comment>
+  </data>
+  <data name="ItemNetNameEn" xml:space="preserve">
+    <value />
+    <comment>網名英語</comment>
+  </data>
+  <data name="ItemNote" xml:space="preserve">
+    <value />
+    <comment>備考</comment>
+  </data>
+  <data name="ItemNote1" xml:space="preserve">
+    <value />
+    <comment>災害状況</comment>
+  </data>
+  <data name="ItemNotification" xml:space="preserve">
+    <value />
+    <comment>内容</comment>
+  </data>
+  <data name="ItemNutrientCost" xml:space="preserve">
+    <value />
+    <comment>調整栄養剤費</comment>
+  </data>
+  <data name="ItemNutrientName" xml:space="preserve">
+    <value />
+    <comment>栄養剤名</comment>
+  </data>
+  <data name="ItemNutrientNameEn" xml:space="preserve">
+    <value />
+    <comment>栄養剤名英語</comment>
+  </data>
+  <data name="ItemNutrientTotal" xml:space="preserve">
+    <value />
+    <comment>栄養費累計</comment>
+  </data>
+  <data name="ItemOfficeName" xml:space="preserve">
+    <value />
+    <comment>事務所名</comment>
+  </data>
+  <data name="ItemOfficeNameEn" xml:space="preserve">
+    <value />
+    <comment>事務所名英語</comment>
+  </data>
+  <data name="ItemOptionCount" xml:space="preserve">
+    <value />
+    <comment>尾数（オプション）</comment>
+  </data>
+  <data name="ItemOptionWeight" xml:space="preserve">
+    <value />
+    <comment>体重（オプション）</comment>
+  </data>
+  <data name="ItemOriginPlace" xml:space="preserve">
+    <value />
+    <comment>原産地</comment>
+  </data>
+  <data name="ItemOriginPlaceEn" xml:space="preserve">
+    <value />
+    <comment>原産地英語</comment>
+  </data>
+  <data name="ItemPassword" xml:space="preserve">
+    <value />
+    <comment>パスワード</comment>
+  </data>
+  <data name="ItemPhoneNumber" xml:space="preserve">
+    <value />
+    <comment>電話番号</comment>
+  </data>
+  <data name="ItemPonderalIndex" xml:space="preserve">
+    <value />
+    <comment>肥満度</comment>
+  </data>
+  <data name="ItemPostal" xml:space="preserve">
+    <value />
+    <comment>郵便番号</comment>
+  </data>
+  <data name="ItemPrice" xml:space="preserve">
+    <value />
+    <comment>単価</comment>
+  </data>
+  <data name="ItemProducer" xml:space="preserve">
+    <value />
+    <comment>生産者</comment>
+  </data>
+  <data name="ItemProducerEn" xml:space="preserve">
+    <value />
+    <comment>生産者英語</comment>
+  </data>
+  <data name="ItemProductionPhase" xml:space="preserve">
+    <value />
+    <comment>生産期</comment>
+  </data>
+  <data name="ItemProductionPhaseEn" xml:space="preserve">
+    <value />
+    <comment>生産期英語</comment>
+  </data>
+  <data name="ItemProductName" xml:space="preserve">
+    <value />
+    <comment>製造工場名</comment>
+  </data>
+  <data name="ItemProductNameEn" xml:space="preserve">
+    <value />
+    <comment>製造工場名英語</comment>
+  </data>
+  <data name="ItemProductPersonName" xml:space="preserve">
+    <value />
+    <comment>工場責任者名</comment>
+  </data>
+  <data name="ItemProductPersonNameEn" xml:space="preserve">
+    <value />
+    <comment>工場責任者名英語</comment>
+  </data>
+  <data name="ItemProphageLotNo" xml:space="preserve">
+    <value />
+    <comment>前期ロット番号</comment>
+  </data>
+  <data name="ItemPublicFishKindEn" xml:space="preserve">
+    <value />
+    <comment>共通魚種英語</comment>
+  </data>
+  <data name="ItemPublicFishKindName" xml:space="preserve">
+    <value />
+    <comment>共通魚種名</comment>
+  </data>
+  <data name="ItemRecodeInspectName" xml:space="preserve">
+    <value />
+    <comment>記録点検者</comment>
+  </data>
+  <data name="ItemRecodeInspectNameEn" xml:space="preserve">
+    <value />
+    <comment>記録点検者英語</comment>
+  </data>
+  <data name="ItemRecodeStaffName" xml:space="preserve">
+    <value />
+    <comment>記録担当者</comment>
+  </data>
+  <data name="ItemRecodeStaffNameEn" xml:space="preserve">
+    <value />
+    <comment>記録担当者英語</comment>
+  </data>
+  <data name="ItemRemainTest" xml:space="preserve">
+    <value />
+    <comment>残留検査証</comment>
+  </data>
+  <data name="ItemScheduleDateFrom" xml:space="preserve">
+    <value />
+    <comment>開始日</comment>
+  </data>
+  <data name="ItemScheduleDateTo" xml:space="preserve">
+    <value />
+    <comment>終了日</comment>
+  </data>
+  <data name="ItemScheduleTitle" xml:space="preserve">
+    <value />
+    <comment>タイトル</comment>
+  </data>
+  <data name="ItemScheduleTitleEn" xml:space="preserve">
+    <value />
+    <comment>タイトル英語</comment>
+  </data>
+  <data name="ItemSeedCost" xml:space="preserve">
+    <value />
+    <comment>種苗費</comment>
+  </data>
+  <data name="ItemSeedIntroRecodeGuid" xml:space="preserve">
+    <value />
+    <comment>種苗導入記録ID</comment>
+  </data>
+  <data name="ItemSeedKindGuid" xml:space="preserve">
+    <value />
+    <comment>種苗種類ID</comment>
+  </data>
+  <data name="ItemSeedKindName" xml:space="preserve">
+    <value />
+    <comment>種苗種類名</comment>
+  </data>
+  <data name="ItemSeedKindNameEn" xml:space="preserve">
+    <value />
+    <comment>種苗種類名英語</comment>
+  </data>
+  <data name="ItemSeedNote" xml:space="preserve">
+    <value />
+    <comment>種苗備考</comment>
+  </data>
+  <data name="ItemSeedOriginName" xml:space="preserve">
+    <value />
+    <comment>種苗由来名</comment>
+  </data>
+  <data name="ItemSeedOriginNameEn" xml:space="preserve">
+    <value />
+    <comment>種苗由来名英語</comment>
+  </data>
+  <data name="ItemShapeName" xml:space="preserve">
+    <value />
+    <comment>投与物形状名</comment>
+  </data>
+  <data name="ItemShapeNameEn" xml:space="preserve">
+    <value />
+    <comment>投与物形状名英語</comment>
+  </data>
+  <data name="ItemShipmentAmount" xml:space="preserve">
+    <value />
+    <comment>出荷金額</comment>
+  </data>
+  <data name="ItemShipmentCost" xml:space="preserve">
+    <value />
+    <comment>出荷原価</comment>
+  </data>
+  <data name="ItemShipmentCostTotal" xml:space="preserve">
+    <value />
+    <comment>出荷原価累計</comment>
+  </data>
+  <data name="ItemShipmentCount" xml:space="preserve">
+    <value />
+    <comment>出荷数</comment>
+  </data>
+  <data name="ItemShipmentIndirectCost" xml:space="preserve">
+    <value />
+    <comment>間接費出荷原価</comment>
+  </data>
+  <data name="ItemShipmentIndirectCostTotal" xml:space="preserve">
+    <value />
+    <comment>間接費出荷原価累計</comment>
+  </data>
+  <data name="ItemShipmentToName" xml:space="preserve">
+    <value />
+    <comment>出荷先名</comment>
+  </data>
+  <data name="ItemShipmentToNameEn" xml:space="preserve">
+    <value />
+    <comment>出荷先名英語</comment>
+  </data>
+  <data name="ItemShipmentTotal" xml:space="preserve">
+    <value />
+    <comment>出荷数累計</comment>
+  </data>
+  <data name="ItemStaffName" xml:space="preserve">
+    <value />
+    <comment>責任者名</comment>
+  </data>
+  <data name="ItemStaffNameEn" xml:space="preserve">
+    <value />
+    <comment>責任者名英語</comment>
+  </data>
+  <data name="ItemStartDate" xml:space="preserve">
+    <value />
+    <comment>有効開始日</comment>
+  </data>
+  <data name="ItemStockToName" xml:space="preserve">
+    <value />
+    <comment>仕入先名</comment>
+  </data>
+  <data name="ItemStockToNameEn" xml:space="preserve">
+    <value />
+    <comment>仕入先名英語</comment>
+  </data>
+  <data name="ItemTakeBaitStatus" xml:space="preserve">
+    <value />
+    <comment>給餌状況</comment>
+  </data>
+  <data name="ItemTakeBaitStatusEn" xml:space="preserve">
+    <value />
+    <comment>給餌状況英語</comment>
+  </data>
+  <data name="ItemThickeningAmount" xml:space="preserve">
+    <value />
+    <comment>増肉量</comment>
+  </data>
+  <data name="ItemThickeningWeight" xml:space="preserve">
+    <value />
+    <comment>増肉体重</comment>
+  </data>
+  <data name="ItemTimeDiv" xml:space="preserve">
+    <value />
+    <comment>時間</comment>
+  </data>
+  <data name="ItemTitle" xml:space="preserve">
+    <value />
+    <comment>タイトル</comment>
+  </data>
+  <data name="ItemTotalWeight" xml:space="preserve">
+    <value />
+    <comment>総重量</comment>
+  </data>
+  <data name="ItemTransportName" xml:space="preserve">
+    <value />
+    <comment>輸送方法</comment>
+  </data>
+  <data name="ItemTransportNameEn" xml:space="preserve">
+    <value />
+    <comment>輸送方法英語</comment>
+  </data>
+  <data name="ItemTransportNote" xml:space="preserve">
+    <value />
+    <comment>輸送備考</comment>
+  </data>
+  <data name="ItemTransportStaffName" xml:space="preserve">
+    <value />
+    <comment>輸送者氏名</comment>
+  </data>
+  <data name="ItemTransportStaffNameEn" xml:space="preserve">
+    <value />
+    <comment>輸送者氏名英語</comment>
+  </data>
+  <data name="ItemUsage" xml:space="preserve">
+    <value />
+    <comment>用法</comment>
+  </data>
+  <data name="ItemUserName" xml:space="preserve">
+    <value />
+    <comment>利用者　作成者を利用者名に変更しました。</comment>
+  </data>
+  <data name="ItemUserNameEn" xml:space="preserve">
+    <value />
+    <comment>利用者名英語</comment>
+  </data>
+  <data name="ItemUserNameKana" xml:space="preserve">
+    <value />
+    <comment>利用者名カナ</comment>
+  </data>
+  <data name="ItemVolume" xml:space="preserve">
+    <value />
+    <comment>容積</comment>
+  </data>
+  <data name="ItemWatery" xml:space="preserve">
+    <value />
+    <comment>水分</comment>
+  </data>
+  <data name="ItemWeight" xml:space="preserve">
+    <value />
+    <comment>体重</comment>
+  </data>
+  <data name="ItemWidth" xml:space="preserve">
+    <value />
+    <comment>横</comment>
+  </data>
+  <data name="ItemWithdrawal" xml:space="preserve">
+    <value />
+    <comment>休薬日数</comment>
+  </data>
+  <data name="ItemWorkFlag" xml:space="preserve">
+    <value />
+    <comment>作業フラグ</comment>
+  </data>
+  <data name="ItemWorkName" xml:space="preserve">
+    <value />
+    <comment>作業項目名</comment>
+  </data>
+  <data name="ItemWorkNameEn" xml:space="preserve">
+    <value />
+    <comment>作業項目名英語</comment>
+  </data>
+  <data name="ItemYield" xml:space="preserve">
+    <value />
+    <comment>歩留り</comment>
+  </data>
+  <data name="ItemSampleDefault" xml:space="preserve">
+    <value>Default</value>
+    <comment>初期値</comment>
+  </data>
+  <data name="ItemSampleExtra" xml:space="preserve">
+    <value>Extra</value>
+    <comment>拡張</comment>
+  </data>
+  <data name="ItemSampleField" xml:space="preserve">
+    <value>Field</value>
+    <comment>フィールド</comment>
+  </data>
+  <data name="ItemSampleKey" xml:space="preserve">
+    <value>Key</value>
+    <comment>主キー</comment>
+  </data>
+  <data name="ItemSampleNull" xml:space="preserve">
+    <value>Null</value>
+    <comment>NULL許容</comment>
+  </data>
+  <data name="ItemSampleType" xml:space="preserve">
+    <value>Type</value>
+    <comment>型</comment>
+  </data>
+  <data name="ItemSampleCollation" xml:space="preserve">
+    <value>Collation</value>
+    <comment>照合順序</comment>
+  </data>
+  <data name="ItemSampleEngine" xml:space="preserve">
+    <value>Engine</value>
+    <comment>エンジン</comment>
+  </data>
+  <data name="ItemSampleTableName" xml:space="preserve">
+    <value>TableName</value>
+    <comment>テーブル名</comment>
+  </data>
+  <data name="ItemSampleTableRowCount" xml:space="preserve">
+    <value>RowCount</value>
+    <comment>行数</comment>
+  </data>
+  <data name="CmdBack" xml:space="preserve">
+    <value>Back</value>
+    <comment>戻る</comment>
+  </data>
+  <data name="CmdCancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>キャンセル</comment>
+  </data>
+  <data name="CmdDelete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>削除</comment>
+  </data>
+  <data name="CmdDisaster" xml:space="preserve">
+    <value>Disaster</value>
+    <comment>災害</comment>
+  </data>
+  <data name="CmdDisplayOrderChange" xml:space="preserve">
+    <value>Display order change</value>
+    <comment>表示順序変更</comment>
+  </data>
+  <data name="CmdNewRegistration" xml:space="preserve">
+    <value>New registration</value>
+    <comment>新規登録</comment>
+  </data>
+  <data name="CmdOK" xml:space="preserve">
+    <value>OK</value>
+    <comment>OK</comment>
+  </data>
+  <data name="CmdRegister" xml:space="preserve">
+    <value>Register</value>
+    <comment>登録</comment>
+  </data>
+  <data name="CmdSplit" xml:space="preserve">
+    <value>Split</value>
+    <comment>分割</comment>
+  </data>
+  <data name="CmdSplitHistory" xml:space="preserve">
+    <value>Split history</value>
+    <comment>分割履歴</comment>
+  </data>
+  <data name="ItemAddressS" xml:space="preserve">
+    <value />
+    <comment>所在地</comment>
+  </data>
+  <data name="ItemStateCode" xml:space="preserve">
+    <value />
+    <comment>都道府県</comment>
+  </data>
+  <data name="ItemConfirmPassword" xml:space="preserve">
+    <value />
+    <comment>パスワード確認</comment>
+  </data>
+  <data name="ItemCreatorName" xml:space="preserve">
+    <value />
+    <comment>作成者</comment>
+  </data>
+  <data name="AlertMailAddress" xml:space="preserve">
+    <value />
+    <comment>正確なメールアドレスを入力してください。</comment>
+  </data>
+  <data name="ItemAuthorityAdmin" xml:space="preserve">
+    <value />
+    <comment>管理者</comment>
+  </data>
+  <data name="ItemAuthorityReader" xml:space="preserve">
+    <value />
+    <comment>閲覧者</comment>
+  </data>
+  <data name="ItemAuthorityUser" xml:space="preserve">
+    <value />
+    <comment>利用者</comment>
+  </data>
+  <data name="AlertPasswordCompare" xml:space="preserve">
+    <value />
+    <comment>パスワードと確認のパスワードが一致しません。</comment>
+  </data>
+  <data name="ItemFormUser" xml:space="preserve">
+    <value />
+    <comment>ユーザー管理</comment>
+  </data>
+  <data name="ItemFormUserEdit" xml:space="preserve">
+    <value />
+    <comment>ユーザー登録</comment>
+  </data>
+  <data name="GroupFishSpeciesBeginData" xml:space="preserve">
+    <value />
+    <comment>生簀初期データ</comment>
+  </data>
+  <data name="GroupFishSpeciesInfo" xml:space="preserve">
+    <value />
+    <comment>基本情報</comment>
+  </data>
+  <data name="GroupFishSpeciesElse" xml:space="preserve">
+    <value />
+    <comment>その他</comment>
+  </data>
+  <data name="TitleFishSpeciesEdit" xml:space="preserve">
+    <value />
+    <comment>生簀登録</comment>
+  </data>
+  <data name="TitleFishSpeciesList" xml:space="preserve">
+    <value> </value>
+    <comment>生簀一覧</comment>
+  </data>
+  <data name="CmdSearch" xml:space="preserve">
+    <value />
+    <comment>検索</comment>
+  </data>
+  <data name="ItemUnitCount" xml:space="preserve">
+    <value />
+    <comment>尾</comment>
+  </data>
+  <data name="ItemDis" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ItemDisplayFlag1" xml:space="preserve">
+    <value />
+    <comment>表示</comment>
+  </data>
+  <data name="ItemBaitStatusEditTitle" xml:space="preserve">
+    <value />
+    <comment>給餌状況登録</comment>
+  </data>
+  <data name="ItemBaitStatusListTitle" xml:space="preserve">
+    <value />
+    <comment>給餌状況一覧</comment>
+  </data>
+  <data name="ItemDeadReasonEditTitle" xml:space="preserve">
+    <value />
+    <comment>斃死理由登録</comment>
+  </data>
+  <data name="ItemDeadReasonListTitle" xml:space="preserve">
+    <value />
+    <comment>斃死理由一覧</comment>
+  </data>
+  <data name="ItemEnvironmentEditTitle" xml:space="preserve">
+    <value />
+    <comment>環境情報登録</comment>
+  </data>
+  <data name="ItemEnvironmentListTitle" xml:space="preserve">
+    <value />
+    <comment>環境情報一覧</comment>
+  </data>
+  <data name="ItemFishKindEditTitle" xml:space="preserve">
+    <value />
+    <comment>魚種登録</comment>
+  </data>
+  <data name="ItemFishKindListTitle" xml:space="preserve">
+    <value />
+    <comment>魚種一覧</comment>
+  </data>
+  <data name="ItemFishSpeciesGroupEditTitle" xml:space="preserve">
+    <value />
+    <comment>生簀分類登録</comment>
+  </data>
+  <data name="ItemFishSpeciesGroupListTitle" xml:space="preserve">
+    <value />
+    <comment>生簀分類一覧</comment>
+  </data>
+  <data name="ItemNetEditTitle" xml:space="preserve">
+    <value />
+    <comment>網登録</comment>
+  </data>
+  <data name="ItemNetListTitle" xml:space="preserve">
+    <value />
+    <comment>網一覧</comment>
+  </data>
+  <data name="ItemPublicFishKindEditTitle" xml:space="preserve">
+    <value />
+    <comment>共通魚種登録</comment>
+  </data>
+  <data name="ItemPublicFishKindListTitle" xml:space="preserve">
+    <value />
+    <comment>共通魚種一覧</comment>
+  </data>
+  <data name="ItemWorkItemEditTitle" xml:space="preserve">
+    <value />
+    <comment>作業項目登録</comment>
+  </data>
+  <data name="ItemWorkItemListTitle" xml:space="preserve">
+    <value />
+    <comment>作業項目一覧</comment>
+  </data>
+  <data name="ItemFeedDivEditTitle" xml:space="preserve">
+    <value />
+    <comment>飼料区分登録</comment>
+  </data>
+  <data name="ItemFeedDivListTitle" xml:space="preserve">
+    <value />
+    <comment>飼料区分一覧</comment>
+  </data>
+  <data name="ItemFeedKindEditTitle" xml:space="preserve">
+    <value />
+    <comment>飼料種類登録</comment>
+  </data>
+  <data name="ItemFeedKindListTitle" xml:space="preserve">
+    <value />
+    <comment>飼料種類一覧</comment>
+  </data>
+  <data name="ItemMedicineEditTitle" xml:space="preserve">
+    <value />
+    <comment>薬登録</comment>
+  </data>
+  <data name="ItemMedicineListTitle" xml:space="preserve">
+    <value />
+    <comment>薬一覧</comment>
+  </data>
+  <data name="ItemEnvironmentTypeFont" xml:space="preserve">
+    <value />
+    <comment>選択肢</comment>
+  </data>
+  <data name="ItemCheckItemEditTitle" xml:space="preserve">
+    <value />
+    <comment>チェック項目登録</comment>
+  </data>
+  <data name="ItemCheckItemListTitle" xml:space="preserve">
+    <value />
+    <comment>チェック項目一覧</comment>
+  </data>
+  <data name="ItemFeedEditTitle" xml:space="preserve">
+    <value />
+    <comment>飼料登録</comment>
+  </data>
+  <data name="ItemFeedListTitle" xml:space="preserve">
+    <value />
+    <comment>飼料一覧</comment>
+  </data>
+  <data name="ItemFishingGroundEditTitle" xml:space="preserve">
+    <value />
+    <comment>漁場登録</comment>
+  </data>
+  <data name="ItemFishingGroundListTitle" xml:space="preserve">
+    <value />
+    <comment>漁場一覧</comment>
+  </data>
+  <data name="ItemNutrientEditTitle" xml:space="preserve">
+    <value />
+    <comment>栄養剤登録</comment>
+  </data>
+  <data name="ItemNutrientListTitle" xml:space="preserve">
+    <value />
+    <comment>栄養剤一覧</comment>
+  </data>
+  <data name="ItemOrganizationEditTitle" xml:space="preserve">
+    <value />
+    <comment>事業所設定</comment>
+  </data>
+  <data name="ItemSeedIntroRecodeEditTitle" xml:space="preserve">
+    <value />
+    <comment>種苗導入記録登録</comment>
+  </data>
+  <data name="ItemSeedIntroRecodeListTitle" xml:space="preserve">
+    <value />
+    <comment>種苗導入記録一覧</comment>
+  </data>
+  <data name="ItemSeedKindEditTitle" xml:space="preserve">
+    <value />
+    <comment>種苗種類登録</comment>
+  </data>
+  <data name="ItemSeedKindListTitle" xml:space="preserve">
+    <value />
+    <comment>種苗種類一覧</comment>
+  </data>
+  <data name="ItemSeedOriginEditTitle" xml:space="preserve">
+    <value />
+    <comment>種苗由来登録</comment>
+  </data>
+  <data name="ItemSeedOriginListTitle" xml:space="preserve">
+    <value />
+    <comment>種苗由来一覧</comment>
+  </data>
+  <data name="ItemSharpeEditTitle" xml:space="preserve">
+    <value />
+    <comment>投与物形状登録</comment>
+  </data>
+  <data name="ItemSharpeListTitle" xml:space="preserve">
+    <value />
+    <comment>投与物形状一覧</comment>
+  </data>
+  <data name="ItemShipmentToEditTitle" xml:space="preserve">
+    <value />
+    <comment>出荷先登録</comment>
+  </data>
+  <data name="ItemShipmentToListTitle" xml:space="preserve">
+    <value />
+    <comment>出荷先一覧</comment>
+  </data>
+  <data name="ItemStockToEditTitle" xml:space="preserve">
+    <value />
+    <comment>仕入先登録</comment>
+  </data>
+  <data name="ItemStockToListTitle" xml:space="preserve">
+    <value />
+    <comment>仕入先一覧</comment>
+  </data>
+  <data name="ItemTransportEditTitle" xml:space="preserve">
+    <value />
+    <comment>輸送方法登録</comment>
+  </data>
+  <data name="ItemTransportListTitle" xml:space="preserve">
+    <value />
+    <comment>輸送方法一覧</comment>
+  </data>
+  <data name="ItemFormInviteUser" xml:space="preserve">
+    <value />
+    <comment>招待ユーザー管理</comment>
+  </data>
+  <data name="ItemInviteUserName" xml:space="preserve">
+    <value />
+    <comment>招待ユーザー名</comment>
+  </data>
+  <data name="ItemFishDiseaseName" xml:space="preserve">
+    <value />
+    <comment>病名</comment>
+  </data>
+  <data name="ItemInviteSendMail" xml:space="preserve">
+    <value />
+    <comment>招待メールを送る</comment>
+  </data>
+  <data name="ItemDelete" xml:space="preserve">
+    <value />
+    <comment>削除</comment>
+  </data>
+  <data name="ItemInviteDate" xml:space="preserve">
+    <value />
+    <comment>招待日時</comment>
+  </data>
+  <data name="ItemIntroduceDate" xml:space="preserve">
+    <value />
+    <comment>導入日</comment>
+  </data>
+  <data name="CmdRemove" xml:space="preserve">
+    <value />
+    <comment>解除</comment>
+  </data>
+  <data name="CmdSelect" xml:space="preserve">
+    <value />
+    <comment>選択</comment>
+  </data>
+  <data name="ItemFishSpeciesShapeName" xml:space="preserve">
+    <value />
+    <comment>生簀形状</comment>
+  </data>
+  <data name="CmdCreate" xml:space="preserve">
+    <value />
+    <comment>生成</comment>
+  </data>
+  <data name="ItemDisposeGuid1" xml:space="preserve">
+    <value />
+    <comment>消毒</comment>
+  </data>
+  <data name="ItemDisposeGuid2" xml:space="preserve">
+    <value />
+    <comment>ワクチン</comment>
+  </data>
+  <data name="ItemDisposeGuid3" xml:space="preserve">
+    <value />
+    <comment>その他</comment>
+  </data>
+  <data name="ItemFormFishSpeciesList" xml:space="preserve">
+    <value />
+    <comment>生簀一覧</comment>
+  </data>
+  <data name="ItemFishDiseaseNameEn" xml:space="preserve">
+    <value />
+    <comment>病名英語</comment>
+  </data>
+  <data name="ItemCulture" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ItemCharacter" xml:space="preserve">
+    <value>$</value>
+  </data>
+  <data name="ItemComboxText" xml:space="preserve">
+    <value />
+    <comment>コンボボックス</comment>
+  </data>
+  <data name="ItemDateText" xml:space="preserve">
+    <value />
+    <comment>日付</comment>
+  </data>
+  <data name="ItemNumberText" xml:space="preserve">
+    <value />
+    <comment>数値</comment>
+  </data>
+  <data name="ItemTextText" xml:space="preserve">
+    <value />
+    <comment>テキスト</comment>
+  </data>
+  <data name="ItemEnvironmentType1" xml:space="preserve">
+    <value />
+    <comment>データタイプ</comment>
+  </data>
+  <data name="ItemFishSpeciesGroup" xml:space="preserve">
+    <value />
+    <comment>生簀分類</comment>
+  </data>
+  <data name="ItemNetDiv" xml:space="preserve">
+    <value />
+    <comment>網区分</comment>
+  </data>
+  <data name="ItemFax" xml:space="preserve">
+    <value />
+    <comment>Fax</comment>
+  </data>
+  <data name="ItemProductInfo" xml:space="preserve">
+    <value />
+    <comment>製造情報</comment>
+  </data>
+  <data name="ItemCsvOutPut" xml:space="preserve">
+    <value />
+    <comment>CSV出力</comment>
+  </data>
+  <data name="ItemFeedTotal2" xml:space="preserve">
+    <value />
+    <comment>餌費</comment>
+  </data>
+  <data name="ItemGroup" xml:space="preserve">
+    <value />
+    <comment>分類</comment>
+  </data>
+  <data name="ItemDay" xml:space="preserve">
+    <value />
+    <comment>日</comment>
+  </data>
+  <data name="ItemFormFishSpeciesListMonth" xml:space="preserve">
+    <value />
+    <comment>生簀一覧（月次）</comment>
+  </data>
+  <data name="ItemDisplayObj" xml:space="preserve">
+    <value />
+    <comment>表示対象</comment>
+  </data>
+  <data name="ItemDate" xml:space="preserve">
+    <value />
+    <comment>日付</comment>
+  </data>
+  <data name="ItemTemperature" xml:space="preserve">
+    <value />
+    <comment>水温</comment>
+  </data>
+  <data name="ItemFeed" xml:space="preserve">
+    <value />
+    <comment>餌量</comment>
+  </data>
+  <data name="ItemDryfeeds" xml:space="preserve">
+    <value />
+    <comment>餌量乾物</comment>
+  </data>
+  <data name="ItemNutrient" xml:space="preserve">
+    <value />
+    <comment>栄養数</comment>
+  </data>
+  <data name="ItemFormFishSpeciesListDay" xml:space="preserve">
+    <value />
+    <comment>生簀一覧</comment>
+  </data>
+  <data name="CmdDateAsc" xml:space="preserve">
+    <value />
+    <comment>日付昇順</comment>
+  </data>
+  <data name="CmdDateDesc" xml:space="preserve">
+    <value />
+    <comment>日付降順</comment>
+  </data>
+  <data name="ItemCost" xml:space="preserve">
+    <value />
+    <comment>経費計</comment>
+  </data>
+  <data name="ItemDosageFeedDays" xml:space="preserve">
+    <value />
+    <comment>給餌日数</comment>
+  </data>
+  <data name="ItemFarmDays" xml:space="preserve">
+    <value />
+    <comment>飼育日数</comment>
+  </data>
+  <data name="ItemFeedAmount" xml:space="preserve">
+    <value />
+    <comment>飼料金額</comment>
+  </data>
+  <data name="ItemFeedCount" xml:space="preserve">
+    <value />
+    <comment>飼料量</comment>
+  </data>
+  <data name="ItemFormFishSpeciesMonthDetail" xml:space="preserve">
+    <value />
+    <comment>生簀詳細（月次）</comment>
+  </data>
+  <data name="ItemIndirectCost1" xml:space="preserve">
+    <value />
+    <comment>間接経費</comment>
+  </data>
+  <data name="ItemInputMonth" xml:space="preserve">
+    <value />
+    <comment>月</comment>
+  </data>
+  <data name="ItemMedicineAmount" xml:space="preserve">
+    <value />
+    <comment>薬金額</comment>
+  </data>
+  <data name="ItemMedicineCount" xml:space="preserve">
+    <value />
+    <comment>薬量</comment>
+  </data>
+  <data name="ItemNutrientAmount" xml:space="preserve">
+    <value />
+    <comment>栄養剤金額</comment>
+  </data>
+  <data name="ItemNutrientCount" xml:space="preserve">
+    <value />
+    <comment>栄養剤量</comment>
+  </data>
+  <data name="ItemWeightCount" xml:space="preserve">
+    <value />
+    <comment>総体重</comment>
+  </data>
+  <data name="CmdDetail" xml:space="preserve">
+    <value />
+    <comment>詳細</comment>
+  </data>
+  <data name="ItemFormFishSpeciesListDayDetail" xml:space="preserve">
+    <value />
+    <comment>生簀詳細（日次）</comment>
+  </data>
+  <data name="ItemTestDate" xml:space="preserve">
+    <value />
+    <comment>測定日</comment>
+  </data>
+  <data name="ItemFeedFrequency" xml:space="preserve">
+    <value />
+    <comment>給餌頻度</comment>
+  </data>
+  <data name="ItemDayAddWeight" xml:space="preserve">
+    <value />
+    <comment>日間増重量</comment>
+  </data>
+  <data name="ItemHousingDensity" xml:space="preserve">
+    <value />
+    <comment>収容密度</comment>
+  </data>
+  <data name="ItemOneAddNumber" xml:space="preserve">
+    <value />
+    <comment>1尾増加量</comment>
+  </data>
+  <data name="ItemTotalDryFeed" xml:space="preserve">
+    <value />
+    <comment>給餌量乾物合計</comment>
+  </data>
+  <data name="ItemTotalTheFeed" xml:space="preserve">
+    <value />
+    <comment>給餌量現物合計</comment>
+  </data>
+  <data name="ItemFishSpeciesShapeEditTitle" xml:space="preserve">
+    <value />
+    <comment>生簀形状登録</comment>
+  </data>
+  <data name="ItemFishSpeciesShapeListTitle" xml:space="preserve">
+    <value />
+    <comment>生簀形状一覧</comment>
+  </data>
+  <data name="ItemFishSpeciesShapeName1" xml:space="preserve">
+    <value />
+    <comment>生簀形状名</comment>
+  </data>
+  <data name="ItemFishSpeciesShapeNameEn" xml:space="preserve">
+    <value />
+    <comment>生簀形状名（英名）</comment>
+  </data>
+  <data name="ItemBeginDeadCount1" xml:space="preserve">
+    <value />
+    <comment>初期死魚数</comment>
+  </data>
+  <data name="ItemBeginIndirectCost1" xml:space="preserve">
+    <value />
+    <comment>初期間接費</comment>
+  </data>
+  <data name="ItemBeginShipmentCount1" xml:space="preserve">
+    <value />
+    <comment>初期出荷尾数</comment>
+  </data>
+  <data name="ItemDepth1" xml:space="preserve">
+    <value />
+    <comment>深さ</comment>
+  </data>
+  <data name="ItemGroupNoSelect" xml:space="preserve">
+    <value />
+    <comment>魚群番号選択</comment>
+  </data>
+  <data name="TitleFarmRecodeList" xml:space="preserve">
+    <value>FarmRecode</value>
+    <comment>飼育記録一覧</comment>
+  </data>
+  <data name="ItemAboveWaterTemperature" xml:space="preserve">
+    <value>AboveWaterTemperature</value>
+    <comment>上水温</comment>
+  </data>
+  <data name="ItemMediumWaterTemperature" xml:space="preserve">
+    <value>MediumWaterTemperature</value>
+    <comment>中水温</comment>
+  </data>
+  <data name="ItemUnderWaterTemperature" xml:space="preserve">
+    <value>UnderWaterTemperature</value>
+    <comment>下水温</comment>
+  </data>
+  <data name="ItemWeather" xml:space="preserve">
+    <value>Weather</value>
+    <comment>天気</comment>
+  </data>
+  <data name="ItemWindDirection" xml:space="preserve">
+    <value>WindDirection</value>
+    <comment>風向</comment>
+  </data>
+  <data name="ItemWindVelocity" xml:space="preserve">
+    <value>WindVelocity</value>
+    <comment>風速</comment>
+  </data>
+  <data name="TitleFarmRecodeEdit" xml:space="preserve">
+    <value />
+    <comment>飼育記録登録</comment>
+  </data>
+  <data name="cmdAllSelect" xml:space="preserve">
+    <value>SelectAll</value>
+    <comment>全選択</comment>
+  </data>
+  <data name="cmdRelease" xml:space="preserve">
+    <value>Release</value>
+    <comment>解除</comment>
+  </data>
+  <data name="cmdSave" xml:space="preserve">
+    <value>Save</value>
+    <comment>保存</comment>
+  </data>
+  <data name="cmdSet" xml:space="preserve">
+    <value>Set</value>
+    <comment>セット</comment>
+  </data>
+  <data name="FishSpeciesStatusTitle" xml:space="preserve">
+    <value>FishSpecies Status</value>
+    <comment>zhu 生簀状況</comment>
+  </data>
+  <data name="DeadFishCount" xml:space="preserve">
+    <value>Dead Count</value>
+    <comment>zhu 斃死尾数</comment>
+  </data>
+  <data name="DeadReason" xml:space="preserve">
+    <value>Dead Reason</value>
+    <comment>zhu 斃死理由</comment>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>Height</value>
+    <comment>zhu 体高</comment>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Length</value>
+    <comment>zhu 尾叉長</comment>
+  </data>
+  <data name="PonderalIndex" xml:space="preserve">
+    <value>Ponderal </value>
+    <comment>zhu 肥満度</comment>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Weight</value>
+    <comment>zhu 体重</comment>
+  </data>
+  <data name="CheckItem1" xml:space="preserve">
+    <value>CheckItem1</value>
+    <comment>李、生簀情報CSVレポートの固定タイトル</comment>
+  </data>
+  <data name="CheckItem2" xml:space="preserve">
+    <value>CheckItem2</value>
+    <comment>李、生簀情報CSVレポートの固定タイトル</comment>
+  </data>
+  <data name="CheckItem3" xml:space="preserve">
+    <value>CheckItem3</value>
+    <comment>李、生簀情報CSVレポートの固定タイトル</comment>
+  </data>
+  <data name="CheckItem4" xml:space="preserve">
+    <value>CheckItem4</value>
+    <comment>李、生簀情報CSVレポートの固定タイトル</comment>
+  </data>
+  <data name="WorkItem1" xml:space="preserve">
+    <value>WorkItem1</value>
+    <comment>李、生簀情報CSVレポートの固定タイトル</comment>
+  </data>
+  <data name="WorkItem2" xml:space="preserve">
+    <value>WorkItem2</value>
+    <comment>李、生簀情報CSVレポートの固定タイトル</comment>
+  </data>
+  <data name="WorkItem3" xml:space="preserve">
+    <value>WorkItem3</value>
+    <comment>李、生簀情報CSVレポートの固定タイトル</comment>
+  </data>
+  <data name="WorkItem4" xml:space="preserve">
+    <value>WorkItem4</value>
+    <comment>李、生簀情報CSVレポートの固定タイトル</comment>
+  </data>
+  <data name="ItemShipmentWeight_g" xml:space="preserve">
+    <value />
+    <comment>李、生簀詳細レポート</comment>
+  </data>
+  <data name="TitleGraphOutPut" xml:space="preserve">
+    <value>Chart</value>
+    <comment>zhu</comment>
+  </data>
+</root>

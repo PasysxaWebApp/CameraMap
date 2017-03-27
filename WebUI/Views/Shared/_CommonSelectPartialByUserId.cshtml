@@ -1,0 +1,77 @@
+﻿@using CameraMap.Models.Master.FishingGround
+@using CameraMap.Configs
+@using CameraMap.Models.UserControl
+@model SelectPartialViewMode<string>
+@{
+    var allStr = Model.AllStr;
+    var loginInfoSession = CameraMap.Sessions.SessionLoginInfo.GetInstance(Session);
+
+    //var organizationID = Session[SessionKeyConfig.OrganizationID].ToString();
+    Model.SetSelectList(loginInfoSession.LoginID.ToString() );
+    var fishingGroundList = Model.SelectList;
+    var SelectID=string.Format("{0}_Select_{1}",Model.ControlNamePrev,Model.ID);
+
+    var selectedValue = Model.SelectedValue;
+    //if (Model.SelectedValue.HasValue)
+    //{
+    //    selectedValue = Model.SelectedValue.Value;
+    //}
+    
+    //var fgReg = FishingGroundReg.GetInstance();
+    //fgReg.GetFishingGroundList(organizationID);
+    //var fishingGroundList = fgReg.Items;
+    var buildFunctionName = string.Format("Build_{0}()", Model.ID);
+    var reBuildFunctionName = string.Format("ReBuild_{0}()", Model.ID);
+
+}
+<script type="text/javascript">
+    $(function () {
+        @Html.Raw(buildFunctionName);
+    });
+
+    function @Html.Raw(reBuildFunctionName){
+        $("#@SelectID").wijcombobox("destroy");
+        @Html.Raw(buildFunctionName);
+    }
+
+    function @Html.Raw(buildFunctionName){
+        $("#@SelectID").wijcombobox({
+            isEditable: false,
+            dropdownWidth:170,
+            changed: function (e, data) {
+                $("#@Model.ID").val(data.selectedItem.value);
+                @if (!string.IsNullOrEmpty(Model.ChangedEvent)){
+                    @Html.Raw(string.Format("{0}(e,data);", Model.ChangedEvent));
+                }
+
+            }
+        });
+    }
+
+</script>
+<div style="position:relative">
+    <input id="@Model.ID" name="@Model.Name" type="text" value="@string.Format("{0}",selectedValue)" style="display:none;" />
+    <select id="@SelectID" style="width:150px;">
+        @if (!Model.HideAllStr) { 
+            if (string.IsNullOrEmpty( Model.SelectedValue))
+            {
+                <option value="" selected="selected">@allStr</option>
+            }
+            else
+            {
+                <option value="">@allStr</option>
+            }
+        }
+        @foreach (var itm in fishingGroundList)
+        {
+            if (!string.IsNullOrEmpty(Model.SelectedValue) && Model.SelectedValue.Equals(itm.Value))
+            {
+                <option value="@itm.Value" selected="selected">@itm.Text</option>
+            }
+            else
+            {
+                <option value="@itm.Value">@itm.Text</option>
+            }
+        }
+    </select>
+</div>

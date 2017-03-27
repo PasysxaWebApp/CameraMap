@@ -1,0 +1,11 @@
+﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.UserControl.UserCtrlMode
+<script type="text/javascript">
+    $(function () {
+        //$("select").wijdropdown();
+        $("select").wijcombobox({
+            isEditable: false
+        });
+    });
+</script>
+@Html.DropDownListFor(m => m.ShipmentToMode.ShipmentToGuid, Model.ShipmentToMode.ShipmentToList, new { @id = "shipmentToId", @style = "width:150px;height:30px;" })
