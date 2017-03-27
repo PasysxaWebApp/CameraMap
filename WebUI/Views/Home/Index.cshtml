@@ -555,19 +555,47 @@
             $.post(url, postData, function (data, status, jqXHR) {
                 for (idx in data.Datas) {
                     var dev = data.Datas[idx];
-                    var pt = new BMap.Point(dev.Lat, dev.Lng);
-                    var marker = new BMap.Marker(pt);// 创建标注
-                    map.addOverlay(marker);             // 将标注添加到地图中
-                    if (dev.IconFileUrl != null && dev.IconFileUrl.length > 0) {
-                        var myIcon = new BMap.Icon(dev.IconFileUrl, new BMap.Size(32, 32));
-                        marker.setIcon(myIcon);  // 创建标注
-                    }
-                    var label = new BMap.Label(dev.DeviceName, { offset: new BMap.Size(20, -10) });
-                    marker.setLabel(label);
+                    var marker=createMark(dev);
+                    map.addOverlay(marker);  
+
+                    //var pt = new BMap.Point(dev.Lat, dev.Lng);
+                    //var marker = new BMap.Marker(pt);// 创建标注
+                    //map.addOverlay(marker);             // 将标注添加到地图中
+                    //if (dev.IconFileUrl != null && dev.IconFileUrl.length > 0) {
+                    //    var myIcon = new BMap.Icon(dev.IconFileUrl, new BMap.Size(32, 32));
+                    //    marker.setIcon(myIcon);  // 创建标注
+                    //}
+                    //var label = new BMap.Label(dev.DeviceName, { offset: new BMap.Size(20, -10) });
+                    //marker.setLabel(label);
+                    //marker.setTitle(dev.DeviceName);
+                    //marker.addEventListener("click",getAttr);
                 }
             });
         }
 
+
+        createMark = function(dev){
+            var pt = new BMap.Point(dev.Lat, dev.Lng);
+            var _marker = new BMap.Marker(pt);// 创建标注
+            _marker.device=dev;
+            if (dev.IconFileUrl != null && dev.IconFileUrl.length > 0) {
+                var myIcon = new BMap.Icon(dev.IconFileUrl, new BMap.Size(32, 32));
+                _marker.setIcon(myIcon);  // 创建标注
+            }
+            var label = new BMap.Label(dev.DeviceName, { offset: new BMap.Size(20, -10) });
+            _marker.setLabel(label);
+            _marker.setTitle(dev.DeviceName);
+            _marker.addEventListener("click", function(e){
+                var p = e.target.getPosition();       //获取marker的位置
+                alert("marker的位置是" + p.lng + "," + p.lat);   
+            });
+            return _marker;
+        };
+
+        //function getAttr(e){
+        //    var p = e.target.getPosition();       //获取marker的位置
+        //    alert("marker的位置是" + p.lng + "," + p.lat);   
+        //}
 
     </script>
 }
