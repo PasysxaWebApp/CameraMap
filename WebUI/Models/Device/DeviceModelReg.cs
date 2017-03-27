@@ -31,7 +31,7 @@ namespace CameraMap.Models.Device
                             m_layers.LayerKey,
                             m_layers.LayerName,
                             m_layers.IconFile,
-                            t_files.FileName 
+                            t_files.FileName as IconFileName 
                         FROM m_devices
                         inner join m_layers on m_layers.Id=m_devices.LayerId
                         left join t_files on t_files.FilesID=m_layers.IconFile
@@ -67,7 +67,7 @@ namespace CameraMap.Models.Device
                             m_layers.LayerKey,
                             m_layers.LayerName,
                             m_layers.IconFile,
-                            t_files.FileName 
+                            t_files.FileName as IconFileName 
                         FROM m_devices
                         inner join m_layers on m_layers.Id=m_devices.LayerId
                         left join t_files on t_files.FilesID=m_layers.IconFile

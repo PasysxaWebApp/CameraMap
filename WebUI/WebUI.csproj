@@ -195,6 +195,7 @@
     <Compile Include="Controllers\Master\OrganizationController.cs" />
     <Compile Include="Controllers\Master\UserController.cs" />
     <Compile Include="Controllers\Samples\SamplesController.cs" />
+    <Compile Include="Controllers\Shared\ImageMngController.cs" />
     <Compile Include="Controllers\Sorts\SortsController.cs" />
     <Compile Include="Controllers\SystemSettingController.cs" />
     <Compile Include="Enums\OperationTypeEnum.cs" />
@@ -285,6 +286,8 @@
     <Content Include="Contents\images\graph24.png" />
     <Content Include="Contents\images\Grid\toDown.png" />
     <Content Include="Contents\images\Grid\toUp.png" />
+    <Content Include="Contents\images\invisible_light.png" />
+    <Content Include="Contents\images\invisible_revert.png" />
     <Content Include="Contents\images\lineChart.jpg" />
     <Content Include="Contents\images\master24.png" />
     <Content Include="Contents\images\menu\home24.png" />

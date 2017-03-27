@@ -98,8 +98,48 @@ namespace CameraMap.Models.Master.Organization
         public string FishinggroundNote { get; set; }
 
         public string FarmPicName { get; set; }
-        public string FishinggroundPicName { get; set; }       
+        public string FishinggroundPicName { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal CenterLat { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal CenterLng { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string DefaultZoom { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int MinZoom { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int MaxZoom { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string FullCountyName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal RectangleL { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal RectangleT { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal RectangleR { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public decimal RectangleB { get; set; }
 
         public List<SelectListItem> StateCodeList { get; set; }
         public List<SelectListItem> BatchSaveWithDayModeList { get; set; }

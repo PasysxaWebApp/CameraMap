@@ -255,8 +255,8 @@
 
     <div id="loading" style=" text-align:center;font-size:3em; font-weight:bold ;height:1800px; padding-top:100px;background-color:white;">Loading...</div>
 
-    <div id="wrapper" style="width:95%;  min-width:960px;">
-        <header role="banner" style="z-index:1000; width:100%;margin:0 auto;position:inherit;">
+    <div id="wrapper" style="width:99%;  min-width:960px;">
+        <header id="header" role="banner" style="z-index:1000; width:100%;margin:0 auto;position:inherit;">
             <div style="float:left; font-size:30px;  margin-left:20px; margin-right:10px; color:white; line-height:70px; vertical-align:middle; ">
                 @SystemConfig.SystemTitle 
                 @if (loginInfoSession.UnionOfficeUser) { 
@@ -266,7 +266,7 @@
 
             <div class="rm-container">
                 <nav class="rm-nav rm-nojs rm-lighten">
-                    @Html.Action("GetMenuHtml", "Home")
+                    @*@Html.Action("GetMenuHtml", "Home")*@
                 </nav>
             </div>
 
@@ -298,14 +298,6 @@
                 @RenderBody()
             </div>
         </div>
-        <footer style="z-index:99">
-            <div id="copyright">
-                Copyright(C) 2014 Pacific System Co.,Ltd. All rights reserved.
-            </div>
-            <div id="pagetop">
-                <img src='@Url.Content("~/Contents/images/System/Pagetop_off.gif")' alt="pagetop">
-            </div>
-        </footer>
     </div>
     @RenderSection("Script", false)
     <script type="text/javascript">
@@ -341,64 +333,7 @@
             });
         });
 
-        //wijinputdate focusイベント(指定要素へフォーカスした際に発生するイベント)
-        $(document).on("focus", ".wijmo-wijinput-date", function () {
-            var orgId = $(this).attr("id");
-            var orgDate = $("#" + orgId).wijinputdate("option", "date");
-            $(this).prop("orgDate", orgDate);
-
-            $(this).prop("readonly", true);
-            $(this).css("ime-mode", "inactive"); //imeモードOFF
-        });
-
-        //wijinputdate blurイベント(指定要素がフォーカスを失った際に発生するイベント)
-        $(document).on("blur", ".wijmo-wijinput-date", function () {
-            $(this).prop("readonly", false);
-            var orgDate = $(this).prop("orgDate");
-
-            var minDate = new Date();
-            minDate.setFullYear(1900, 0, 1);
-            if (orgDate == null) {
-                orgDate = minDate;
-            }
-            var orgId = "#" + $(this).attr("id");
-
-            var isDateNull = $(orgId).wijinputdate("isDateNull");
-            if (isDateNull) {
-                $(orgId).wijinputdate("option", "date", orgDate);
-            }
-            else {
-                var dt = $(orgId).wijinputdate("option", "date");
-                if (dt < minDate) {
-                    $(orgId).wijinputdate("option", "date", orgDate);
-                }
-            }
-        });
-
-        function compareData(dateStart, dateEnd) {
-            var minDate = new Date();
-            minDate.setFullYear(1900, 0, 1);
-            if (dateStart == null || dateEnd == null || dateStart <= minDate || dateEnd <= minDate || dateStart > dateEnd) {
-                var msg = "正しい日付を入力してください";
-                alert(msg);
-                return false;
-            }
-            return true;
-        }
-
-        function compareDataWithOutDialog(dateStart, dateEnd) {
-            var minDate = new Date();
-            minDate.setFullYear(1900, 0, 1);
-            if (dateStart == null || dateEnd == null || dateStart <= minDate || dateEnd <= minDate || dateStart > dateEnd) {
-                return false;
-            }
-            return true;
-        }
-
     </script>
 
-    <div id="dataCheckErrorDialog" style="display:none;" >
-        <p>正しい日付を入力してください</p>
-    </div>
 </body>
 </html>

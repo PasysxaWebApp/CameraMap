@@ -4,6 +4,8 @@ using CameraMap.Models.ResponseModel;
 using CameraMap.Sessions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -111,6 +113,20 @@ namespace CameraMap.Controllers
 
             var bytes = new byte[Request.Files["file"].InputStream.Length];
             Request.Files["file"].InputStream.Read(bytes, 0, bytes.Length);
+            using (System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes))
+            {
+                var img = new System.Drawing.Bitmap(ms);
+                var newBytes=ResizeImage(img, 32, 32);
+                if (newBytes != null)
+                {
+                    bytes = newBytes;
+                }
+                img.Dispose();
+                var idx= FileName.LastIndexOf(".");
+                if (idx > 0) {
+                    FileName = FileName.Substring(0, idx) + ".jpg";
+                }
+            }
 
             var fileID = FileModelReg.Insert(FileName, bytes);
 
@@ -125,5 +141,35 @@ namespace CameraMap.Controllers
 
             return View("FileUploaded", sendObj);
         }
+
+        byte[] ResizeImage(Bitmap bmp, int newW, int newH)
+        {
+            try
+            {
+                var thumbImg = bmp.GetThumbnailImage(newW, newH, null, System.IntPtr.Zero);
+
+
+                //Bitmap b = new Bitmap(newW, newH);
+                //Graphics g = Graphics.FromImage(b);
+                //g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                //g.FillRectangle(Brushes.Transparent, new Rectangle(0, 0, newW, newH));
+                //g.DrawImage(bmp, new Rectangle(0, 0, newW, newH), new Rectangle(0, 0, bmp.Width, bmp.Height), GraphicsUnit.Pixel);
+                //g.Dispose();
+
+                using (var ms = new System.IO.MemoryStream())
+                {
+                    thumbImg.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                    ms.Position = 0;
+                    var bytes = new byte[Convert.ToInt32(ms.Length)];
+                    ms.Read(bytes, 0, bytes.Length);
+                    return bytes;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
     }
 }

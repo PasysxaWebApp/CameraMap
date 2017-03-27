@@ -9,6 +9,7 @@ using CameraMap.Sessions;
 using CameraMap.Models.Notice;
 using CameraMap.Models.Layer;
 using CameraMap.Models.Device;
+using CameraMap.Models.Master.Organization;
 
 namespace CameraMap.Controllers
 {
@@ -20,25 +21,6 @@ namespace CameraMap.Controllers
             {
                 return RedirectToAction("Index", "Account", new { OrganizationID = "" });
             }
-            //try
-            //{
-
-            //    if (Request.UserHostAddress != null)
-            //    {
-            //        var ex = (Exception)HttpContext.Application[Request.UserHostAddress];
-
-            //        if (ex != null)
-            //        {
-            //            var loginInfoSession = SessionLoginInfo.GetInstance(Session);
-
-            //            SystemLogManager.GetInstance().SetSystemErrorLog(SystemConfig.SystemTitle, loginInfoSession.OrganizationID, loginInfoSession.LoginID, loginInfoSession.UserName, ex.Message, ex.StackTrace);
-            //        }
-            //    }
-            //}
-            //catch (Exception exx)
-            //{
-            //    Debug.WriteLine(exx.Message);
-            //}
 
             return View("ErrorPage");
         }
@@ -81,8 +63,8 @@ namespace CameraMap.Controllers
             }
 
             var loginInfo = SessionLoginInfo.GetInstance(Session);
-
-            return View();
+            var organization= OrganizationReg.GetInstance().GetOrganizationModel(loginInfo.OrganizationID);
+            return View(organization);
         }
 
         public ActionResult GetAllLayersPartial()

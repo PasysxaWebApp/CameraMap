@@ -85,8 +85,8 @@ namespace CameraMap.Controllers
             model.SetAuthrityList(loginInfo.SystemRoll);
             
             var reg = OrganizationReg.GetInstance();
-            reg.SetOrganizationList();
-            foreach (var item in reg.Items)
+            var items=reg.GetOrganizationList();
+            foreach (var item in items)
             {
                 model.Organizations.Add(new SelectListItem() { Value = item.OrganizationID, Text = item.OfficeName });
             }
@@ -161,8 +161,8 @@ namespace CameraMap.Controllers
             model.SetAuthrityList(loginInfo.SystemRoll);
 
             var reg = OrganizationReg.GetInstance();
-            reg.SetOrganizationList();
-            foreach (var item in reg.Items)
+            var items= reg.GetOrganizationList();
+            foreach (var item in items)
             {
                 model.Organizations.Add(new SelectListItem() { Value = item.OrganizationID, Text = item.OfficeName });
             }

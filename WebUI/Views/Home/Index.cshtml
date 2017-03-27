@@ -1,4 +1,5 @@
 ﻿@using CameraMap.App_GlobalResources
+@model CameraMap.Models.Master.Organization.OrganizationModel
 
 @{
     ViewBag.Title = "Index";
@@ -7,13 +8,45 @@
 
 @section Style{
     <style type="text/css">
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+        }
+
+        #wrapper {
+            height: 100%;
+            border:none;
+        }
+
+        #main {
+            height: 100%;
+            margin-top:0px;
+            margin-bottom:0px;
+            margin-left:0px;
+            margin-right:0px;
+        }
+
+        #vsplitter {
+            height: 100%;
+        }
+
         #layerOpts {
         }
 
         #container {
-            min-height: 700px;
+            min-height: 600px;
+            height:100%;
             width: 100%;
             margin: 0px;
+        }
+        #mapRealInfo {
+            height:28px;
+            line-height:28px;
+            text-align:right;
+            padding-right:5px;
         }
     </style>
 
@@ -53,20 +86,20 @@
             z-index: 9999px;
         }
 
-        .FileSelectHideObj input {
-            height: 34px;
-            right: 0px;
-            bottom: 0px;
-            font-size: 20px;
-            filter: alpha(opacity=0);
-            -webkit-filter: opacity(0%);
-            position: absolute;
-            cursor: pointer;
-            outline-width: medium;
-            outline-style: none;
-            outline-color: invert;
-            opacity: 0;
-        }
+            .FileSelectHideObj input {
+                height: 34px;
+                right: 0px;
+                bottom: 0px;
+                font-size: 20px;
+                filter: alpha(opacity=0);
+                -webkit-filter: opacity(0%);
+                position: absolute;
+                cursor: pointer;
+                outline-width: medium;
+                outline-style: none;
+                outline-color: invert;
+                opacity: 0;
+            }
     </style>
 
 }
@@ -106,7 +139,22 @@
                 orientation: "horizontal",
                 fullSplit: true
             });
+
+            $(window).resize(resizeWindow);
+            resizeWindow();
         });
+
+        function resizeWindow(){
+            var wrapperHeight=$("#wrapper").height();
+            wrapperHeight=Math.max(wrapperHeight,700);
+            var headerHeight=$("#header").height();
+            var mapRealInfoHeight=$("#mapRealInfo").height();
+            var mainContainerHeight= wrapperHeight-headerHeight-mapRealInfoHeight-2;
+            $("#mainContainer").height(mainContainerHeight);
+            //$("#container").height(mainContainerHeight);
+            $("#vsplitter").wijsplitter("refresh");
+            $("#hsplitter").wijsplitter("refresh");
+        }
 
         function reloadLayerData() {
             var url = '@Url.Action("GetAllLayersPartial", "Home")';
@@ -143,7 +191,7 @@
     </script>
 }
 
-<div id="vsplitter">
+<div id="vsplitter" style="height:100%;">
     <div style="border-right:solid 1px lightgray;">
         <div id="hsplitter">
             <div>
@@ -180,6 +228,9 @@
     <div>
         <div id="container"></div>
     </div>
+
+</div>
+<div id="mapRealInfo">
 
 </div>
 
@@ -374,15 +425,76 @@
     <script type="text/javascript">
         var map;
         $(document).ready(function () {
-            map = new BMap.Map("container");          // 创建地图实例
-            var point = new BMap.Point(107.756034, 34.280494);  // 创建点坐标
-            map.centerAndZoom(point, 14);  // 初始化地图，设置中心点坐标和地图级别
+            map = new BMap.Map("container", { minZoom: @Model.MinZoom });          // 创建地图实例
+            var point = new BMap.Point(@Model.CenterLat,@Model.CenterLng);  // 创建点坐标
+            map.centerAndZoom(point, @Model.DefaultZoom);  // 初始化地图，设置中心点坐标和地图级别
             map.enableScrollWheelZoom();
             map.disableDoubleClickZoom(true);
             map.addControl(new BMap.NavigationControl());
+            setBoundary('@Model.FullCountyName');
+            //loadPoints();
+            //loadDevicePoints();
+            //单击获取点击的经纬度
+            map.addEventListener("click",function(e){
+                console.log("lng:"+ e.point.lng + "," + "lat:" + e.point.lat);
+            });
 
-            loadPoints();
+            map.addEventListener("mousemove",function(e){
+                $("#mapRealInfo").text("lng:"+ e.point.lng + "," + "lat:" + e.point.lat);
+            });
+
+            map.addEventListener("dragend", function (e) {
+                var center= map.getCenter();
+                var left=@Model.RectangleL;
+                var top=@Model.RectangleT;
+                var right=@Model.RectangleR;
+                var bottom=@Model.RectangleB;
+
+                var bound=map.getBounds();
+
+                var ne= bound.getNorthEast();
+                var sw=bound.getSouthWest();
+
+                console.log("NorthEast:" + ne.lng+","+right+";"+ne.lat+","+top+";"+"SouthWest:" +sw.lng+","+left+";"+sw.lat+","+bottom);
+                if (ne.lng>right || ne.lat>top || sw.lng<left || sw.lat<bottom)
+                {
+                    console.log("panTo");
+                    //map.panTo(point,{noAnimation:false});
+                    //map.panTo(new BMap.Point(113.262232,23.154345));
+                    setTimeout(function(){
+                        var point = new BMap.Point(@Model.CenterLat,@Model.CenterLng);  // 创建点坐标
+                        map.panTo(point);
+                    }, 500);
+                }
+                console.log("center.lng:"+ center.lng + "," + "center.lat:" + center.lat);
+            });
+
         });
+
+        function setBoundary(mapName) {
+            map.clearOverlays();        //清除地图覆盖物
+            var bdary = new BMap.Boundary();
+            bdary.get(mapName, function (rs) {       //获取行政区域
+                var count = rs.boundaries.length; //行政区域的点有多少个
+                if (count === 0) {
+                    alert('未能获取行政区域');
+                    return;
+                }
+                var pointArray = [];
+                for (var i = 0; i < count; i++) {
+                    var ply = new BMap.Polyline(rs.boundaries[i], {
+                        strokeWeight: 2, strokeColor: "#ff0000", strokeStyle: "dashed", enableMassClear: false, enableClicking: false,
+                        //strokeOpacity: 0,
+                        //fillColor: "#ffffff",
+                        //fillOpacity: 0
+                    }); //建立多边形覆盖物, fillColor:'#00ff00',fillOpacity: 0.99
+                    map.addOverlay(ply);  //添加覆盖物
+                    pointArray = pointArray.concat(ply.getPath());
+                }
+                //map.setViewport(pointArray);    //调整视野
+            });
+        }
+
 
         function loadPoints() {
 
@@ -404,21 +516,26 @@
         }
 
         function loadDevicePoints(layerId) {
-            @*map.clearOverlays()
+            map.clearOverlays();
             layerId = layerId || $("#selectedlayerId").val();
             var url = '@Url.Action("GetAllDeviceDatas", "Device")';
             var postData = { LayerId: layerId }
             $.post(url, postData, function (data, status, jqXHR) {
-                for( m in data.Datas){
-                    //debugger;
-                    var pt = new BMap.Point(m.Lat, m.Lng);
+                for (idx in data.Datas) {
+                    var dev = data.Datas[idx];
+                    var pt = new BMap.Point(dev.Lat, dev.Lng);
                     var marker = new BMap.Marker(pt);// 创建标注
                     map.addOverlay(marker);             // 将标注添加到地图中
-                    var label = new BMap.Label(m.DeviceName, { offset: new BMap.Size(20, -10) });
+                    if (dev.IconFileUrl != null && dev.IconFileUrl.length > 0) {
+                        var myIcon = new BMap.Icon(dev.IconFileUrl, new BMap.Size(32, 32));
+                        marker.setIcon(myIcon);  // 创建标注
+                    }
+                    var label = new BMap.Label(dev.DeviceName, { offset: new BMap.Size(20, -10) });
                     marker.setLabel(label);
                 }
-            });*@
+            });
         }
+
 
     </script>
 }

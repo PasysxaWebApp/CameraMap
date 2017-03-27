@@ -27,10 +27,10 @@ namespace CameraMap.Controllers
             if (loginInfo.SystemRoll == Enums.SystemRollEnum.SysAdmin)
             {
                 var modelreg = new OrganizationReg();
-                modelreg.SetOrganizationList();
+                var items=modelreg.GetOrganizationList();
                 var model = new OrganizationViewModel()
                 {
-                    Items = modelreg.Items
+                    Items = items
                 };
                 return View(model);
             }
@@ -71,7 +71,6 @@ namespace CameraMap.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.StateCodeList = OrganizationReg.GetInstance().GetSelectItem();
                 return View(model);
             }
 
