@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace CameraMap.Models.Device
 {
-    public class LineModel
+    public class LineModel : IDevice
     {
         private UrlHelper Url;
 
@@ -14,6 +14,14 @@ namespace CameraMap.Models.Device
         /// 
         /// </summary>
         public long LineId {get;set;}
+
+        public long DeviceId {
+            get
+            {
+                return LineId;
+            }
+        }
+
         /// <summary>
         /// 利用者構成ID
         /// </summary>
@@ -26,7 +34,13 @@ namespace CameraMap.Models.Device
                 return MapDeviceType.Line;
             }
         }
-
+        public string DeviceTypeName
+        {
+            get
+            {
+                return DeviceType.ToString();
+            }
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -35,14 +49,51 @@ namespace CameraMap.Models.Device
         /// デバイスKey
         /// </summary>
         public string LineKey {get;set;}
+        public string DeviceKey
+        {
+            get
+            {
+                return LineKey;
+            }
+        }
+
         /// <summary>
         /// デバイス名
         /// </summary>
         public string LineName {get;set;}
+        public string DeviceName
+        {
+            get
+            {
+                return LineName;
+            }
+        }
         /// <summary>
         /// 地理纬度
         /// </summary>
         public string Points {get;set;}
+
+        public BMapPoint[] MapPoints
+        {
+            get
+            {
+                var ps = new List<BMapPoint>();
+                var lines = Points.Split(new char[] { '\n' });
+                foreach (var l in lines) {
+                    var p= l.Split(new char[] { ',' });
+                    if (p.Length != 2) {
+                        continue;
+                    }
+                    decimal lat,lng;
+                    if (decimal.TryParse(p[0], out lat) && decimal.TryParse(p[1], out lng)) {
+                        ps.Add(new BMapPoint() { Lat = lat, Lng = lng });
+                    }
+                }
+                return ps.ToArray();
+            }
+        }
+
+
         /// <summary>
         /// 説明
         /// </summary>

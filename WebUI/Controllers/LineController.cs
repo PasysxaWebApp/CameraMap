@@ -8,35 +8,34 @@ using System.Web.Mvc;
 
 namespace CameraMap.Controllers
 {
-    public class DeviceController : Controller
+    public class LineController : Controller
     {
         //
-        // GET: /Device/
+        // GET: /Line/
 
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult GetDeviceModel(long Id)
+        public ActionResult GetLineModel(long Id)
         {
-            var model = DeviceModelReg.GetModel(Id);
+            var model = LineModelReg.GetModel(Id);
             model.SetUrlHelper(Url);
             var m = new
             {
-                DeviceId = model.DeviceId.ToString(),
-                LayerId=model.LayerId.ToString(),
-                LayerName=model.LayerName,
-                LayerKey=model.LayerKey,
-                DeviceKey = model.DeviceKey,
-                DeviceName = model.DeviceName,
+                LineId = model.LineId.ToString(),
+                LayerId = model.LayerId.ToString(),
+                LayerName = model.LayerName,
+                LayerKey = model.LayerKey,
+                LineKey = model.LineKey,
+                LineName = model.LineName,
                 IconFile = model.IconFile.ToString(),
                 IconFileUrl = model.IconFileUrl,
                 IconFileName = model.IconFileName,
-                Lat = model.Lat.ToString(),
-                Lng = model.Lng.ToString(),
+                Points = model.Points,
                 Note = model.Note,
-                DeviceUrl = model.DeviceUrl,
             };
             var r = new
             {
@@ -46,7 +45,7 @@ namespace CameraMap.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditDeviceAjax(DeviceModel model)
+        public ActionResult EditLineAjax(LineModel model)
         {
             var loginInfo = SessionLoginInfo.GetInstance(Session);
 
@@ -60,19 +59,17 @@ namespace CameraMap.Controllers
             }
 
             bool bl = false;
-            if (model.DeviceId > 0)
+            if (model.LineId > 0)
             {
                 try
                 {
-                    var oldmodel = DeviceModelReg.GetModel(model.DeviceId);
-                    oldmodel.DeviceKey = model.DeviceKey;
-                    oldmodel.DeviceName = model.DeviceName;
-                    oldmodel.Lat = model.Lat;
-                    oldmodel.Lng = model.Lng;
+                    var oldmodel = LineModelReg.GetModel(model.LineId);
+                    oldmodel.LineKey = model.LineKey;
+                    oldmodel.LineName = model.LineName;
+                    oldmodel.Points = model.Points;
                     oldmodel.Note = model.Note;
-                    oldmodel.DeviceUrl = model.DeviceUrl;
                     oldmodel.LastUserID = loginInfo.LoginID;
-                    bl = DeviceModelReg.Update(oldmodel);
+                    bl = LineModelReg.Update(oldmodel);
                 }
                 catch (Exception) { }
             }
@@ -82,7 +79,7 @@ namespace CameraMap.Controllers
                 {
                     model.OrganizationID = loginInfo.OrganizationID;
                     model.LastUserID = loginInfo.LoginID;
-                    bl = DeviceModelReg.Add(model);
+                    bl = LineModelReg.Add(model);
                 }
                 catch (Exception) { }
             }
@@ -94,17 +91,17 @@ namespace CameraMap.Controllers
         }
 
         [HttpPost]
-        public ActionResult DeleteDeviceAjax(long DeviceId)
+        public ActionResult DeleteLineAjax(long LineId)
         {
             var loginInfo = SessionLoginInfo.GetInstance(Session);
-            var model = new DeviceModel()
+            var model = new LineModel()
             {
-                DeviceId = DeviceId,
+                LineId = LineId,
                 LastUserID = loginInfo.LoginID,
                 OrganizationID = loginInfo.OrganizationID,
             };
 
-            var bl = DeviceModelReg.Delete(model);
+            var bl = LineModelReg.Delete(model);
             var jsonObj = new
             {
                 Success = bl
@@ -112,17 +109,11 @@ namespace CameraMap.Controllers
             return Json(jsonObj);
         }
 
-        public ActionResult GetAllDeviceDatasByLayerId(long LayerId)
+        public ActionResult GetAllLineDatasByLayerId(long LayerId)
         {
             var loginInfo = SessionLoginInfo.GetInstance(Session);
-            var allModels = new List<IDevice>();
-
-            var allDevices = DeviceModelReg.GetModels(LayerId);
-            allDevices.ForEach(m => m.SetUrlHelper(Url));
-            allModels.AddRange(allDevices);
-            var allLines = LineModelReg.GetModels(LayerId);
-            allLines.ForEach(m => m.SetUrlHelper(Url));
-            allModels.AddRange(allLines);
+            var allModels = LineModelReg.GetModels(LayerId);
+            allModels.ForEach(m => m.SetUrlHelper(Url));
             var r = new
             {
                 Datas = allModels
@@ -130,23 +121,17 @@ namespace CameraMap.Controllers
             return Json(r);
         }
 
-        public ActionResult GetAllDeviceDatas(string LayerIds)
+        public ActionResult GetAllLineDatas(string LayerIds)
         {
             var loginInfo = SessionLoginInfo.GetInstance(Session);
-            var allModels = new List<IDevice>();
-            
-            var allDevices = DeviceModelReg.GetModels(LayerIds);
-            allDevices.ForEach(m => m.SetUrlHelper(Url));
-            allModels.AddRange(allDevices);
-            var allLines = LineModelReg.GetModels(LayerIds);
-            allLines.ForEach(m => m.SetUrlHelper(Url));
-            allModels.AddRange(allLines);
-            var r = new { 
-                Datas=allModels
+            var allModels = LineModelReg.GetModels(LayerIds);
+            allModels.ForEach(m => m.SetUrlHelper(Url));
+            var r = new
+            {
+                Datas = allModels
             };
             return Json(r);
         }
-
 
     }
 }

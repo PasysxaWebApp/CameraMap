@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace CameraMap.Models.Device
 {
 
-    public class DeviceModel
+    public class DeviceModel : IDevice
     {
         private UrlHelper Url;
 
@@ -27,7 +27,12 @@ namespace CameraMap.Models.Device
                 return MapDeviceType.Point;
             }
         }
-
+        public string DeviceTypeName {
+            get
+            {
+                return DeviceType.ToString();
+            }
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -64,6 +69,15 @@ namespace CameraMap.Models.Device
         /// 地理经度
         /// </summary>
         public decimal Lng { get; set; }
+
+        public BMapPoint[] MapPoints
+        {
+            get
+            {
+                return new[] { new BMapPoint() { Lat = Lat, Lng = Lng } };
+            }
+        }
+
         /// <summary>
         /// layer名
         /// </summary>

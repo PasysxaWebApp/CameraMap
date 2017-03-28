@@ -1,14 +1,15 @@
 ﻿@using CameraMap.Models.Device
-@model List<DeviceModel>
+@model List<IDevice>
 
 <table id="gridAllDevices">
     @foreach (var device in Model)
     {
         <tr>
             <td>@device.DeviceId</td>
+            <td>@device.DeviceType</td>
             <td>@device.DeviceName</td>
             <td>
-                <a href="javascript:void(0)" class="deviceEditIcon DeviceEdit" deviceid="@device.DeviceId"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
+                <a href="javascript:void(0)" class="deviceEditIcon DeviceEdit" deviceid="@device.DeviceId" devicetype="@device.DeviceType"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
                 <a href="javascript:void(0)" class="deviceEditIcon DeviceDel" deviceid="@device.DeviceId"><img src="@Url.Content("~/Contents/images/delete.png")" /></a>
             </td>
 
@@ -23,6 +24,7 @@
         $("#gridAllDevices").wijgrid({
             allowSorting: false,
             columns: [
+                { headerText: "", visible: false },
                 { headerText: "", visible: false },
                 { headerText: "设备", width: '70%', textAlignment: 'left' },
                 { headerText: "", width: '30%', textAlignment: 'center' },
@@ -45,12 +47,18 @@
 
         $(".DeviceEdit").click(function () {
             $this = $(this);
-            setInfoToDeviceEditDialog($this.attr("deviceid"));
+            var devicetype = $this.attr("devicetype");
+            if (devicetype == "Line") {
+                setInfoToLineEditDialog($this.attr("deviceid"));
+            }
+            else if (devicetype == "Point") {
+                setInfoToDeviceEditDialog($this.attr("deviceid"));
+            }
         });
 
         $(".DeviceDel").click(function () {
             $this = $(this);
-            deleteDeviceData($this.attr("deviceid"));
+                deleteDeviceData($this.attr("deviceid"));
         });
 
         $(".deviceView").click(function () {

@@ -18,15 +18,15 @@
 
         #wrapper {
             height: 100%;
-            border:none;
+            border: none;
         }
 
         #main {
             height: 100%;
-            margin-top:0px;
-            margin-bottom:0px;
-            margin-left:0px;
-            margin-right:0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
         }
 
         #vsplitter {
@@ -38,15 +38,16 @@
 
         #container {
             min-height: 600px;
-            height:100%;
+            height: 100%;
             width: 100%;
             margin: 0px;
         }
+
         #mapRealInfo {
-            height:28px;
-            line-height:28px;
-            text-align:right;
-            padding-right:5px;
+            height: 28px;
+            line-height: 28px;
+            text-align: right;
+            padding-right: 5px;
         }
     </style>
 
@@ -121,6 +122,12 @@
                 var layerId = $("#selectedlayerId").val();
                 var layerName = $("#selectedlayerName").val();
                 openNewDevice(layerId, layerName);
+            });
+
+            $("#btnCreateLine").click(function () {
+                var layerId = $("#selectedlayerId").val();
+                var layerName = $("#selectedlayerName").val();
+                openNewLine(layerId, layerName);
             });
         });
 
@@ -290,43 +297,78 @@
 
 </div>
 
-<div id="deviceEditDialog" title="设备" style="display:none;">
+<div id="deviceEditDialog" title="点" style="display:none;">
     @using (Html.BeginForm("DeviceEdit", "Layer", FormMethod.Post, new { @ID = "DeviceMstFrm" }))
     {
-        <input type="hidden" id="selectedDeviceId" name="DeviceId" value="0" />
-        <input type="hidden" id="selectedDeviceLayerId" name="LayerId" value="0" />
-        <table id="selectDeviceDataEditTable" class="EditTable">
-            <tr>
-                <td><label>图层</label></td>
-                <td><label id="selectedDeviceLayerName">图层名称</label></td>
-            </tr>
-            <tr>
-                <td><label>标识</label></td>
-                <td><input type="text" name="DeviceKey" id="DeviceKey" class="NumABC" style="width:150px;" /></td>
-            </tr>
-            <tr>
-                <td><label>名称</label></td>
-                <td><input type="text" name="DeviceName" id="DeviceName" class="Fullwidth" style="width:150px;" /></td>
-            </tr>
-            <tr>
-                <td><label>Url</label></td>
-                <td><input type="text" name="DeviceUrl" id="DeviceUrl" class="NumABC" style="width:500px;" /></td>
-            </tr>
-            <tr>
-                <td><label>纬度(Lat)</label></td>
-                <td><input type="text" name="Lat" id="DeviceLat" class="NumABC" style="width:150px;" /></td>
-            </tr>
-            <tr>
-                <td><label>经度(Lng)</label></td>
-                <td><input type="text" name="Lng" id="DeviceLng" class="NumABC" style="width:150px;" /></td>
-            </tr>
-            <tr>
-                <td><label>描述</label></td>
-                <td>
-                    <textarea id="DeviceNote" name="Note" maxlength="500" class="Fullwidth" style="width:500px;height:100px;"></textarea>
-                </td>
-            </tr>
-        </table>
+    <input type="hidden" id="selectedDeviceId" name="DeviceId" value="0" />
+    <input type="hidden" id="selectedDeviceLayerId" name="LayerId" value="0" />
+    <table id="selectDeviceDataEditTable" class="EditTable">
+        <tr>
+            <td><label>图层</label></td>
+            <td><label id="selectedDeviceLayerName">图层名称</label></td>
+        </tr>
+        <tr>
+            <td><label>标识</label></td>
+            <td><input type="text" name="DeviceKey" id="DeviceKey" class="NumABC" style="width:150px;" /></td>
+        </tr>
+        <tr>
+            <td><label>名称</label></td>
+            <td><input type="text" name="DeviceName" id="DeviceName" class="Fullwidth" style="width:150px;" /></td>
+        </tr>
+        <tr>
+            <td><label>Url</label></td>
+            <td><input type="text" name="DeviceUrl" id="DeviceUrl" class="NumABC" style="width:500px;" /></td>
+        </tr>
+        <tr>
+            <td><label>纬度(Lat)</label></td>
+            <td><input type="text" name="Lat" id="DeviceLat" class="NumABC" style="width:150px;" /></td>
+        </tr>
+        <tr>
+            <td><label>经度(Lng)</label></td>
+            <td><input type="text" name="Lng" id="DeviceLng" class="NumABC" style="width:150px;" /></td>
+        </tr>
+        <tr>
+            <td><label>描述</label></td>
+            <td>
+                <textarea id="DeviceNote" name="Note" maxlength="500" class="Fullwidth" style="width:500px;height:100px;"></textarea>
+            </td>
+        </tr>
+    </table>
+    }
+
+</div>
+
+<div id="lineEditDialog" title="线" style="display:none;">
+    @using (Html.BeginForm("LineEdit", "Layer", FormMethod.Post, new { @ID = "LineMstFrm" }))
+    {
+    <input type="hidden" id="selectedLineId" name="LineId" value="0" />
+    <input type="hidden" id="selectedLineLayerId" name="LayerId" value="0" />
+    <table id="selectLineDataEditTable" class="EditTable">
+        <tr>
+            <td><label>图层</label></td>
+            <td><label id="selectedLineLayerName">图层名称</label></td>
+        </tr>
+        <tr>
+            <td><label>标识</label></td>
+            <td><input type="text" name="LineKey" id="LineKey" class="NumABC" style="width:150px;" /></td>
+        </tr>
+        <tr>
+            <td><label>名称</label></td>
+            <td><input type="text" name="LineName" id="LineName" class="Fullwidth" style="width:150px;" /></td>
+        </tr>
+        <tr>
+            <td><label>坐标</label></td>
+            <td>
+                <textarea name="Points" id="LinePoints" class="NumABC" style="width:500px;height:100px;"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><label>描述</label></td>
+            <td>
+                <textarea id="LineNote" name="Note" maxlength="500" class="Fullwidth" style="width:500px;height:100px;"></textarea>
+            </td>
+        </tr>
+    </table>
     }
 
 </div>
@@ -438,7 +480,104 @@
 
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#lineEditDialog').wijdialog({
+                autoOpen: false,
+                modal: true,
+                width: 650,
+                resizable: false,
+                captionButtons: {
+                    pin: { visible: false },
+                    refresh: { visible: false },
+                    toggle: { visible: false },
+                    minimize: { visible: false },
+                    maximize: { visible: false }
+                },
+                buttons: [
+                {
+                    text: "保存",
+                    click: function () {
+                        saveLineData();
+                    }
+                },
+                {
+                    text: "关闭",
+                    click: function () {
+                        closeLineDialog();
+                    }
+                }],
+            });
+        });
+
+        function openNewLine(LayerId, LayerName) {
+            $("#selectedLineId").val("0");
+            $("#selectedLineLayerId").val(LayerId);
+            $("#selectedLineLayerName").text(LayerName);
+            $("#LineKey").val("");
+            $("#LineName").val("");
+            $("#LinePoints").val("");
+            $("#LineNote").text("");
+
+            $('#lineEditDialog').wijdialog("open");
+        }
+        function closeLineDialog() {
+            $('#lineEditDialog').wijdialog("close");
+        }
+
+        function setInfoToLineEditDialog(Id) {
+            var url = '@Url.Action("GetLineModel", "Line")';
+            var postData = { Id: Id };
+            $.post(url, postData, function (data) {
+                var model = data.Model;
+                $("#selectedLineId").val(model.LineId);
+                $("#selectedLineLayerId").val(model.LayerId);
+                $("#selectedLineLayerName").text(model.LayerName);
+                $("#LineKey").val(model.LineKey);
+                $("#LineName").val(model.LineName);
+                $("#LinePoints").val(model.Points);
+                $("#LineNote").text(model.Note);
+                $('#lineEditDialog').wijdialog("open");
+            });
+        }
+
+
+        function saveLineData() {
+            var url = '@Url.Action("EditLineAjax", "Line")';
+            var postData = $("#LineMstFrm").serialize();
+            $.post(url, postData, function (data) {
+                if (data.Success) {
+                    closeLineDialog();
+                    reloadDeviceData();
+                }
+                else {
+                    alert("保存失败!");
+                }
+            });
+        }
+
+        function deleteLineData(Id) {
+            var bl = confirm("删除数据，继续吗？");
+            if (!bl) {
+                return;
+            }
+            var url = '@Url.Action("DeleteLineAjax", "Line")';
+            var postData = { LineId: Id };
+            $.post(url, postData, function (data) {
+                if (data.Success) {
+                    closeLineDialog();
+                    reloadDeviceData();
+                }
+                else {
+                    alert("删除失败!");
+                }
+            });
+        }
+
+    </script>
+
     <script src="http://api.map.baidu.com/api?v=2.0&ak=jIhMZ1oRb0xHeDaSGVzzAgg4Ez8dcNrA" type="text/javascript"></script>
+    @*<script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>*@
     <script type="text/javascript">
         var map;
         $(document).ready(function () {
@@ -449,6 +588,14 @@
             map.disableDoubleClickZoom(true);
             map.addControl(new BMap.NavigationControl());
             setBoundary('@Model.FullCountyName');
+
+            @*var b = new BMap.Bounds(new BMap.Point(@Model.RectangleL, @Model.RectangleT),new BMap.Point(@Model.RectangleR, @Model.RectangleB));
+            try {
+                BMapLib.AreaRestriction.setBounds(map, b);
+            } catch (e) {
+                alert(e);
+            }*@
+
             //loadPoints();
             //loadDevicePointsByLayerId();
             //单击获取点击的经纬度
@@ -569,10 +716,17 @@
             var url = '@Url.Action("GetAllDeviceDatas", "Device")';
             var postData = { LayerIds: layerIds }
             $.post(url, postData, function (data, status, jqXHR) {
+                debugger;
                 for (idx in data.Datas) {
                     var dev = data.Datas[idx];
-                    var marker=createMark(dev);
-                    map.addOverlay(marker);  
+                    if (dev.DeviceTypeName=="Point"){
+                        var marker=createMark(dev);
+                        map.addOverlay(marker);
+                    }
+                    else if (dev.DeviceTypeName=="Line"){
+                        var polyline=createLine(dev);
+                        map.addOverlay(polyline);
+                    }
 
                     //var pt = new BMap.Point(dev.Lat, dev.Lng);
                     //var marker = new BMap.Marker(pt);// 创建标注
@@ -603,15 +757,17 @@
             _marker.setTitle(dev.DeviceName);
             _marker.addEventListener("click", function(e){
                 var p = e.target.getPosition();       //获取marker的位置
-                alert("marker的位置是" + p.lng + "," + p.lat);   
+                alert("marker的位置是" + p.lng + "," + p.lat);
             });
             return _marker;
         };
 
-        //function getAttr(e){
-        //    var p = e.target.getPosition();       //获取marker的位置
-        //    alert("marker的位置是" + p.lng + "," + p.lat);   
-        //}
+        createLine = function(line){
+            debugger;
+            var polyline = new BMap.Polyline(line.MapPoints, {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});   //创建折线
+            polyline.device=line;
+            return polyline;
+        };
 
     </script>
 }

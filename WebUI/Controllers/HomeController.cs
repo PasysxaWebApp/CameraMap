@@ -10,6 +10,7 @@ using CameraMap.Models.Notice;
 using CameraMap.Models.Layer;
 using CameraMap.Models.Device;
 using CameraMap.Models.Master.Organization;
+using System.Collections.Generic;
 
 namespace CameraMap.Controllers
 {
@@ -78,8 +79,15 @@ namespace CameraMap.Controllers
         public ActionResult GetAllDevicesPartial(long LayerId)
         {
             var loginInfo = SessionLoginInfo.GetInstance(Session);
-            var allModels = DeviceModelReg.GetModels(LayerId);
-            allModels.ForEach(m => m.SetUrlHelper(Url));
+            var allModels = new List<IDevice>();
+            var allDevices= DeviceModelReg.GetModels(LayerId);
+            allDevices.ForEach(m => m.SetUrlHelper(Url));
+            allModels.AddRange(allDevices);
+
+            var allLines = LineModelReg.GetModels(LayerId);
+            allLines.ForEach(m => m.SetUrlHelper(Url));
+            allModels.AddRange(allLines);
+            
             return PartialView("_AllDevicesPartial", allModels);
         }
 

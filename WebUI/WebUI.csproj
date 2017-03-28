@@ -190,6 +190,7 @@
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\DeviceController.cs" />
     <Compile Include="Controllers\LayerController.cs" />
+    <Compile Include="Controllers\LineController.cs" />
     <Compile Include="Controllers\NoticeController.cs" />
     <Compile Include="Controllers\Shared\CommonController.cs" />
     <Compile Include="Controllers\Master\OrganizationController.cs" />
