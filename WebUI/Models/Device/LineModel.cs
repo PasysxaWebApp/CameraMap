@@ -85,7 +85,7 @@ namespace CameraMap.Models.Device
                         continue;
                     }
                     decimal lat,lng;
-                    if (decimal.TryParse(p[0], out lat) && decimal.TryParse(p[1], out lng)) {
+                    if (decimal.TryParse(p[0], out lng) && decimal.TryParse(p[1], out lat)) {
                         ps.Add(new BMapPoint() { Lat = lat, Lng = lng });
                     }
                 }
