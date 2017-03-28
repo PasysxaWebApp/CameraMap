@@ -1,5 +1,4 @@
-﻿using PacificSystem.Utility;
-using SharedUtilitys.DataBases;
+﻿using SharedUtilitys.DataBases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,36 +6,34 @@ using System.Text;
 
 namespace CameraMap.Models.Device
 {
-    class DeviceModelReg
+    class LineModelReg
     {
-        public static List<DeviceModel> GetModels(long LayerId)
+        public static List<LineModel> GetModels(long LayerId)
         {
-            var models = new List<DeviceModel>();
+            var models = new List<LineModel>();
             using (var utility = DbUtility.GetInstance())
             {
                 var sql = @"
                         SELECT 
-	                        m_devices.DeviceId,
-                            m_devices.OrganizationID,
-                            m_devices.LayerId,
-                            m_devices.DeviceKey,
-                            m_devices.DeviceName,
-                            m_devices.DeviceUrl,
-                            m_devices.Note,
-                            m_devices.Lat,
-                            m_devices.Lng,
-                            m_devices.DisplayNo,
-                            m_devices.DisplayFlag,
-                            m_devices.LastUserID,
-                            m_devices.LastUpdatetime,
+	                        m_lines.LineId,
+                            m_lines.OrganizationID,
+                            m_lines.LayerId,
+                            m_lines.LineKey,
+                            m_lines.LineName,
+                            m_lines.Note,
+                            m_lines.Points,
+                            m_lines.DisplayNo,
+                            m_lines.DisplayFlag,
+                            m_lines.LastUserID,
+                            m_lines.LastUpdatetime,
                             m_layers.LayerKey,
                             m_layers.LayerName,
                             m_layers.IconFile,
                             t_files.FileName as IconFileName 
-                        FROM m_devices
-                        inner join m_layers on m_layers.Id=m_devices.LayerId
+                        FROM m_lines
+                        inner join m_layers on m_layers.Id=m_lines.LayerId
                         left join t_files on t_files.FilesID=m_layers.IconFile
-                        where m_devices.LayerId=@LayerId
+                        where m_lines.LayerId=@LayerId
                         ;";
 
                 utility.AddParameter("LayerId", LayerId);
@@ -45,7 +42,7 @@ namespace CameraMap.Models.Device
             return models;
         }
 
-        public static List<DeviceModel> GetModels(string LayerIds)
+        public static List<LineModel> GetModels(string LayerIds)
         {
             var lays = LayerIds.Split(new char[] { ',' });
             var formatedLayerIds = lays.Select(m => ConvertToInt64(m)).Aggregate((c, n) => c + "," + n);
@@ -53,32 +50,30 @@ namespace CameraMap.Models.Device
             {
                 return null;
             }
-            var models = new List<DeviceModel>();
+            var models = new List<LineModel>();
             using (var utility = DbUtility.GetInstance())
             {
                 var sql = string.Format(@"
                         SELECT 
-	                        m_devices.DeviceId,
-                            m_devices.OrganizationID,
-                            m_devices.LayerId,
-                            m_devices.DeviceKey,
-                            m_devices.DeviceName,
-                            m_devices.DeviceUrl,
-                            m_devices.Note,
-                            m_devices.Lat,
-                            m_devices.Lng,
-                            m_devices.DisplayNo,
-                            m_devices.DisplayFlag,
-                            m_devices.LastUserID,
-                            m_devices.LastUpdatetime,
+	                        m_lines.LineId,
+                            m_lines.OrganizationID,
+                            m_lines.LayerId,
+                            m_lines.LineKey,
+                            m_lines.LineName,
+                            m_lines.Note,
+                            m_lines.Points,
+                            m_lines.DisplayNo,
+                            m_lines.DisplayFlag,
+                            m_lines.LastUserID,
+                            m_lines.LastUpdatetime,
                             m_layers.LayerKey,
                             m_layers.LayerName,
                             m_layers.IconFile,
                             t_files.FileName as IconFileName 
-                        FROM m_devices
-                        inner join m_layers on m_layers.Id=m_devices.LayerId
+                        FROM m_lines
+                        inner join m_layers on m_layers.Id=m_lines.LayerId
                         left join t_files on t_files.FilesID=m_layers.IconFile
-                        where m_devices.LayerId in ({0})
+                        where m_lines.LayerId in ({0})
                         ;", formatedLayerIds);
 
                 utility.ExecuteReaderModelList(sql, models);
@@ -86,7 +81,8 @@ namespace CameraMap.Models.Device
             return models;
         }
 
-        private static string ConvertToInt64(string str) {
+        private static string ConvertToInt64(string str)
+        {
             if (string.IsNullOrEmpty(str))
             {
                 return "0";
@@ -96,42 +92,41 @@ namespace CameraMap.Models.Device
             {
                 return l.ToString();
             }
-            else {
+            else
+            {
                 return "0";
             }
         }
 
-        public static DeviceModel GetModel(long DeviceId)
+        public static LineModel GetModel(long LineId)
         {
-            var model = new DeviceModel();
+            var model = new LineModel();
             using (var utility = DbUtility.GetInstance())
             {
                 var sql = @"
                         SELECT 
-	                        m_devices.DeviceId,
-                            m_devices.OrganizationID,
-                            m_devices.LayerId,
-                            m_devices.DeviceKey,
-                            m_devices.DeviceName,
-                            m_devices.DeviceUrl,
-                            m_devices.Note,
-                            m_devices.Lat,
-                            m_devices.Lng,
-                            m_devices.DisplayNo,
-                            m_devices.DisplayFlag,
-                            m_devices.LastUserID,
-                            m_devices.LastUpdatetime,
+	                        m_lines.LineId,
+                            m_lines.OrganizationID,
+                            m_lines.LayerId,
+                            m_lines.LineKey,
+                            m_lines.LineName,
+                            m_lines.Note,
+                            m_lines.Points,
+                            m_lines.DisplayNo,
+                            m_lines.DisplayFlag,
+                            m_lines.LastUserID,
+                            m_lines.LastUpdatetime,
                             m_layers.LayerKey,
                             m_layers.LayerName,
                             m_layers.IconFile,
                             t_files.FileName as IconFileName 
-                        FROM m_devices
-                        inner join m_layers on m_layers.Id=m_devices.LayerId
+                        FROM m_lines
+                        inner join m_layers on m_layers.Id=m_lines.LayerId
                         left join t_files on t_files.FilesID=m_layers.IconFile
-                        Where m_devices.DeviceId=@DeviceId;
+                        Where m_lines.LineId=@LineId;
                 ";
 
-                utility.AddParameter("DeviceId", DeviceId);
+                utility.AddParameter("LineId", LineId);
                 utility.ExecuteReaderModel(sql, model);
             }
             return model;
@@ -151,34 +146,30 @@ namespace CameraMap.Models.Device
                 return 0;
             }
         }
-        
-        public static bool Add(DeviceModel item)
+
+        public static bool Add(LineModel item)
         {
             var sql = @"
-                    INSERT INTO m_devices
-                    (DeviceId,
+                    INSERT INTO m_lines
+                    (LineId,
                     OrganizationID,
                     LayerId,
-                    DeviceKey,
-                    DeviceName,
-                    DeviceUrl,
+                    LineKey,
+                    LineName,
                     Note,
-                    Lat,
-                    Lng,
+                    Points,
                     DisplayNo,
                     DisplayFlag,
                     LastUserID,
                     LastUpdatetime)
                     VALUES
-                    (@DeviceId,
+                    (@LineId,
                     @OrganizationID,
                     @LayerId,
-                    @DeviceKey,
-                    @DeviceName,
-                    @DeviceUrl,
+                    @LineKey,
+                    @LineName,
                     @Note,
-                    @Lat,
-                    @Lng,
+                    @Points,
                     0,
                     1,
                     @LastUserID,
@@ -189,18 +180,16 @@ namespace CameraMap.Models.Device
             {
                 try
                 {
-                    utility.AddParameter("DeviceId", id);
+                    utility.AddParameter("LineId", id);
                     utility.AddParameter("OrganizationID", item.OrganizationID);
                     utility.AddParameter("LayerId", item.LayerId);
-                    utility.AddParameter("DeviceKey", item.DeviceKey);
-                    utility.AddParameter("DeviceName", item.DeviceName);
-                    utility.AddParameter("DeviceUrl", item.DeviceUrl);
+                    utility.AddParameter("LineKey", item.LineKey);
+                    utility.AddParameter("LineName", item.LineName);
                     utility.AddParameter("Note", item.Note);
-                    utility.AddParameter("Lat", item.Lat);
-                    utility.AddParameter("Lng", item.Lng);
+                    utility.AddParameter("Points", item.Points);
                     utility.AddParameter("LastUserID", item.LastUserID);
                     utility.ExecuteNonQuery(sql);
-                    item.DeviceId = id;
+                    item.LineId = id;
                     return true;
                 }
                 catch (Exception)
@@ -210,47 +199,44 @@ namespace CameraMap.Models.Device
             }
         }
 
-        public static bool Delete(DeviceModel item)
+        public static bool Delete(LineModel item)
         {
             var sql = @" 
-                    DELETE FROM m_devices WHERE DeviceId=@DeviceId;
+                    DELETE FROM m_lines WHERE LineId=@LineId;
                     ";
 
             using (var utility = DbUtility.GetInstance())
             {
-                utility.AddParameter("DeviceId", item.DeviceId);
+                utility.AddParameter("LineId", item.LineId);
                 return utility.ExecuteNonQuery(sql.ToString()) >= 1;
             }
         }
 
-        public static bool Update(DeviceModel item)
+        public static bool Update(LineModel item)
         {
             var sql = @" 
-                    UPDATE m_devices
+                    UPDATE m_lines
                     SET
-                        DeviceKey = @DeviceKey,
-                        DeviceName = @DeviceName,
-                        DeviceUrl = @DeviceUrl,
+                        LineKey = @LineKey,
+                        LineName = @LineName,
                         Note = @Note,
-                        Lat = @Lat,
-                        Lng = @Lng,
+                        Points = @Points,
                         LastUserID = @LastUserID,
                         LastUpdatetime = now()
-                    WHERE DeviceId = @DeviceId;
+                    WHERE LineId = @LineId;
                     ";
 
             using (var utility = DbUtility.GetInstance())
             {
-                utility.AddParameter("DeviceId", item.DeviceId);
-                utility.AddParameter("DeviceKey", item.DeviceKey);
-                utility.AddParameter("DeviceName", item.DeviceName);
-                utility.AddParameter("DeviceUrl", item.DeviceUrl);
+                utility.AddParameter("LineId", item.LineId);
+                utility.AddParameter("LineKey", item.LineKey);
+                utility.AddParameter("LineName", item.LineName);
                 utility.AddParameter("Note", item.Note);
-                utility.AddParameter("Lat", item.Lat);
-                utility.AddParameter("Lng", item.Lng);
+                utility.AddParameter("Points", item.Points);
                 utility.AddParameter("LastUserID", item.LastUserID);
                 return utility.ExecuteNonQuery(sql) == 1;
             }
         }
+
     }
 }

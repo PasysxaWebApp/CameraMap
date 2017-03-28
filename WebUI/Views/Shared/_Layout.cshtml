@@ -275,19 +275,17 @@
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @class = "", @name = "LogOffForm", style = "margin-right: 0px;" }))
                 {
                     @Html.Hidden("OrganizationID", loginInfoSession.OrganizationID);
-                    <span>こんにちは</span>
+                    <span>你好</span>
                     <span>
                         @if (loginInfoSession != null)
-                        {@Html.Raw(string.Format("{0}さん", loginInfoSession.UserName));
+                        {@Html.Raw(string.Format("{0}", loginInfoSession.UserName));
                         }
                         else
-                        { @Html.Raw("○○○さん");
+                        { @Html.Raw("○○○");
                         }
                     </span>
 
-                    <a href="#" style="margin-bottom:5px; margin-left:20px;color:white;margin-right:10px;" onclick="logoutSystem()">ログアウト</a>
-                    @*<input type="button" value="ログアウト" style=" font-size:10px; height:25px;margin-bottom:5px; margin-left:20px;" onclick="logoutSystem()" />*@
-
+                    <a href="#" style="margin-bottom:5px; margin-left:20px;color:white;margin-right:10px;" onclick="logoutSystem()">退出</a>
                 }
             </div>
             <div style="clear:both;"></div>

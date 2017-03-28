@@ -206,6 +206,9 @@
     <Compile Include="Models\Chart\ChartTargetModel.cs" />
     <Compile Include="Models\Device\DeviceModel.cs" />
     <Compile Include="Models\Device\DeviceModelReg.cs" />
+    <Compile Include="Models\Device\LineModel.cs" />
+    <Compile Include="Models\Device\LineModelReg.cs" />
+    <Compile Include="Models\Device\MapDeviceType.cs" />
     <Compile Include="Models\Files\FileModel.cs" />
     <Compile Include="Models\Files\FileModelReg.cs" />
     <Compile Include="Models\Layer\LayerModel.cs" />

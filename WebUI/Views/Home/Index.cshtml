@@ -214,7 +214,10 @@
                     <table style="width:100%;">
                         <tr>
                             <td align="left"><label>设备</label></td>
-                            <td align="right"><input type="button" id="btnCreateDevice" value="新增..." /></td>
+                            <td align="right">
+                                <input type="button" id="btnCreateDevice" value="点" />
+                                <input type="button" id="btnCreateLine" value="线" />
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -231,8 +234,21 @@
     </div>
 
 </div>
-<div id="mapRealInfo">
-
+<div>
+    <table style="width:100%;">
+        <tr>
+            <td>
+                <div>
+                    @Model.OfficeName
+                </div>
+            </td>
+            <td align="right">
+                <div id="mapRealInfo">
+                    lng:0,lat:0
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>
 
 <div id="layerEditDialog" title="图层" style="display:none;">

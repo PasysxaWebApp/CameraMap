@@ -6,64 +6,56 @@ using System.Web.Mvc;
 
 namespace CameraMap.Models.Device
 {
-
-    public class DeviceModel
+    public class LineModel
     {
         private UrlHelper Url;
 
         /// <summary>
-        /// デバイスID
+        /// 
         /// </summary>
-        public long DeviceId { get; set; }
+        public long LineId {get;set;}
         /// <summary>
         /// 利用者構成ID
         /// </summary>
-        public string OrganizationID { get; set; }
+        public string OrganizationID {get;set;}
 
         public MapDeviceType DeviceType
         {
             get
             {
-                return MapDeviceType.Point;
+                return MapDeviceType.Line;
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public long LayerId { get; set; }
+        public long LayerId {get;set;}
         /// <summary>
         /// デバイスKey
         /// </summary>
-        public string DeviceKey { get; set; }
+        public string LineKey {get;set;}
         /// <summary>
         /// デバイス名
         /// </summary>
-        public string DeviceName { get; set; }
-        /// <summary>
-        /// デバイスURL
-        /// </summary>
-        public string DeviceUrl { get; set; }
-        /// <summary>
-        /// 説明
-        /// </summary>
-        public string Note { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public int MinZoom { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public int MaxZoom { get; set; }
+        public string LineName {get;set;}
         /// <summary>
         /// 地理纬度
         /// </summary>
-        public decimal Lat { get; set; }
+        public string Points {get;set;}
         /// <summary>
-        /// 地理经度
+        /// 説明
         /// </summary>
-        public decimal Lng { get; set; }
+        public string Note {get;set;}
+        /// <summary>
+        /// 
+        /// </summary>
+        public int MinZoom {get;set;}
+        /// <summary>
+        /// 
+        /// </summary>
+        public int MaxZoom {get;set;}
+
         /// <summary>
         /// layer名
         /// </summary>
@@ -97,25 +89,24 @@ namespace CameraMap.Models.Device
         /// <summary>
         /// 
         /// </summary>
-        public int DisplayNo { get; set; }
+        public int DisplayNo {get;set;}
         /// <summary>
         /// 
         /// </summary>
-        public int DisplayFlag { get; set; }
+        public int DisplayFlag {get;set;}
         /// <summary>
         /// 最終更新者
         /// </summary>
-        public long LastUserID { get; set; }
+        public long LastUserID {get;set;}
         /// <summary>
         /// 最終更新時間
         /// </summary>
-        public DateTime LastUpdatetime { get; set; }
+        public DateTime LastUpdatetime {get;set;}
 
         public void SetUrlHelper(UrlHelper url)
         {
             this.Url = url;
         }
-
 
     }
 }

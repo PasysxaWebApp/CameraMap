@@ -8,9 +8,6 @@
             <td>@device.DeviceId</td>
             <td>@device.DeviceName</td>
             <td>
-                <a href="javascript:void(0)" class="deviceEditIcon DeviceView" deviceid="@device.DeviceId" devicename="@device.DeviceName"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
-            </td>
-            <td>
                 <a href="javascript:void(0)" class="deviceEditIcon DeviceEdit" deviceid="@device.DeviceId"><img src="@Url.Content("~/Contents/images/edit16.png")" /></a>
                 <a href="javascript:void(0)" class="deviceEditIcon DeviceDel" deviceid="@device.DeviceId"><img src="@Url.Content("~/Contents/images/delete.png")" /></a>
             </td>
@@ -27,8 +24,7 @@
             allowSorting: false,
             columns: [
                 { headerText: "", visible: false },
-                { headerText: "设备", width: '50%', textAlignment: 'left' },
-                { headerText: "", width: '20%', textAlignment: 'center' },
+                { headerText: "设备", width: '70%', textAlignment: 'left' },
                 { headerText: "", width: '30%', textAlignment: 'center' },
             ],
             currentCellChanged: function (e) {
