@@ -37,7 +37,7 @@
         }
 
         #container {
-            min-height: 600px;
+            min-height: 500px;
             height: 100%;
             width: 100%;
             margin: 0px;
@@ -153,11 +153,12 @@
 
         function resizeWindow(){
             var wrapperHeight=$("#wrapper").height();
-            wrapperHeight=Math.max(wrapperHeight,700);
+            wrapperHeight=Math.max(wrapperHeight,600);
             var headerHeight=$("#header").height();
             var mapRealInfoHeight=$("#mapRealInfo").height();
             var mainContainerHeight= wrapperHeight-headerHeight-mapRealInfoHeight-2;
             $("#mainContainer").height(mainContainerHeight);
+            $("#main").height(mainContainerHeight);
             //$("#container").height(mainContainerHeight);
             $("#vsplitter").wijsplitter("refresh");
             $("#hsplitter").wijsplitter("refresh");

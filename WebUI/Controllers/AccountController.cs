@@ -80,6 +80,10 @@ namespace CameraMap.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (string.IsNullOrEmpty(model.OrganizationID))
+                {
+                    model.OrganizationID = "DebugOrganizationID";
+                }
                 var userModel = AccountModelsReg.GetInstance().GetUserModel(model);
 
                 if (userModel.Guid>0)

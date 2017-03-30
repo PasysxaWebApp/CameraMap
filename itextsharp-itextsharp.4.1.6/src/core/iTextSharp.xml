@@ -1425,7 +1425,7 @@
             <param name="listener">an IElementListener</param>
             <returns>true if the element was processed successfully</returns>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.Cell.AddElement(iTextSharp.text.IElement)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.Cell.AddElement(iTextSharp.text.IElement)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.Cell.Add(System.Object)">
             <summary>
             Add an Object to this cell.
@@ -3063,8 +3063,8 @@
             </summary>
             <returns>true if the document is open</returns>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.Document.SetMarginMirroring(System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.Document.SetMarginMirroringTopBottom(System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.Document.SetMarginMirroring(System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.Document.SetMarginMirroringTopBottom(System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.Document.IsMarginMirroring">
             Gets the margin mirroring flag.
             
@@ -4511,7 +4511,7 @@
             @param dir the directory
             @return the number of fonts registered
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.FontFactory.RegisterDirectory(System.String,System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.FontFactory.RegisterDirectory(System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.FontFactory.RegisterDirectories">
             Register fonts in some probable directories. It usually works in Windows,
             Linux and Solaris.
@@ -4732,7 +4732,7 @@
             @param dir the directory
             @return the number of fonts registered
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.FontFactoryImp.RegisterDirectory(System.String,System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.FontFactoryImp.RegisterDirectory(System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.FontFactoryImp.RegisterDirectories">
             Register fonts in some probable directories. It usually works in Windows,
             Linux and Solaris.
@@ -5251,11 +5251,11 @@
             </summary>
             <returns>a Paragraph</returns>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.html.HtmlEncoder" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.html.HtmlEncoder”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.html.HtmlEncoder.htmlCode">
             List with the HTML translation of all the characters. 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.html.HtmlEncoder.#ctor" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.html.HtmlEncoder.#ctor”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.html.HtmlEncoder.Encode(System.String)">
              Converts a <CODE>String</CODE> to the HTML-format of this <CODE>String</CODE>.
             
@@ -5936,7 +5936,7 @@
         <member name="F:iTextSharp.text.html.HtmlTags.H">
             attribute of anchor tag 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.html.HtmlWriter" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.html.HtmlWriter”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.html.HtmlWriter.NBSP">
             This is a possible HTML-tag. 
         </member>
@@ -5992,13 +5992,13 @@
              @return  <CODE>true</CODE> if the element was added, <CODE>false</CODE> if not.
              @throws  DocumentException when a document isn't open yet, or has been closed
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.html.HtmlWriter.Open" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.html.HtmlWriter.Open”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.html.HtmlWriter.Close">
             Signals that the <CODE>Document</CODE> was closed and that no other
             <CODE>Elements</CODE> will be added.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.html.HtmlWriter.InitHeader" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.html.HtmlWriter.InitFooter" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.html.HtmlWriter.InitHeader”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.html.HtmlWriter.InitFooter”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.html.HtmlWriter.WriteHeader(iTextSharp.text.Meta)">
              Writes a Metatag in the header.
             
@@ -6017,7 +6017,7 @@
              @param   header   the element that has to be written
              @throws  IOException
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.html.HtmlWriter.WriteComment(System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.html.HtmlWriter.WriteComment(System.String)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.html.HtmlWriter.SetStandardFont(iTextSharp.text.Font)">
              Changes the standardfont.
             
@@ -6029,7 +6029,7 @@
              @param   font    the font of an object
              @return  true if the font differs
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.html.HtmlWriter.SetImagepath(System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.html.HtmlWriter.SetImagepath(System.String)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.html.HtmlWriter.ResetImagepath">
             Resets the imagepath.
         </member>
@@ -7419,7 +7419,7 @@
             Interface for customizing the split character.
             </summary>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.ISplitCharacter.IsSplitCharacter(System.Int32,System.Int32,System.Int32,System.Char[],iTextSharp.text.pdf.PdfChunk[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.ISplitCharacter.IsSplitCharacter(System.Int32,System.Int32,System.Int32,System.Char[],iTextSharp.text.pdf.PdfChunk[])”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.Jpeg">
             <summary>
             An Jpeg is the representation of a graphic element (JPEG)
@@ -7991,7 +7991,7 @@
             
              @param   title   the new title
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.MarkedSection.NumberDepth" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.MarkedSection.NumberDepth”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.MarkedSection.IndentationLeft">
              Sets the indentation of this <CODE>Section</CODE> on the left side.
             
@@ -8242,8 +8242,8 @@
             @param fieldName the field name
             @return the list of export option values from fields of type list or combo
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.AcroFields.SetListOption(System.String,System.String[],System.String[])" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.AcroFields.GetFieldType(System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.AcroFields.SetListOption(System.String,System.String[],System.String[])”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.AcroFields.GetFieldType(System.String)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.AcroFields.ExportAsFdf(iTextSharp.text.pdf.FdfWriter)">
             Export the fields as a FDF.
             @param writer the FDF writer
@@ -8267,8 +8267,8 @@
             @return the field value
             @since 2.1.3
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.AcroFields.SetFieldProperty(System.String,System.String,System.Object,System.Int32[])" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.AcroFields.SetFieldProperty(System.String,System.String,System.Int32,System.Int32[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.AcroFields.SetFieldProperty(System.String,System.String,System.Object,System.Int32[])”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.AcroFields.SetFieldProperty(System.String,System.String,System.Int32,System.Int32[])”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.AcroFields.MergeXfaData(System.Xml.XmlNode)">
             Merges an XML data structure into this form.
             @param n the top node of the data structure
@@ -8388,7 +8388,7 @@
             @return <CODE>true</CODE> if the signature covers the entire document,
             <CODE>false</CODE> otherwise
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.AcroFields.VerifySignature(System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.AcroFields.VerifySignature(System.String)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.AcroFields.GetRevision(System.String)">
             Gets this <CODE>field</CODE> revision.
             @param field the signature field name
@@ -8465,7 +8465,7 @@
             Gets the total number of revisions this document has.
             @return the total number of revisions
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.AcroFields.FieldCache" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.AcroFields.FieldCache”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.AcroFields.SubstitutionFonts">
             Sets a list of substitution fonts. The list is composed of <CODE>BaseFont</CODE> and can also be <CODE>null</CODE>. The fonts in this list will be used if the original
             font doesn't contain the needed glyphs.
@@ -8793,7 +8793,7 @@
         <member name="F:iTextSharp.text.pdf.Barcode.inkSpreading">
             The ink spreading. 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.Barcode.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.Barcode.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.Barcode.CreateTemplateWithBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)">
             Creates a template with the barcode.
             @param cb the <CODE>PdfContentByte</CODE> to create the template. It
@@ -8884,7 +8884,7 @@
             text derived from the supplied code.
             @param altText the alternate text
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.Barcode128" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.Barcode128”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.Barcode128.CODE_AB_TO_C">
             The charset code change.
         </member>
@@ -8955,13 +8955,13 @@
             @param text the barcode
             @return the bars
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.Barcode128.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.Barcode128.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.Barcode128.BarcodeSize">
             Gets the maximum area that the barcode and the text, if
             any, will occupy. The lower left corner is always (0, 0).
             @return the size the barcode occupies.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.Barcode128.Code" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.Barcode128.Code”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.Barcode39">
             Implements the code 39 and code 39 extended. The default parameters are:
              <pre>
@@ -9009,7 +9009,7 @@
             @param text the text
             @return the checksum
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.Barcode39.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.Barcode39.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.Barcode39.BarcodeSize">
             Gets the maximum area that the barcode and the text, if
             any, will occupy. The lower left corner is always (0, 0).
@@ -9046,7 +9046,7 @@
             @param text the text to create the bars
             @return the bars
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BarcodeCodabar.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BarcodeCodabar.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.BarcodeCodabar.BarcodeSize">
             Gets the maximum area that the barcode and the text, if
             any, will occupy. The lower left corner is always (0, 0).
@@ -9097,8 +9097,8 @@
         <member name="M:iTextSharp.text.pdf.BarcodeDatamatrix.#ctor">
             Creates an instance of this class.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BarcodeDatamatrix.Generate(System.String)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BarcodeDatamatrix.Generate(System.Byte[],System.Int32,System.Int32)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BarcodeDatamatrix.Generate(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BarcodeDatamatrix.Generate(System.Byte[],System.Int32,System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.BarcodeDatamatrix.CreateImage">
             Gets an <CODE>Image</CODE> with the barcode. A successful call to the method <CODE>generate()</CODE>
             before calling this method is required.
@@ -9119,13 +9119,13 @@
             plus 2 * ws.
             @return the generated image
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.BarcodeDatamatrix.Height" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.BarcodeDatamatrix.Width" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.BarcodeDatamatrix.Height”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.BarcodeDatamatrix.Width”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.BarcodeDatamatrix.Ws">
             Gets/sets the whitespace border around the barcode.
             @param ws the whitespace border around the barcode
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.BarcodeDatamatrix.Options" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.BarcodeDatamatrix.Options”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.BarcodeEAN">
             Generates barcodes in several formats: EAN13, EAN8, UPCA, UPCE,
              supplemental 2 and 5. The default parameters are:
@@ -9239,13 +9239,13 @@
             @param _code the text with 5 digits
             @return the barcode
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BarcodeEAN.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BarcodeEAN.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.BarcodeEAN.BarcodeSize">
             Gets the maximum area that the barcode and the text, if
             any, will occupy. The lower left corner is always (0, 0).
             @return the size the barcode occupies.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.BarcodeEANSUPP" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.BarcodeEANSUPP”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.BarcodeEANSUPP.ean">
             The barcode with the EAN/UPC.
         </member>
@@ -9257,7 +9257,7 @@
             @param ean the EAN/UPC barcode
             @param supp the supplemental barcode
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BarcodeEANSUPP.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BarcodeEANSUPP.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.BarcodeEANSUPP.BarcodeSize">
             Gets the maximum area that the barcode and the text, if
             any, will occupy. The lower left corner is always (0, 0).
@@ -9302,7 +9302,7 @@
             @param text the text. It can contain non numeric characters
             @return the barcode
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BarcodeInter25.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BarcodeInter25.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.BarcodeInter25.BarcodeSize">
             Gets the maximum area that the barcode and the text, if
             any, will occupy. The lower left corner is always (0, 0).
@@ -9504,7 +9504,7 @@
             @param text the code to be created without checksum
             @return the bars
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BarcodePostnet.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BarcodePostnet.PlaceBarcode(iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.Color,iTextSharp.text.Color)”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.BarcodePostnet.BarcodeSize">
             Gets the maximum area that the barcode and the text, if
             any, will occupy. The lower left corner is always (0, 0).
@@ -9677,9 +9677,9 @@
             @param options the option flags
         </member>
         <member name="P:iTextSharp.text.pdf.BaseField.MaxCharacterLength">
-            Sets the maximum length of the field痴 text, in characters.
+            Sets the maximum length of the field抯 text, in characters.
             It is only meaningful for text fields.
-            @param maxCharacterLength the maximum length of the field痴 text, in characters
+            @param maxCharacterLength the maximum length of the field抯 text, in characters
         </member>
         <member name="T:iTextSharp.text.pdf.BaseFont">
             <summary>
@@ -9913,11 +9913,11 @@
             @throws  DocumentException   This shouldn't occur ever
             @since   2.1.1 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean,System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean,System.Boolean,System.Byte[],System.Byte[])" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean,System.Boolean,System.Byte[],System.Byte[],System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean,System.Boolean,System.Byte[],System.Byte[],System.Boolean,System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean,System.Boolean,System.Byte[],System.Byte[])”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean,System.Boolean,System.Byte[],System.Byte[],System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BaseFont.CreateFont(System.String,System.String,System.Boolean,System.Boolean,System.Byte[],System.Byte[],System.Boolean,System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.BaseFont.CreateFont(iTextSharp.text.pdf.PRIndirectReference)">
             Creates a font based on an existing document font. The created font font may not
             behave as expected, depending on the encoding or subset.
@@ -10014,8 +10014,8 @@
             @param fontSize the font size
             @return the width in points
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BaseFont.ConvertToBytes(System.String)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BaseFont.ConvertToBytes(System.Int32)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BaseFont.ConvertToBytes(System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BaseFont.ConvertToBytes(System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.BaseFont.WriteFont(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.pdf.PdfIndirectReference,System.Object[])">
             Outputs to the writer the font dictionaries and streams.
             @param writer the writer for this document
@@ -10057,7 +10057,7 @@
             @param index the byte index
             @return the Unicode character
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BaseFont.GetFullFontName(System.String,System.String,System.Byte[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BaseFont.GetFullFontName(System.String,System.String,System.Byte[])”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.BaseFont.GetAllFontNames(System.String,System.String,System.Byte[])">
             Gets all the names from the font. Only the required tables are read.
             @param name the name of the font
@@ -10098,7 +10098,7 @@
             @return the <CODE>Stream</CODE> to get the resource or
             <CODE>null</CODE> if not found
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BaseFont.GetUnicodeEquivalent(System.Int32)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BaseFont.GetUnicodeEquivalent(System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.BaseFont.GetCidCode(System.Int32)">
             Gets the CID code given an Unicode.
             It has only meaning with CJK fonts.
@@ -10172,9 +10172,9 @@
             Gets the postscript font name.
             @return the postscript font name
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.BaseFont.FullFontName" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.BaseFont.AllNameEntries" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.BaseFont.FamilyFontName" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.BaseFont.FullFontName”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.BaseFont.AllNameEntries”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.BaseFont.FamilyFontName”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.BaseFont.CodePagesSupported">
             Gets the code pages supported by the font. This has only meaning
             with True Type fonts.
@@ -10221,9 +10221,9 @@
             Generates the PDF stream with the Type1 and Truetype fonts returning
             a PdfStream.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfStream" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfDictionary" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfObject" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfStream”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfDictionary”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfObject”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfObject.BOOLEAN">
             a possible type of <CODE>PdfObject</CODE> 
         </member>
@@ -10426,7 +10426,7 @@
             
              @param        key        key of the entry (a <CODE>PdfName</CODE>)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfDictionary.Get(iTextSharp.text.pdf.PdfName)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfDictionary.Get(iTextSharp.text.pdf.PdfName)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfDictionary.IsFont">
               Checks if a <CODE>Dictionary</CODE> is of the type FONT.
             
@@ -10495,11 +10495,11 @@
             
              @param        bytes            content of the new <CODE>PdfObject</CODE> as an array of <CODE>byte</CODE>.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfStream.#ctor(System.IO.Stream,iTextSharp.text.pdf.PdfWriter)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfStream.#ctor(System.IO.Stream,iTextSharp.text.pdf.PdfWriter)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfStream.#ctor">
             Constructs a <CODE>PdfStream</CODE>-object.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfStream.WriteLength" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfStream.WriteLength”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfStream.FlateCompress">
             Compresses the stream.
         </member>
@@ -10629,8 +10629,8 @@
             Does not include line-based processing (Rules L1, L2).
             These are applied later in the line-based phase of the algorithm.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BidiOrder.DetermineParagraphEmbeddingLevel" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BidiOrder.DetermineExplicitEmbeddingLevels" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BidiOrder.DetermineParagraphEmbeddingLevel”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BidiOrder.DetermineExplicitEmbeddingLevels”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.BidiOrder.RemoveExplicitCodes">
             Rules X9.
             Remove explicit codes so that they may be ignored during the remainder
@@ -10671,7 +10671,7 @@
             7) resolving implicit embedding levels
             Rules I1, I2.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.BidiOrder.GetLevels(System.Int32[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.BidiOrder.GetLevels(System.Int32[])”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.BidiOrder.ComputeMultilineReordering(System.SByte[],System.Int32[])">
             Return multiline reordering array for a given level array.
             Reordering does not occur across a line break.
@@ -10737,7 +10737,7 @@
             Creates a byte buffer with a certain capacity.
             @param size the initial capacity
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.ByteBuffer.SetCacheSize(System.Int32)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.ByteBuffer.SetCacheSize(System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.ByteBuffer.FillCache(System.Int32)">
              You can fill the cache in advance if you want to.
             
@@ -10921,8 +10921,8 @@
             An offset-marker item for the list.
             It is used to mark an offset and to set the offset list item.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.CFFFont.Font" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.CFFFontSubset" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.CFFFont.Font”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.CFFFontSubset”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.CFFFontSubset.ENDCHAR_OP">
             Operator codes for unused  CharStrings and unused local and global Subrs
         </member>
@@ -11030,15 +11030,15 @@
              @param FontIndex the font
              @throws IOException
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.CFFFontSubset.BuildNewLGSubrs(System.Int32)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.CFFFontSubset.BuildNewLGSubrs(System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.CFFFontSubset.BuildFDSubrsOffsets(System.Int32,System.Int32)">
             The function finds for the FD array processed the local subr offset and its 
             offset array.  
             @param Font the font
             @param FD The FDARRAY processed
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.CFFFontSubset.BuildSubrUsed(System.Int32,System.Int32,System.Int32,System.Int32[],System.Collections.Hashtable,System.Collections.ArrayList)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.CFFFontSubset.BuildGSubrsUsed(System.Int32)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.CFFFontSubset.BuildSubrUsed(System.Int32,System.Int32,System.Int32,System.Int32[],System.Collections.Hashtable,System.Collections.ArrayList)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.CFFFontSubset.BuildGSubrsUsed(System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.CFFFontSubset.ReadASubr(System.Int32,System.Int32,System.Int32,System.Int32,System.Collections.Hashtable,System.Collections.ArrayList,System.Int32[])">
             The function reads a subrs (glyph info) between begin and end.
             Adds calls to a Lsubr to the hSubr and lSubrs.
@@ -11248,9 +11248,9 @@
             @param fontSize the font size in points
             @return the parameter in points
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.CJKFont.FullFontName" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.CJKFont.AllNameEntries" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.CJKFont.FamilyFontName" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.CJKFont.FullFontName”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.CJKFont.AllNameEntries”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.CJKFont.FamilyFontName”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.CMYKColor">
             
              @author  Paulo Soares (psoares@consiste.pt)
@@ -11259,7 +11259,7 @@
             
              @author  Paulo Soares (psoares@consiste.pt)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.codec.BmpImage" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.codec.BmpImage”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.codec.BmpImage.GetImage(System.Uri)">
             Reads a BMP from an url.
             @param url the url
@@ -11441,7 +11441,7 @@
             @return  a byte array
             @throws IOException
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.codec.PngImage" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.codec.PngImage”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.codec.PngImage.IHDR">
             A PNG marker. 
         </member>
@@ -11523,7 +11523,7 @@
         <member name="T:iTextSharp.text.pdf.codec.TIFFConstants">
             A list of constants used in class TIFFImage.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.codec.TIFFDirectory" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.codec.TIFFDirectory”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.codec.TIFFDirectory.isBigEndian">
             A bool storing the endianness of the stream. 
         </member>
@@ -11654,7 +11654,7 @@
             @param w
             @param h
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.codec.TIFFField" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.codec.TIFFField”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.codec.TIFFField.TIFF_BYTE">
             Flag for 8 bit unsigned integers. 
         </member>
@@ -11706,7 +11706,7 @@
         <member name="M:iTextSharp.text.pdf.codec.TIFFField.#ctor">
             The default constructor. 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.#ctor(System.Int32,System.Int32,System.Int32,System.Object)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.#ctor(System.Int32,System.Int32,System.Int32,System.Object)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.codec.TIFFField.GetTag">
             Returns the tag number, between 0 and 65535.
         </member>
@@ -11720,23 +11720,23 @@
         <member name="M:iTextSharp.text.pdf.codec.TIFFField.GetCount">
             Returns the number of elements in the IFD.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsBytes" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsChars" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsShorts" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsInts" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsLongs" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsFloats" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsDoubles" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsSRationals" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsRationals" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsInt(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsLong(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsFloat(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsDouble(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsString(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsSRational(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.GetAsRational(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.codec.TIFFField.CompareTo(System.Object)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsBytes”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsChars”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsShorts”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsInts”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsLongs”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsFloats”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsDoubles”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsSRationals”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsRationals”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsInt(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsLong(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsFloat(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsDouble(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsString(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsSRational(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.GetAsRational(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.codec.TIFFField.CompareTo(System.Object)”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.codec.TiffImage">
             Reads TIFF images
             @author Paulo Soares (psoares@consiste.pt)
@@ -12043,7 +12043,7 @@
             Gets the color name as it appears in the document body.
             @return the color name
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.ColumnText" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.ColumnText”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.ColumnText.AR_COMPOSEDTASHKEEL">
             Compose the tashkeel in the ligatures. 
         </member>
@@ -12190,8 +12190,8 @@
             Will not have any effect if AddElement() was called before.
             @param chunk the text
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.ColumnText.AddElement(iTextSharp.text.IElement)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.ColumnText.ConvertColumn(System.Single[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.ColumnText.AddElement(iTextSharp.text.IElement)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.ColumnText.ConvertColumn(System.Single[])”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.ColumnText.FindLimitsPoint(System.Collections.ArrayList)">
             Finds the intersection between the <CODE>yLine</CODE> and the column. It will
             set the <CODE>lineStatus</CODE> apropriatly.
@@ -12428,7 +12428,7 @@
         <member name="F:iTextSharp.text.pdf.DefaultSplitCharacter.DEFAULT">
             An instance of the default SplitCharacter.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.DefaultSplitCharacter.IsSplitCharacter(System.Int32,System.Int32,System.Int32,System.Char[],iTextSharp.text.pdf.PdfChunk[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.DefaultSplitCharacter.IsSplitCharacter(System.Int32,System.Int32,System.Int32,System.Char[],iTextSharp.text.pdf.PdfChunk[])”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.DefaultSplitCharacter.GetCurrentCharacter(System.Int32,System.Char[],iTextSharp.text.pdf.PdfChunk[])">
             Returns the current character
             @param current current position in the array
@@ -12488,9 +12488,9 @@
             @param char1 the unicode <CODE>char</CODE> to get the width of
             @return the width in normalized 1000 units
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.DocumentFont.FamilyFontName" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.DocumentFont.FullFontName" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.DocumentFont.AllNameEntries" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.DocumentFont.FamilyFontName”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.DocumentFont.FullFontName”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.DocumentFont.AllNameEntries”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.DocumentFont.PostscriptFontName">
             Gets the postscript font name.
              @return the postscript font name
@@ -12695,7 +12695,7 @@
             is the glyph number and position 1 is the glyph width normalized to 1000
             units.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "F:iTextSharp.text.pdf.TrueTypeFont.cmap31" で無視されました -->
+        <!-- 对于成员“F:iTextSharp.text.pdf.TrueTypeFont.cmap31”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.TrueTypeFont.cmapExt">
             <summary>
             By James for unicode Ext.B
@@ -12722,7 +12722,7 @@
         <member name="F:iTextSharp.text.pdf.TrueTypeFont.familyName">
             The family name of the font
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "F:iTextSharp.text.pdf.TrueTypeFont.italicAngle" で無視されました -->
+        <!-- 对于成员“F:iTextSharp.text.pdf.TrueTypeFont.italicAngle”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.TrueTypeFont.isFixedPitch">
             <CODE>true</CODE> if all the glyphs have the same width.
         </member>
@@ -12912,9 +12912,9 @@
             Gets the code pages supported by the font.
             @return the code pages supported by the font
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.TrueTypeFont.FullFontName" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.TrueTypeFont.AllNameEntries" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.TrueTypeFont.FamilyFontName" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.TrueTypeFont.FullFontName”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.TrueTypeFont.AllNameEntries”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.TrueTypeFont.FamilyFontName”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.TrueTypeFont.FontHeader">
             The components of table 'head'.
         </member>
@@ -13082,48 +13082,48 @@
              @param writer the <CODE>PdfWriter</CODE> for this document
              @param document the document
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPageEvent.OnStartPage(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPageEvent.OnStartPage(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.IPdfPageEvent.OnEndPage(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)">
              Called when a page is finished, just before being written to the document.
             
              @param writer the <CODE>PdfWriter</CODE> for this document
              @param document the document
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPageEvent.OnCloseDocument(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPageEvent.OnParagraph(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPageEvent.OnParagraphEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPageEvent.OnChapter(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,iTextSharp.text.Paragraph)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPageEvent.OnChapterEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPageEvent.OnSection(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,System.Int32,iTextSharp.text.Paragraph)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPageEvent.OnSectionEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPageEvent.OnGenericTag(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,iTextSharp.text.Rectangle,System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPageEvent.OnCloseDocument(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPageEvent.OnParagraph(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPageEvent.OnParagraphEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPageEvent.OnChapter(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,iTextSharp.text.Paragraph)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPageEvent.OnChapterEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPageEvent.OnSection(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,System.Int32,iTextSharp.text.Paragraph)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPageEvent.OnSectionEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPageEvent.OnGenericTag(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,iTextSharp.text.Rectangle,System.String)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfPageEventHelper.OnOpenDocument(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)">
              Called when the document is opened.
             
              @param writer the <CODE>PdfWriter</CODE> for this document
              @param document the document
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPageEventHelper.OnStartPage(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPageEventHelper.OnStartPage(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfPageEventHelper.OnEndPage(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)">
              Called when a page is finished, just before being written to the document.
             
              @param writer the <CODE>PdfWriter</CODE> for this document
              @param document the document
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPageEventHelper.OnCloseDocument(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPageEventHelper.OnParagraph(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPageEventHelper.OnParagraphEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPageEventHelper.OnChapter(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,iTextSharp.text.Paragraph)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPageEventHelper.OnChapterEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPageEventHelper.OnSection(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,System.Int32,iTextSharp.text.Paragraph)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPageEventHelper.OnSectionEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPageEventHelper.OnGenericTag(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,iTextSharp.text.Rectangle,System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPageEventHelper.OnCloseDocument(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPageEventHelper.OnParagraph(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPageEventHelper.OnParagraphEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPageEventHelper.OnChapter(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,iTextSharp.text.Paragraph)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPageEventHelper.OnChapterEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPageEventHelper.OnSection(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,System.Int32,iTextSharp.text.Paragraph)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPageEventHelper.OnSectionEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPageEventHelper.OnGenericTag(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,iTextSharp.text.Rectangle,System.String)”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.IPdfPCellEvent">
             <summary>
             Summary description for IPdfPCellEvent.
             </summary>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPCellEvent.CellLayout(iTextSharp.text.pdf.PdfPCell,iTextSharp.text.Rectangle,iTextSharp.text.pdf.PdfContentByte[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPCellEvent.CellLayout(iTextSharp.text.pdf.PdfPCell,iTextSharp.text.Rectangle,iTextSharp.text.pdf.PdfContentByte[])”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.events.FieldPositioningEvents.genericChunkFields">
             Keeps a map with fields that are to be positioned in inGenericTag.
         </member>
@@ -13344,7 +13344,7 @@
             @param document
                        the document
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnStartPage(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnStartPage(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnEndPage(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)">
             Called when a page is finished, just before being written to the
             document.
@@ -13354,14 +13354,14 @@
             @param document
                        the document
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnCloseDocument(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnParagraph(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnParagraphEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnChapter(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,iTextSharp.text.Paragraph)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnChapterEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnSection(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,System.Int32,iTextSharp.text.Paragraph)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnSectionEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnGenericTag(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,iTextSharp.text.Rectangle,System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnCloseDocument(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnParagraph(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnParagraphEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnChapter(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,iTextSharp.text.Paragraph)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnChapterEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnSection(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single,System.Int32,iTextSharp.text.Paragraph)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnSectionEnd(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.events.PdfPageEventForwarder.OnGenericTag(iTextSharp.text.pdf.PdfWriter,iTextSharp.text.Document,iTextSharp.text.Rectangle,System.String)”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.events.PdfPCellEventForwarder">
             If you want to add more than one event to a cell,
             you have to construct a PdfPCellEventForwarder, add the
@@ -13389,7 +13389,7 @@
             
              @author Paulo Soares (psoares@consiste.pt)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.IPdfPTableEvent.TableLayout(iTextSharp.text.pdf.PdfPTable,System.Single[][],System.Single[],System.Int32,System.Int32,iTextSharp.text.pdf.PdfContentByte[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.IPdfPTableEvent.TableLayout(iTextSharp.text.pdf.PdfPTable,System.Single[][],System.Single[],System.Int32,System.Int32,iTextSharp.text.pdf.PdfContentByte[])”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.events.PdfPTableEventForwarder.events">
             ArrayList containing all the PageEvents that have to be executed. 
         </member>
@@ -13417,8 +13417,8 @@
             in class PdfWriter, but they have been moved to this separate interface
             for reasons of convenience.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.interfaces.IPdfViewerPreferences.AddViewerPreference(iTextSharp.text.pdf.PdfName,iTextSharp.text.pdf.PdfObject)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.interfaces.IPdfViewerPreferences.ViewerPreferences" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.interfaces.IPdfViewerPreferences.AddViewerPreference(iTextSharp.text.pdf.PdfName,iTextSharp.text.pdf.PdfObject)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.interfaces.IPdfViewerPreferences.ViewerPreferences”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfReader.appendable">
             Holds value of property appendable.
         </member>
@@ -14426,7 +14426,7 @@
         <member name="M:iTextSharp.text.pdf.PdfWriter.#ctor">
             Constructs a <CODE>PdfWriter</CODE>.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfWriter.#ctor(iTextSharp.text.pdf.PdfDocument,System.IO.Stream)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfWriter.#ctor(iTextSharp.text.pdf.PdfDocument,System.IO.Stream)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfWriter.GetInstance(iTextSharp.text.Document,System.IO.Stream)">
              Use this method to get an instance of the <CODE>PdfWriter</CODE>.
             
@@ -14555,15 +14555,15 @@
             @param page the page number. The first page is 1
             @return the reference to the page
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfWriter.Add(iTextSharp.text.pdf.PdfPage,iTextSharp.text.pdf.PdfContents)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfWriter.Add(iTextSharp.text.pdf.PdfPage,iTextSharp.text.pdf.PdfContents)”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfWriter.pageEvent">
             The <CODE>PdfPageEvent</CODE> for this document. 
         </member>
         <member name="F:iTextSharp.text.pdf.PdfWriter.prevxref">
             A number refering to the previous Cross-Reference Table. 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfWriter.Open" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfWriter.Close" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfWriter.Open”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfWriter.Close”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfWriter.PDF_VERSION_1_2">
             possible PDF version (catalog) 
         </member>
@@ -14829,7 +14829,7 @@
         <member name="F:iTextSharp.text.pdf.PdfWriter.fullCompression">
             Holds value of property fullCompression.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfWriter.SetFullCompression" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfWriter.SetFullCompression”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfWriter.compressionLevel">
             The compression level of the content streams.
             @since   2.1.3
@@ -14946,14 +14946,14 @@
         </member>
         <member name="F:iTextSharp.text.pdf.PdfWriter.group">
             A group attributes dictionary specifying the attributes
-            of the page痴 page group for use in the transparent
+            of the page抯 page group for use in the transparent
             imaging model
         </member>
         <member name="F:iTextSharp.text.pdf.PdfWriter.spaceCharRatio">
             The ratio between the extra word spacing and the extra character spacing.
             Extra word spacing will grow <CODE>ratio</CODE> times more than extra character spacing.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfWriter.SetDefaultColorspace(iTextSharp.text.pdf.PdfName,iTextSharp.text.pdf.PdfObject)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfWriter.SetDefaultColorspace(iTextSharp.text.pdf.PdfName,iTextSharp.text.pdf.PdfObject)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfWriter.ClearTextWrap">
             Clears text wrapping around images (if applicable).
             Method suggested by Pelikan Stephan
@@ -15221,7 +15221,7 @@
             @param rgbTransparencyBlending <code>true</code> to set the transparency blending colorspace to RGB, <code>false</code>
             to use the default blending colorspace
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfWriter.PdfBody" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfWriter.PdfBody”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfWriter.PdfBody.xrefs">
             array containing the cross-reference table of the normal objects. 
         </member>
@@ -15232,8 +15232,8 @@
             Constructs a new <CODE>PdfBody</CODE>.
             @param writer
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfWriter.PdfBody.Add(iTextSharp.text.pdf.PdfObject)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfWriter.PdfBody.Add(iTextSharp.text.pdf.PdfObject,iTextSharp.text.pdf.PdfIndirectReference)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfWriter.PdfBody.Add(iTextSharp.text.pdf.PdfObject)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfWriter.PdfBody.Add(iTextSharp.text.pdf.PdfObject,iTextSharp.text.pdf.PdfIndirectReference)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfWriter.PdfBody.WriteCrossReferenceTable(System.IO.Stream,iTextSharp.text.pdf.PdfIndirectReference,iTextSharp.text.pdf.PdfIndirectReference,iTextSharp.text.pdf.PdfIndirectReference,iTextSharp.text.pdf.PdfObject,System.Int32)">
             Returns the CrossReferenceTable of the <CODE>Body</CODE>.
             @param os
@@ -15295,7 +15295,7 @@
         <member name="M:iTextSharp.text.pdf.PdfWriter.PdfBody.PdfCrossReference.Equals(System.Object)">
             @see java.lang.Object#equals(java.lang.Object)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfWriter.PdfTrailer" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfWriter.PdfTrailer”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfWriter.PdfTrailer.#ctor(System.Int32,System.Int32,iTextSharp.text.pdf.PdfIndirectReference,iTextSharp.text.pdf.PdfIndirectReference,iTextSharp.text.pdf.PdfIndirectReference,iTextSharp.text.pdf.PdfObject,System.Int32)">
              Constructs a PDF-Trailer.
             
@@ -15385,7 +15385,7 @@
             to include all.
             @param subset new value of property subset
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.FontSelector" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.FontSelector”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.FontSelector.AddFont(iTextSharp.text.Font)">
             Adds a <CODE>Font</CODE> to be searched for valid characters.
             @param font the <CODE>Font</CODE>
@@ -15463,7 +15463,7 @@
             after <CODE>getHyphenatedWordPre()</CODE>.
             @return the second part of the hyphenated word
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.hyphenation.ByteVector" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.hyphenation.ByteVector”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.hyphenation.ByteVector.DEFAULT_BLOCK_SIZE">
             Capacity increment size
         </member>
@@ -15482,7 +15482,7 @@
         <member name="P:iTextSharp.text.pdf.hyphenation.ByteVector.Capacity">
             returns current capacity of array
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.hyphenation.CharVector" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.hyphenation.CharVector”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.hyphenation.CharVector.DEFAULT_BLOCK_SIZE">
             Capacity increment size
         </member>
@@ -15501,8 +15501,8 @@
         <member name="P:iTextSharp.text.pdf.hyphenation.CharVector.Capacity">
             returns current capacity of array
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.hyphenation.Hyphen" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.hyphenation.Hyphenation" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.hyphenation.Hyphen”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.hyphenation.Hyphenation”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.hyphenation.Hyphenation.len">
             number of hyphenation points in word
         </member>
@@ -15522,8 +15522,8 @@
         <member name="P:iTextSharp.text.pdf.hyphenation.Hyphenation.HyphenationPoints">
             @return the hyphenation points
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.hyphenation.HyphenationException" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.hyphenation.HyphenationTree" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.hyphenation.HyphenationException”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.hyphenation.HyphenationTree”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.hyphenation.TernaryTree">
              <h2>Ternary Search Tree</h2>
             
@@ -15647,7 +15647,7 @@
         <member name="M:iTextSharp.text.pdf.hyphenation.TernaryTree.Iterator.Run">
             traverse the tree to find next key
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.hyphenation.IPatternConsumer" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.hyphenation.IPatternConsumer”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.hyphenation.IPatternConsumer.AddClass(System.String)">
             Add a character class.
             A character class defines characters that are considered
@@ -15693,7 +15693,7 @@
             String compare, returns 0 if equal or
             t is a substring of s
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.hyphenation.HyphenationTree.SearchPatterns(System.Char[],System.Int32,System.Byte[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.hyphenation.HyphenationTree.SearchPatterns(System.Char[],System.Int32,System.Byte[])”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.hyphenation.HyphenationTree.Hyphenate(System.String,System.Int32,System.Int32)">
             Hyphenate word and return a Hyphenation object.
             @param word the word to be hyphenated
@@ -15746,7 +15746,7 @@
             within the pattern. It should contain only digit characters.
             (i.e. '0' to '9').
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.hyphenation.Hyphenator" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.hyphenation.Hyphenator”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.hyphenation.Hyphenator.hyphenTrees">
             TODO: Don't use statics 
         </member>
@@ -16096,7 +16096,7 @@
             Gets the object representing the layer.
             @return the object representing the layer
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.ITSAClient" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.ITSAClient”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.ITSAClient.GetTokenSizeEstimate">
             Get the time stamp token size estimate.
             Implementation must return value large enough to accomodate the entire token
@@ -16620,7 +16620,7 @@
             @param newWindow  if true, the destination document should be opened in a new window
             @return a GoToE action
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfAction.SetOCGstate(System.Collections.ArrayList,System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfAction.SetOCGstate(System.Collections.ArrayList,System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.PdfAnnotation">
              A <CODE>PdfAnnotation</CODE> is a note that is associated with a page.
             
@@ -16857,15 +16857,15 @@
             
              @param       other       another <CODE>PdfByteContent</CODE>-object
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetFlatness(System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetLineCap(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetLineDash(System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetLineDash(System.Single,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetLineDash(System.Single,System.Single,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetLineDash(System.Single[],System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetLineJoin(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetLineWidth(System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetMiterLimit(System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetFlatness(System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetLineCap(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetLineDash(System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetLineDash(System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetLineDash(System.Single,System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetLineDash(System.Single[],System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetLineJoin(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetLineWidth(System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetMiterLimit(System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfContentByte.Clip">
             Modify the current clipping path by intersecting it with the current path, using the
             nonzero winding number rule to determine which regions lie inside the clipping
@@ -16919,7 +16919,7 @@
         <member name="M:iTextSharp.text.pdf.PdfContentByte.ResetRGBColorFill">
             Changes the current color for filling paths to black.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetRGBColorStrokeF(System.Single,System.Single,System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetRGBColorStrokeF(System.Single,System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfContentByte.ResetRGBColorStroke">
              Changes the current color for stroking paths to black.
             
@@ -16950,7 +16950,7 @@
              Changes the current color for filling paths to black.
             
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.SetCMYKColorStrokeF(System.Single,System.Single,System.Single,System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.SetCMYKColorStrokeF(System.Single,System.Single,System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfContentByte.ResetCMYKColorStroke">
              Changes the current color for stroking paths to black.
             
@@ -16969,7 +16969,7 @@
              @param       y               new y-coordinate
         </member>
         <member name="M:iTextSharp.text.pdf.PdfContentByte.CurveTo(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
-             Appends a B黝ier curve to the path, starting from the current point.
+             Appends a B陑ier curve to the path, starting from the current point.
             
              @param       x1      x-coordinate of the first control point
              @param       y1      y-coordinate of the first control point
@@ -16979,7 +16979,7 @@
              @param       y3      y-coordinaat of the ending point (= new current point)
         </member>
         <member name="M:iTextSharp.text.pdf.PdfContentByte.CurveTo(System.Single,System.Single,System.Single,System.Single)">
-             Appends a B黝ier curve to the path, starting from the current point.
+             Appends a B陑ier curve to the path, starting from the current point.
             
              @param       x2      x-coordinate of the second control point
              @param       y2      y-coordinate of the second control point
@@ -16987,7 +16987,7 @@
              @param       y3      y-coordinaat of the ending point (= new current point)
         </member>
         <member name="M:iTextSharp.text.pdf.PdfContentByte.CurveFromTo(System.Single,System.Single,System.Single,System.Single)">
-             Appends a B黝ier curve to the path, starting from the current point.
+             Appends a B陑ier curve to the path, starting from the current point.
             
              @param       x1      x-coordinate of the first control point
              @param       y1      y-coordinate of the first control point
@@ -17271,7 +17271,7 @@
              @param f an element of the transformation matrix
             
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.BezierArc(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.BezierArc(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfContentByte.Arc(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
              Draws a partial ellipse inscribed within the rectangle x1,y1,x2,y2,
              starting at startAng degrees and covering extent degrees. Angles
@@ -17331,7 +17331,7 @@
             @param color the default color. Can be <CODE>null</CODE>
             @return the <CODE>PdfPatternPainter</CODE> where the pattern will be created
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.CreateTemplate(System.Single,System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.CreateTemplate(System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfContentByte.CreateAppearance(System.Single,System.Single)">
              Creates a new appearance to be used with form fields.
             
@@ -17591,7 +17591,7 @@
             Sets the graphic state
             @param gstate the graphic state
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfContentByte.BeginLayer(iTextSharp.text.pdf.IPdfOCG)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfContentByte.BeginLayer(iTextSharp.text.pdf.IPdfOCG)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfContentByte.EndLayer">
             Ends a layer controled graphic block. It will end the most recent open block.
         </member>
@@ -17738,7 +17738,7 @@
             
              @param wr the <CODE>PdfWriter</CODE>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfTemplate.CreateTemplate(iTextSharp.text.pdf.PdfWriter,System.Single,System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfTemplate.CreateTemplate(iTextSharp.text.pdf.PdfWriter,System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfTemplate.GetFormXObject(System.Int32)">
              Gets the stream representing this template.
             
@@ -17796,7 +17796,7 @@
              @param bf the font
              @param size the font size in points
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfArray" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfArray”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfArray.arrayList">
             this is the actual array of PdfObjects 
         </member>
@@ -17893,7 +17893,7 @@
             
              @return        the size of the ArrayList
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfBoolean" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfBoolean”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfBoolean.TRUE">
             A possible value of <CODE>PdfBoolean</CODE> 
         </member>
@@ -17939,7 +17939,7 @@
         <member name="M:iTextSharp.text.pdf.PdfBorderDictionary.#ctor(System.Single,System.Int32,iTextSharp.text.pdf.PdfDashPattern)">
             Constructs a <CODE>PdfBorderDictionary</CODE>.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfCell" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfCell”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfCell.lines">
             These are the PdfLines in the Cell. 
         </member>
@@ -18011,14 +18011,14 @@
              @param alignment   horizontal alignment (constant from Element class)
              @return the height of the image
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfCell.GetLines(System.Single,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfCell.GetImages(System.Single,System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfCell.GetLines(System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfCell.GetImages(System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfCell.SetHeader">
              Checks if this cell belongs to the header of a <CODE>PdfTable</CODE>.
             
              @return  <CODE>void</CODE>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfCell.MayBeRemoved" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfCell.MayBeRemoved”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfCell.RemainingLinesHeight">
              Returns the total height of all the lines in the cell.
             
@@ -18118,7 +18118,7 @@
             Sets the value of {@link #useBorderPadding}.
             @param use adjust layour for borders if true
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfChunk" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfChunk”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfChunk.keysAttributes">
             The allowed attributes in variable <CODE>attributes</CODE>. 
         </member>
@@ -18134,8 +18134,8 @@
         <member name="F:iTextSharp.text.pdf.PdfChunk.font">
             The font for this <CODE>PdfChunk</CODE>. 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "F:iTextSharp.text.pdf.PdfChunk.attributes" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "F:iTextSharp.text.pdf.PdfChunk.noStroke" で無視されました -->
+        <!-- 对于成员“F:iTextSharp.text.pdf.PdfChunk.attributes”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“F:iTextSharp.text.pdf.PdfChunk.noStroke”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfChunk.newlineSplit">
             <CODE>true</CODE> if the chunk split was cause by a newline. 
         </member>
@@ -18165,9 +18165,9 @@
              @param chunk the original <CODE>Chunk</CODE>-object
              @param action the <CODE>PdfAction</CODE> if the <CODE>Chunk</CODE> comes from an <CODE>Anchor</CODE>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfChunk.GetUnicodeEquivalent(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfChunk.Split(System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfChunk.Truncate(System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfChunk.GetUnicodeEquivalent(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfChunk.Split(System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfChunk.Truncate(System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfChunk.IsNewlineSplit">
             Checks if the <CODE>PdfChunk</CODE> split was caused by a newline.
             @return <CODE>true</CODE> if the <CODE>PdfChunk</CODE> split was caused by a newline.
@@ -18225,7 +18225,7 @@
         <member name="M:iTextSharp.text.pdf.PdfChunk.IsSpecialEncoding">
             Tells you if this string is in Chinese, Japanese, Korean or Identity-H.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfChunk.Trim(System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfChunk.Trim(System.String)”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.PdfChunk.Font">
              Returns the font of this <CODE>Chunk</CODE>.
             
@@ -18405,8 +18405,8 @@
             @param reader The reader of the input file that is being copied
             @throws IOException, BadPdfFormatException
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfCopy.Close" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfCopy.CreatePageStamp(iTextSharp.text.pdf.PdfImportedPage)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfCopy.Close”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfCopy.CreatePageStamp(iTextSharp.text.pdf.PdfImportedPage)”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.PdfCopy.RotateContents">
             Checks if the content is automatically adjusted to compensate
             the original page rotation.
@@ -18509,7 +18509,7 @@
             Adds JavaScript to the global document
             @param js the JavaScript
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfCopyFields.SetFullCompression" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfCopyFields.SetFullCompression”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfCopyFields.SetEncryption(System.Byte[],System.Byte[],System.Int32,System.Int32)">
             @see com.lowagie.text.pdf.interfaces.PdfEncryptionSettings#setEncryption(byte[], byte[], int, int)
         </member>
@@ -18631,7 +18631,7 @@
             Adds JavaScript to the global document
             @param js the JavaScript
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfCopyForms.SetFullCompression" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfCopyForms.SetFullCompression”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfCopyForms.SetEncryption(System.Byte[],System.Byte[],System.Int32,System.Int32)">
             @see com.lowagie.text.pdf.interfaces.PdfEncryptionSettings#setEncryption(byte[], byte[], int, int)
         </member>
@@ -18708,8 +18708,8 @@
             
              @return        an array of <CODE>byte</CODE>s
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfDate" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfString" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfDate”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfString”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfString.value">
             The value of this object. 
         </member>
@@ -18807,10 +18807,10 @@
         <member name="F:iTextSharp.text.pdf.PdfDestination.status">
             Is the indirect reference to a page already added? 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfDestination.#ctor(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfDestination.#ctor(System.Int32,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfDestination.#ctor(System.Int32,System.Single,System.Single,System.Single)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfDestination.#ctor(System.Int32,System.Single,System.Single,System.Single,System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfDestination.#ctor(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfDestination.#ctor(System.Int32,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfDestination.#ctor(System.Int32,System.Single,System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfDestination.#ctor(System.Int32,System.Single,System.Single,System.Single,System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfDestination.HasPage">
              Checks if an indirect reference to a page has been added.
             
@@ -18871,7 +18871,7 @@
             Gets the extension level within the baseversion.
             @return  an integer
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfDocument" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfDocument”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfDocument.hangingPunctuation">
             The characters to be applied the hanging punctuation. 
         </member>
@@ -18922,8 +18922,8 @@
              @return <CODE>true</CODE> if the element was added, <CODE>false</CODE> if not.
              @throws DocumentException when a document isn't open yet, or has been closed
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfDocument.Open" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfDocument.Close" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfDocument.Open”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfDocument.Close”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfDocument.xmpMetadata">
             XMP Metadata for the page. 
         </member>
@@ -18979,7 +18979,7 @@
         <member name="F:iTextSharp.text.pdf.PdfDocument.firstPageEvent">
             Signals that OnOpenDocument should be called. 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfDocument.InitPage" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfDocument.InitPage”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfDocument.line">
             The line that is currently being written. 
         </member>
@@ -19014,7 +19014,7 @@
              @return the displacement that was caused
              @throws DocumentException on error
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfDocument.WriteLineToContent(iTextSharp.text.pdf.PdfLine,iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.pdf.PdfContentByte,System.Object[],System.Single)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfDocument.WriteLineToContent(iTextSharp.text.pdf.PdfLine,iTextSharp.text.pdf.PdfContentByte,iTextSharp.text.pdf.PdfContentByte,System.Object[],System.Single)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfDocument.AddSpacing(System.Single,System.Single,iTextSharp.text.Font)">
             Adds extra space.
             This method should probably be rewritten.
@@ -19202,7 +19202,7 @@
             
              @return   a margin
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.PdfDocument.Info" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.PdfDocument.Info”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.PdfDocument.RootOutline">
             Gets the root outline. All the outlines must be created with a parent.
             The first level is created with this outline.
@@ -19232,7 +19232,7 @@
              @param strictImageSequence New value of property strictImageSequence.
             
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfDocument.PdfInfo" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfDocument.PdfInfo”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfDocument.PdfInfo.#ctor">
             Construct a <CODE>PdfInfo</CODE>-object.
         </member>
@@ -19274,7 +19274,7 @@
         <member name="M:iTextSharp.text.pdf.PdfDocument.PdfInfo.AddCreationDate">
             Adds the date of creation to the document.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfDocument.PdfCatalog" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfDocument.PdfCatalog”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfDocument.PdfCatalog.#ctor(iTextSharp.text.pdf.PdfIndirectReference,iTextSharp.text.pdf.PdfWriter)">
              Constructs a <CODE>PdfCatalog</CODE>.
             
@@ -19353,8 +19353,8 @@
             
              @author Paulo Soares (psoares@consiste.pt)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfEncodings.ConvertToBytes(System.String,System.String)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfEncodings.ConvertToBytes(System.Char,System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfEncodings.ConvertToBytes(System.String,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfEncodings.ConvertToBytes(System.Char,System.String)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfEncodings.IsPdfDocEncoding(System.String)">
             Checks is <CODE>text</CODE> only has PdfDocEncoding characters.
             @param text the <CODE>String</CODE> to test
@@ -19377,8 +19377,8 @@
             @param name the CJK cmap name
             @param newline the sequences to be replaced bi a newline in the resulting CID. See <CODE>CRLF_CID_NEWLINE</CODE>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfEncodings.ConvertCmap(System.String,System.Byte[])" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfEncodings.ConvertCmap(System.String,System.Byte[],System.Int32,System.Int32)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfEncodings.ConvertCmap(System.String,System.Byte[])”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfEncodings.ConvertCmap(System.String,System.Byte[],System.Int32,System.Int32)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfEncodings.AddExtraEncoding(System.String,iTextSharp.text.pdf.IExtraEncoding)">
             Adds an extra encoding.
             @param name the name of the encoding. The encoding recognition is case insensitive
@@ -19744,7 +19744,7 @@
             cache a copy of the file.
             @param volatile_file if true, the external file should not be cached
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfFont" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfFont”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfFont.font">
             the font metrics. 
         </member>
@@ -19987,7 +19987,7 @@
             Always throws an error. This operation is not allowed.
             @return  dummy 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfIndirectObject" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfIndirectObject”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfIndirectObject.number">
             The object number 
         </member>
@@ -20018,7 +20018,7 @@
             
              @return        a <CODE>PdfIndirectReference</CODE>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfIndirectReference" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfIndirectReference”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfIndirectReference.number">
             the object number 
         </member>
@@ -20269,7 +20269,7 @@
             
              @return    <CODE>true</CODE> if the alignment equals <VAR>ALIGN_JUSTIFIED</VAR> and there is some width left.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfLine.ResetAlignment" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfLine.ResetAlignment”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfLine.SetExtraIndent(System.Single)">
             Adds extra indentation to the left (for Paragraph.setFirstLineIndent). 
         </member>
@@ -20319,7 +20319,7 @@
             
              @return    a value
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.PdfLine.ListItem" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.PdfLine.ListItem”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.PdfLine.ListSymbol">
              Returns the listsymbol of this line.
             
@@ -20355,7 +20355,7 @@
         <member name="T:iTextSharp.text.pdf.PdfLiteral">
             a Literal
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfName" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfName”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfName._3D">
             A name.
             @since 2.1.6
@@ -22396,7 +22396,7 @@
             @param lengthCheck if <CODE>true</CODE> check the lenght validity, if <CODE>false</CODE> the name can
             have any length
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfName.CompareTo(System.Object)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfName.CompareTo(System.Object)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfName.Equals(System.Object)">
              Indicates whether some other object is "equal to" this one.
             
@@ -22439,12 +22439,12 @@
             @return the dictionary with the name tree. This dictionary is the one
             generally pointed to by the key /Dests, for example
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfNull" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfNull”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfNull.PDFNULL">
             This is an instance of the <CODE>PdfNull</CODE>-object. 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfNull.#ctor" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfNumber" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfNull.#ctor”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfNumber”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfNumber.value">
             actual value of this <CODE>PdfNumber</CODE>, represented as a <CODE>double</CODE> 
         </member>
@@ -22493,7 +22493,7 @@
             @throws IOException on error
             @return the dictionary with the number tree.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfOutline" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfOutline”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfOutline.reference">
             the <CODE>PdfIndirectReference</CODE> of this object 
         </member>
@@ -22521,19 +22521,19 @@
         <member name="F:iTextSharp.text.pdf.PdfOutline.style">
             Holds value of property style. 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfWriter)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,System.String)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,System.String,System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,System.String)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,System.String,System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,iTextSharp.text.pdf.PdfString)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,iTextSharp.text.pdf.PdfString,System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,iTextSharp.text.pdf.PdfString)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,iTextSharp.text.pdf.PdfString,System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,iTextSharp.text.Paragraph)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,iTextSharp.text.Paragraph,System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,iTextSharp.text.Paragraph)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,iTextSharp.text.Paragraph,System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfWriter)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,System.String)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,iTextSharp.text.pdf.PdfString)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,iTextSharp.text.pdf.PdfString,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,iTextSharp.text.pdf.PdfString)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,iTextSharp.text.pdf.PdfString,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,iTextSharp.text.Paragraph)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfAction,iTextSharp.text.Paragraph,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,iTextSharp.text.Paragraph)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfOutline.#ctor(iTextSharp.text.pdf.PdfOutline,iTextSharp.text.pdf.PdfDestination,iTextSharp.text.Paragraph,System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfOutline.InitOutline(iTextSharp.text.pdf.PdfOutline,System.String,System.Boolean)">
             Helper for the constructors.
             @param parent the parent outline
@@ -22580,7 +22580,7 @@
             Setter for property open.
             @param open New value of property open.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfPage" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfPage”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfPage.PORTRAIT">
             value of the <B>Rotate</B> key for a page in PORTRAIT 
         </member>
@@ -22609,7 +22609,7 @@
              @param       mediaBox        a value for the <B>MediaBox</B> key
              @param       resources       an indirect reference to a <CODE>PdfResources</CODE>-object
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPage.IsParent" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPage.IsParent”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfPage.Add(iTextSharp.text.pdf.PdfIndirectReference)">
              Adds an indirect reference pointing to a <CODE>PdfContents</CODE>-object.
             
@@ -22709,7 +22709,7 @@
             @param prefix the text to prefix the number. Can be <CODE>null</CODE> or empty
             @param logicalPage the first logical page number
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfPages" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfPages”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfPages.#ctor(iTextSharp.text.pdf.PdfWriter)">
             Constructs a <CODE>PdfPages</CODE>-object.
         </member>
@@ -23105,7 +23105,7 @@
             0, 90, 180 and 270.
             @param rotation the rotation of the cell
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfPKCS7" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfPKCS7”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfPKCS7.reason">
             Holds value of property reason.
         </member>
@@ -23295,7 +23295,7 @@
             @return ASN1EncodableVector
             @throws IOException
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPKCS7.GetAuthenticatedAttributeBytes(System.Byte[],System.DateTime,System.Byte[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPKCS7.GetAuthenticatedAttributeBytes(System.Byte[],System.DateTime,System.Byte[])”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.PdfPKCS7.TimeStampToken">
             Gets the timestamp token if there is one.
             @return the timestamp token or null
@@ -23381,7 +23381,7 @@
         <member name="F:iTextSharp.text.pdf.PdfPKCS7.X509Name.UNIQUE_IDENTIFIER">
             Naming attribute of type X520name 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "F:iTextSharp.text.pdf.PdfPKCS7.X509Name.EmailAddress" で無視されました -->
+        <!-- 对于成员“F:iTextSharp.text.pdf.PdfPKCS7.X509Name.EmailAddress”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfPKCS7.X509Name.E">
             email address in Verisign certificates
         </member>
@@ -23550,7 +23550,7 @@
             the members are copied by reference but the buffer stays different.
             @return a copy of this <CODE>PdfPSXObject</CODE>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfPTable" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfPTable”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfPTable.BASECANVAS">
             The index of the original <CODE>PdfcontentByte</CODE>.
         </member>
@@ -23704,8 +23704,8 @@
             Adds a cell element.
             @param phrase the <CODE>Phrase</CODE> to be added to the cell
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPTable.WriteSelectedRows(System.Int32,System.Int32,System.Single,System.Single,iTextSharp.text.pdf.PdfContentByte[])" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPTable.WriteSelectedRows(System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,iTextSharp.text.pdf.PdfContentByte[])" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPTable.WriteSelectedRows(System.Int32,System.Int32,System.Single,System.Single,iTextSharp.text.pdf.PdfContentByte[])”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPTable.WriteSelectedRows(System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,iTextSharp.text.pdf.PdfContentByte[])”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfPTable.WriteSelectedRows(System.Int32,System.Int32,System.Single,System.Single,iTextSharp.text.pdf.PdfContentByte)">
             Writes the selected rows to the document.
             
@@ -23718,8 +23718,8 @@
             be written to
             @return the y coordinate position of the bottom of the last row
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPTable.WriteSelectedRows(System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,iTextSharp.text.pdf.PdfContentByte)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfPTable.BeginWritingRows(iTextSharp.text.pdf.PdfContentByte)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPTable.WriteSelectedRows(System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,iTextSharp.text.pdf.PdfContentByte)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfPTable.BeginWritingRows(iTextSharp.text.pdf.PdfContentByte)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfPTable.EndWritingRows(iTextSharp.text.pdf.PdfContentByte[])">
             Finishes writing the table.
             @param canvases the array returned by <CODE>beginWritingRows()</CODE>
@@ -23885,7 +23885,7 @@
             @return  a PdfStream object
             @since   2.1.3 (the method already existed without param compressionLevel)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfRectangle" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfRectangle”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfRectangle.llx">
             lower left x 
         </member>
@@ -24008,7 +24008,7 @@
         <member name="T:iTextSharp.text.pdf.PdfRendition">
             A Rendition dictionary (pdf spec 1.5)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfResources" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfResources”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfResources.#ctor">
             Constructs a PDF ResourcesDictionary.
         </member>
@@ -24149,9 +24149,9 @@
             Sets the signature to be visible. An empty signature field with the same name must already exist.
             @param fieldName the existing empty signature field name
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfSignatureAppearance.GetLayer(System.Int32)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfSignatureAppearance.GetTopLayer" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfSignatureAppearance.GetAppearance" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfSignatureAppearance.GetLayer(System.Int32)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfSignatureAppearance.GetTopLayer”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfSignatureAppearance.GetAppearance”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfSignatureAppearance.FitText(iTextSharp.text.Font,System.String,iTextSharp.text.Rectangle,System.Single,System.Int32)">
             Fits the text to some rectangle adjusting the font size as needed.
             @param font the font to use
@@ -24178,9 +24178,9 @@
             Gets a new signature fied name that doesn't clash with any existing name.
             @return a new signature fied name
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfSignatureAppearance.PreClose" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfSignatureAppearance.PreClose(System.Collections.Hashtable)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfSignatureAppearance.Close(iTextSharp.text.pdf.PdfDictionary)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfSignatureAppearance.PreClose”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfSignatureAppearance.PreClose(System.Collections.Hashtable)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfSignatureAppearance.Close(iTextSharp.text.pdf.PdfDictionary)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfSignatureAppearance.IsPreClosed">
             Checks if the document is in the process of closing.
             @return <CODE>true</CODE> if the document is in the process of closing,
@@ -24273,7 +24273,7 @@
             Gets the temporary file.
             @return the temporary file or <CODE>null</CODE> is the document is created in memory
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.PdfSignatureAppearance.RangeStream" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.PdfSignatureAppearance.RangeStream”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.PdfSignatureAppearance.CryptoDictionary">
             Gets the user made signature dictionary. This is the dictionary at the /V key.
             @return the user made signature dictionary
@@ -24282,7 +24282,7 @@
             Gets the <CODE>PdfStamper</CODE> associated with this instance.
             @return the <CODE>PdfStamper</CODE> associated with this instance
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.PdfSignatureAppearance.SigStandard" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.PdfSignatureAppearance.SigStandard”忽略有格式错误的 XML 注释 -->
         <member name="P:iTextSharp.text.pdf.PdfSignatureAppearance.Contact">
             Sets the signing contact.
             @param contact the signing contact
@@ -24376,7 +24376,7 @@
              @param       tint        a tint value between 0 and 1
              @param       altcs       a altnative colorspace value
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfStamper" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfStamper”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PdfStamper.stamper">
             The writer
         </member>
@@ -24425,7 +24425,7 @@
             @param pageNumber the page number position where the new page will be inserted
             @param mediabox the size of the new page
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfStamper.Close" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfStamper.Close”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfStamper.GetUnderContent(System.Int32)">
             Gets a <CODE>PdfContentByte</CODE> to write under the page of
             the original document.
@@ -24543,7 +24543,7 @@
             @throws PdfException on error
             @throws DocumentException on error
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfStamper.PartialFormFlattening(System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfStamper.PartialFormFlattening(System.String)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfStamper.AddFileAttachment(System.String,System.Byte[],System.String,System.String)">
             Adds a file attachment at the document level. Existing attachments will be kept.
             @param description the file description
@@ -24559,7 +24559,7 @@
             @param description the file description
             @param fs the file specification
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfStamper.MakePackage(iTextSharp.text.pdf.PdfName)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfStamper.MakePackage(iTextSharp.text.pdf.PdfName)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfStamper.MakePackage(iTextSharp.text.pdf.collection.PdfCollection)">
             Adds or replaces the Collection Dictionary in the Catalog.
             @param    collection  the new collection dictionary.
@@ -24591,9 +24591,9 @@
             @param transition   the transition object. A <code>null</code> removes the transition
             @param page the page where the transition will be applied. The first page is 1
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfStamper.CreateSignature(iTextSharp.text.pdf.PdfReader,System.IO.Stream,System.Char,System.String,System.Boolean)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfStamper.CreateSignature(iTextSharp.text.pdf.PdfReader,System.IO.Stream,System.Char)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfStamper.CreateSignature(iTextSharp.text.pdf.PdfReader,System.IO.Stream,System.Char,System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfStamper.CreateSignature(iTextSharp.text.pdf.PdfReader,System.IO.Stream,System.Char,System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfStamper.CreateSignature(iTextSharp.text.pdf.PdfReader,System.IO.Stream,System.Char)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfStamper.CreateSignature(iTextSharp.text.pdf.PdfReader,System.IO.Stream,System.Char,System.String)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfStamper.GetPdfLayers">
             Gets the PdfLayer objects in an existing document as a Map
             with the names/titles of the layers as keys.
@@ -24884,7 +24884,7 @@
              @param   right   the right border on the page
              @param   top     the start position of the top of the table
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.PdfTable.UpdateRowAdditions" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.PdfTable.UpdateRowAdditions”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfTable.UpdateRowAdditionsInternal">
             Updates the table row additions in the underlying table object
         </member>
@@ -24939,7 +24939,7 @@
             
              @return  the space between this table and the previous element.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PdfTextArray" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PdfTextArray”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.PdfTextArray.Add(iTextSharp.text.pdf.PdfNumber)">
              Adds a <CODE>PdfNumber</CODE> to the <CODE>PdfArray</CODE>.
             
@@ -25154,7 +25154,7 @@
             
              @author  Paulo Soares (psoares@consiste.pt)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.PushbuttonField" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.PushbuttonField”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.PushbuttonField.LAYOUT_LABEL_ONLY">
             A layout option 
         </member>
@@ -25285,7 +25285,7 @@
             Sets the reference to an existing icon.
             @param iconReference the reference to an existing icon
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.RadioCheckField" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.RadioCheckField”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.pdf.RadioCheckField.TYPE_CHECK">
             A field with the symbol check 
         </member>
@@ -25398,12 +25398,12 @@
         <member name="F:iTextSharp.text.pdf.RandomAccessFileOrArray.startOffset">
             Holds value of property startOffset. 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadShortLE" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadUnsignedShortLE" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadCharLE" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadIntLE" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadUnsignedInt" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.SequenceList" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadShortLE”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadUnsignedShortLE”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadCharLE”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadIntLE”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.RandomAccessFileOrArray.ReadUnsignedInt”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.SequenceList”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.SequenceList.Expand(System.String,System.Int32)">
             Generates a list of numbers from a string.
             @param ranges the comma separated ranges
@@ -25415,7 +25415,7 @@
             
              @author Paulo Soares (psoares@consiste.pt)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.pdf.SimpleBookmark" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.pdf.SimpleBookmark”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.SimpleBookmark.#ctor">
             Creates a new instance of SimpleBookmark 
         </member>
@@ -25459,7 +25459,7 @@
             whatever the encoding
             @throws IOException on error
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.SimpleBookmark.ExportToXML(System.Collections.ArrayList,System.IO.Stream,System.String,System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.SimpleBookmark.ExportToXML(System.Collections.ArrayList,System.IO.Stream,System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.SimpleBookmark.ExportToXML(System.Collections.ArrayList,System.IO.TextWriter,System.String,System.Boolean)">
             Exports the bookmarks to XML.
             @param list the bookmarks
@@ -25485,7 +25485,7 @@
             
              @author Paulo Soares (psoares@consiste.pt)
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.SimpleNamedDestination.ExportToXML(System.Collections.Hashtable,System.IO.Stream,System.String,System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.SimpleNamedDestination.ExportToXML(System.Collections.Hashtable,System.IO.Stream,System.String,System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.SimpleNamedDestination.ExportToXML(System.Collections.Hashtable,System.IO.TextWriter,System.String,System.Boolean)">
             Exports the bookmarks to XML.
             @param names the names
@@ -26004,9 +26004,9 @@
             Gets the postscript font name.
             @return the postscript font name
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.Type1Font.FullFontName" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.Type1Font.AllNameEntries" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:iTextSharp.text.pdf.Type1Font.FamilyFontName" で無視されました -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.Type1Font.FullFontName”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.Type1Font.AllNameEntries”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:iTextSharp.text.pdf.Type1Font.FamilyFontName”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.pdf.Type3Font">
             A class to support Type3 fonts.
         </member>
@@ -26017,7 +26017,7 @@
             @param colorized if <CODE>true</CODE> the font may specify color, if <CODE>false</CODE> no color commands are allowed
             and only images as masks can be used
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.pdf.Type3Font.#ctor(iTextSharp.text.pdf.PdfWriter,System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.pdf.Type3Font.#ctor(iTextSharp.text.pdf.PdfWriter,System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.pdf.Type3Font.DefineGlyph(System.Char,System.Single,System.Single,System.Single,System.Single,System.Single)">
             Defines a glyph. If the character was already defined it will return the same content
             @param c the character to match this glyph.
@@ -27727,7 +27727,7 @@
         <member name="M:iTextSharp.text.rtf.document.RtfInfoElement.WriteContent(System.IO.Stream)">
             Writes the content of one RTF information element.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.rtf.document.RtfInfoElement.ConvertDate(System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.rtf.document.RtfInfoElement.ConvertDate(System.String)”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.rtf.document.RtfInfoGroup">
             The RtfInfoGroup stores information group elements. 
             
@@ -27910,7 +27910,7 @@
             
             @param pageSize The pageSize to use
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.rtf.document.RtfPageSetting.GuessFormat(iTextSharp.text.Rectangle,System.Boolean)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.rtf.document.RtfPageSetting.GuessFormat(iTextSharp.text.Rectangle,System.Boolean)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.rtf.document.RtfPageSetting.RectEquals(iTextSharp.text.Rectangle,iTextSharp.text.Rectangle)">
             This method compares to Rectangles. They are considered equal if width and height are the same
             
@@ -29634,7 +29634,7 @@
         <member name="M:iTextSharp.text.rtf.list.RtfListItem.WriteContent(System.IO.Stream)">
             Writes the content of this RtfListItem.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.rtf.list.RtfListItem.WriteDefinition(System.IO.Stream)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.rtf.list.RtfListItem.WriteDefinition(System.IO.Stream)”忽略有格式错误的 XML 注释 -->
         <member name="M:iTextSharp.text.rtf.list.RtfListItem.InheritListSettings(System.Int32,System.Int32)">
             Inherit the list settings from the parent list to RtfLists that
             are contained in this RtfListItem.
@@ -30786,7 +30786,7 @@
         <member name="F:iTextSharp.text.rtf.parser.destinations.RtfDestinationMgr.DESTINATION_DOCUMENT">
             String representation of document destination.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "F:iTextSharp.text.rtf.parser.destinations.RtfDestinationMgr.destinations" で無視されました -->
+        <!-- 对于成员“F:iTextSharp.text.rtf.parser.destinations.RtfDestinationMgr.destinations”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.rtf.parser.destinations.RtfDestinationMgr.destinationObjects">
             Destination objects.
             There is only one of each destination.
@@ -31663,7 +31663,7 @@
         <member name="F:iTextSharp.text.rtf.parser.RtfParser.byteCount">
             Total bytes read.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "F:iTextSharp.text.rtf.parser.RtfParser.ctrlWordCount" で無視されました -->
+        <!-- 对于成员“F:iTextSharp.text.rtf.parser.RtfParser.ctrlWordCount”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.rtf.parser.RtfParser.openGroupCount">
             Total { encountered as an open group token.
         </member>
@@ -33465,7 +33465,7 @@
             
             @return The RtfBorders of this RtfBorderGroup
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.rtf.table.RtfCell" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.rtf.table.RtfCell”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.rtf.table.RtfCell.MERGE_NONE">
             This cell is not merged
         </member>
@@ -33642,7 +33642,7 @@
             
             @return <code>True</code> if this RtfCell is deleted, <code>false</code> otherwise.
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.rtf.table.RtfRow" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.rtf.table.RtfRow”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.rtf.table.RtfRow.ROW_BEGIN">
             Constant for the RtfRow beginning
         </member>
@@ -33776,7 +33776,7 @@
             
             @return The cells of this RtfRow
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.rtf.table.RtfTable" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.rtf.table.RtfTable”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.rtf.table.RtfTable.rows">
             The rows of this RtfTable
         </member>
@@ -35124,7 +35124,7 @@
              @param   name    the name of the entity
              @return  the corresponding unicode character
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:iTextSharp.text.xml.simpleparser.EntitiesToUnicode.DecodeString(System.String)" で無視されました -->
+        <!-- 对于成员“M:iTextSharp.text.xml.simpleparser.EntitiesToUnicode.DecodeString(System.String)”忽略有格式错误的 XML 注释 -->
         <member name="T:iTextSharp.text.xml.simpleparser.IanaEncodings">
             Translates a IANA encoding name to a Java encoding.
         </member>
@@ -35139,7 +35139,7 @@
             Called when a comment is found.
             @param text the comment text
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "T:iTextSharp.text.xml.simpleparser.SimpleXMLParser" で無視されました -->
+        <!-- 对于成员“T:iTextSharp.text.xml.simpleparser.SimpleXMLParser”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.xml.simpleparser.SimpleXMLParser.UNKNOWN">
             possible states 
         </member>
@@ -35176,7 +35176,7 @@
         <member name="F:iTextSharp.text.xml.simpleparser.SimpleXMLParser.text">
             current text (whatever is encountered between tags) 
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "F:iTextSharp.text.xml.simpleparser.SimpleXMLParser.entity" で無視されました -->
+        <!-- 对于成员“F:iTextSharp.text.xml.simpleparser.SimpleXMLParser.entity”忽略有格式错误的 XML 注释 -->
         <member name="F:iTextSharp.text.xml.simpleparser.SimpleXMLParser.tag">
             current tagname 
         </member>
@@ -35612,7 +35612,7 @@
             The date and time the resource was originally created. 
         </member>
         <member name="F:iTextSharp.text.xml.xmp.XmpBasicSchema.CREATORTOOL">
-            The name of the first known tool used to create the resource. If history is present in the metadata, this value should be equivalent to that of xmpMM:History痴 softwareAgent property. 
+            The name of the first known tool used to create the resource. If history is present in the metadata, this value should be equivalent to that of xmpMM:History抯 softwareAgent property. 
         </member>
         <member name="F:iTextSharp.text.xml.xmp.XmpBasicSchema.IDENTIFIER">
             An unordered array of text strings that unambiguously identify the resource within a given context. 
@@ -53605,16 +53605,16 @@
              Rebalance the tree by rotating the nodes to the right
             </summary>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.GetData(System.IComparable)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.GetMinKey" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.GetMaxKey" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.GetMinValue" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.GetMaxValue" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.GetEnumerator" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.Elements" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.IsEmpty" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.Remove(System.IComparable)" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.Delete(System.util.collections.OrderedTreeNode)" で無視されました -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.GetData(System.IComparable)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.GetMinKey”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.GetMaxKey”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.GetMinValue”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.GetMaxValue”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.GetEnumerator”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.Elements”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.IsEmpty”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.Remove(System.IComparable)”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.Delete(System.util.collections.OrderedTreeNode)”忽略有格式错误的 XML 注释 -->
         <member name="M:System.util.collections.OrderedTree.RestoreAfterDelete(System.util.collections.OrderedTreeNode)">
             <summary>
              RestoreAfterDelete
@@ -53623,11 +53623,11 @@
              required to restore it
             </summary>
         </member>
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.RemoveMin" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.RemoveMax" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "M:System.util.collections.OrderedTree.Clear" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:System.util.collections.OrderedTree.Keys" で無視されました -->
-        <!-- 正しくない形式の XML コメントがメンバー "P:System.util.collections.OrderedTree.Values" で無視されました -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.RemoveMin”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.RemoveMax”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“M:System.util.collections.OrderedTree.Clear”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:System.util.collections.OrderedTree.Keys”忽略有格式错误的 XML 注释 -->
+        <!-- 对于成员“P:System.util.collections.OrderedTree.Values”忽略有格式错误的 XML 注释 -->
         <member name="M:System.util.collections.OrderedTreeEnumerator.#ctor(System.util.collections.OrderedTreeNode,System.Boolean,System.Boolean)">
             <summary>
              Determine order, walk the tree and push the nodes onto the stack
