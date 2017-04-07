@@ -577,5 +577,102 @@
 
     </script>
 
-    @Html.Partial("_BaiduMapPartial", Model)
+    @*@Html.Partial("_BaiduMapPartial", Model)*@
+
+<script>
+
+    var googleMap;
+    function initMap() {
+        var point = { lat: @Model.CenterLat, lng: @Model.CenterLng };
+        googleMap= new google.maps.Map(document.getElementById('container'), {
+            zoom: @Model.DefaultZoom,
+            center: point,
+            mapTypeId:google.maps.MapTypeId.HYBRID,
+        });        
+
+        googleMap.addListener('mousemove', function(e) {            
+            $("#mapRealInfo").text("lng:"+e.latLng.lng() + "," + "lat:" +e.latLng.lat());
+        });
+        loadAllDevicePointsByVisitLayers();
+    }
+
+    
+    function loadAllDevicePointsByVisitLayers() {
+        if(googleMap==null){
+            return;
+        }
+        var layers=new Array();
+        var allVisitLayers=$(".layerView[visible='1']");
+        if (allVisitLayers.length==0){
+            return;
+        }
+        for(var idx=0;idx<allVisitLayers.length;idx++){
+            layers.push($(allVisitLayers[idx]).attr("layerid"));
+        }
+        layerIds =layers.join(',');
+
+        //googleMap.clearOverlays();
+        var url = '@Url.Action("GetAllDeviceDatas", "Device")';
+        var postData = { LayerIds: layerIds }
+        $.post(url, postData, function (data, status, jqXHR) {
+            for (idx in data.Datas) {
+                var dev = data.Datas[idx];
+                if (dev.DeviceTypeName=="Point"){
+                    var marker=createMark(dev,googleMap);                    
+                    //marker.setMap(googleMap);
+                }
+                //else if (dev.DeviceTypeName=="Line"){
+                //    var polyline=createLine(dev);
+                //    googleMap.addOverlay(polyline);
+                //}
+            }
+        });
+    }
+
+
+    createMark = function(dev,map){
+
+        var pt ={lat:dev.Lat,lng: dev.Lng};
+        var _marker = new google.maps.Marker({
+            position: pt,
+            map:map,
+        });
+
+        _marker.device=dev;
+        _marker.deviceId=dev.DeviceId;
+        if (dev.IconFileUrl != null && dev.IconFileUrl.length > 0) {
+
+            var myIcon = { url: dev.IconFileUrl};
+            _marker.setIcon(myIcon);  // 创建标注
+        }
+        _marker.setTitle(dev.DeviceName);
+        var label ={text:dev.DeviceName,color:'red'};
+        _marker.setLabel(label);
+        //_marker.addEventListener("click", function(e){
+        //    var p = e.target.getPosition();       //获取marker的位置
+        //    alert("marker["+_marker.deviceId+"]的位置是" + p.lng + "," + p.lat);
+        //});
+        return _marker;
+    };
+
+    createLine = function(dev){
+        var points= new Array();
+        for(var idx=0;idx<dev.MapPoints.length;idx++){
+            var p=dev.MapPoints[idx];
+            points.push(new BMap.Point(p.Lng,p.Lat));
+        }
+        var polyline = new BMap.Polyline(points, {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});   //创建折线
+        polyline.device=dev;
+        polyline.deviceId=dev.DeviceId;
+        polyline.addEventListener("click", function(e){
+            var bounds = e.target.getBounds();       //获取marker的位置
+            alert("polyline["+polyline.deviceId+"]的位置是" + bounds.getSouthWest().lng + "," + bounds.getSouthWest().lat+"," + bounds.getNorthEast().lng + "," + bounds.getNorthEast().lat);
+        });
+        return polyline;
+    };
+
+</script>
+
+<script async defer src="http://ditu.google.cn/maps/api/js?key=AIzaSyB3C7qW3_wRpL57_k4FpjfrtZBrw_6KXMQ&callback=initMap"></script>
+
 }
