@@ -43,15 +43,18 @@
                     </label>
                     @Html.PasswordFor(m => m.Password, new { @Class = "form-control", placeholder = "パスワード" })
                 </div>
+                <div>
+                    默认登录信息:123456
+                </div>
                 <div class="checkbox">
                     <label style="color: #3399dd;">
                         @Html.CheckBoxFor(m => m.RememberMe)
-                        ログイン情報を記録
+                        记住登录信息
                     </label>
                 </div>
                 <button type="submit" class="btn " style="width: 100%; background-color: #3399dd;
                     color: #ffffff;">
-                    ログイン
+                    登录
                 </button>
             }
         </div>
