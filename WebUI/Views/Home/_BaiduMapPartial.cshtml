@@ -1,0 +1,207 @@
+﻿
+@model CameraMap.Models.Master.Organization.OrganizationModel
+
+<script src="http://api.map.baidu.com/api?v=2.0&ak=jIhMZ1oRb0xHeDaSGVzzAgg4Ez8dcNrA" type="text/javascript"></script>
+@*<script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>*@
+<script type="text/javascript">
+        var baiduMap;
+        $(document).ready(function () {
+            baiduMap = new BMap.Map("container", { minZoom: @Model.MinZoom });          // 创建地图实例
+            var point = new BMap.Point(@Model.CenterLat,@Model.CenterLng);  // 创建点坐标
+            baiduMap.centerAndZoom(point, @Model.DefaultZoom);  // 初始化地图，设置中心点坐标和地图级别
+            baiduMap.enableScrollWheelZoom();
+            baiduMap.disableDoubleClickZoom(true);
+            baiduMap.addControl(new BMap.NavigationControl());
+            setBoundary('@Model.FullCountyName');
+
+            @*var b = new BMap.Bounds(new BMap.Point(@Model.RectangleL, @Model.RectangleT),new BMap.Point(@Model.RectangleR, @Model.RectangleB));
+            try {
+                BMapLib.AreaRestriction.setBounds(baiduMap, b);
+            } catch (e) {
+                alert(e);
+            }*@
+
+            //loadPoints();
+            //loadDevicePointsByLayerId();
+            //单击获取点击的经纬度
+            baiduMap.addEventListener("click",function(e){
+                console.log("lng:"+ e.point.lng + "," + "lat:" + e.point.lat);
+            });
+
+            baiduMap.addEventListener("mousemove",function(e){
+                $("#mapRealInfo").text("lng:"+ e.point.lng + "," + "lat:" + e.point.lat);
+            });
+
+            baiduMap.addEventListener("dragend", function (e) {
+                var center= baiduMap.getCenter();
+                var left=@Model.RectangleL;
+                var top=@Model.RectangleT;
+                var right=@Model.RectangleR;
+                var bottom=@Model.RectangleB;
+
+                var bound=baiduMap.getBounds();
+
+                var ne= bound.getNorthEast();
+                var sw=bound.getSouthWest();
+
+                console.log("NorthEast:" + ne.lng+","+right+";"+ne.lat+","+top+";"+"SouthWest:" +sw.lng+","+left+";"+sw.lat+","+bottom);
+                if (ne.lng>right || ne.lat>top || sw.lng<left || sw.lat<bottom)
+                {
+                    console.log("panTo");
+                    //baiduMap.panTo(point,{noAnimation:false});
+                    //baiduMap.panTo(new BMap.Point(113.262232,23.154345));
+                    setTimeout(function(){
+                        var point = new BMap.Point(@Model.CenterLat,@Model.CenterLng);  // 创建点坐标
+                        baiduMap.panTo(point);
+                    }, 500);
+                }
+                console.log("center.lng:"+ center.lng + "," + "center.lat:" + center.lat);
+            });
+
+            loadAllDevicePointsByVisitLayers();
+        });
+
+        function setBoundary(mapName) {
+            baiduMap.clearOverlays();        //清除地图覆盖物
+            var bdary = new BMap.Boundary();
+            bdary.get(mapName, function (rs) {       //获取行政区域
+                var count = rs.boundaries.length; //行政区域的点有多少个
+                if (count === 0) {
+                    alert('未能获取行政区域');
+                    return;
+                }
+                var pointArray = [];
+                for (var i = 0; i < count; i++) {
+                    var ply = new BMap.Polyline(rs.boundaries[i], {
+                        strokeWeight: 2, strokeColor: "#ff0000", strokeStyle: "dashed", enableMassClear: false, enableClicking: false,
+                        //strokeOpacity: 0,
+                        //fillColor: "#ffffff",
+                        //fillOpacity: 0
+                    }); //建立多边形覆盖物, fillColor:'#00ff00',fillOpacity: 0.99
+                    baiduMap.addOverlay(ply);  //添加覆盖物
+                    pointArray = pointArray.concat(ply.getPath());
+                }
+                //baiduMap.setViewport(pointArray);    //调整视野
+            });
+        }
+
+
+        function loadPoints() {
+
+            var bounds = baiduMap.getBounds();
+            var sw = bounds.getSouthWest();
+            var ne = bounds.getNorthEast();
+            var lngSpan = Math.abs(sw.lng - ne.lng);
+            var latSpan = Math.abs(ne.lat - sw.lat);
+
+            //创建小狐狸
+            var pt = new BMap.Point(107.756034, 34.280494);
+            var marker = new BMap.Marker(pt);// 创建标注
+            baiduMap.addOverlay(marker);             // 将标注添加到地图中
+            //var label = new BMap.Label("小狐狸", { offset: new BMap.Size(20, -10) });
+            //marker.setLabel(label);
+            var myIcon = new BMap.Icon("http://developer.baidu.com/map/jsdemo/img/fox.gif", new BMap.Size(300, 157));
+            var marker2 = new BMap.Marker(pt, { icon: myIcon });  // 创建标注
+            baiduMap.addOverlay(marker2);              // 将标注添加到地图中
+        }
+
+        function loadDevicePointsByLayerId(layerId) {
+            baiduMap.clearOverlays();
+            layerId = layerId || $("#selectedlayerId").val();
+            var url = '@Url.Action("GetAllDeviceDatasByLayerId", "Device")';
+            var postData = { LayerId: layerId }
+            $.post(url, postData, function (data, status, jqXHR) {
+                for (idx in data.Datas) {
+                    var dev = data.Datas[idx];
+                    var pt = new BMap.Point(dev.Lat, dev.Lng);
+                    var marker = new BMap.Marker(pt);// 创建标注
+                    baiduMap.addOverlay(marker);             // 将标注添加到地图中
+                    if (dev.IconFileUrl != null && dev.IconFileUrl.length > 0) {
+                        var myIcon = new BMap.Icon(dev.IconFileUrl, new BMap.Size(32, 32));
+                        marker.setIcon(myIcon);  // 创建标注
+                    }
+                    var label = new BMap.Label(dev.DeviceName, { offset: new BMap.Size(20, -10) });
+                    marker.setLabel(label);
+                }
+            });
+        }
+
+        function loadAllDevicePointsByVisitLayers() {
+            var layers=new Array();
+            var allVisitLayers=$(".layerView[visible='1']");
+            if (allVisitLayers.length==0){
+                return;
+            }
+            for(var idx=0;idx<allVisitLayers.length;idx++){
+                layers.push($(allVisitLayers[idx]).attr("layerid"));
+            }
+            layerIds =layers.join(',');
+
+            baiduMap.clearOverlays();
+            var url = '@Url.Action("GetAllDeviceDatas", "Device")';
+            var postData = { LayerIds: layerIds }
+            $.post(url, postData, function (data, status, jqXHR) {
+                for (idx in data.Datas) {
+                    var dev = data.Datas[idx];
+                    if (dev.DeviceTypeName=="Point"){
+                        var marker=createMark(dev);
+                        baiduMap.addOverlay(marker);
+                    }
+                    else if (dev.DeviceTypeName=="Line"){
+                        var polyline=createLine(dev);
+                        baiduMap.addOverlay(polyline);
+                    }
+
+                    //var pt = new BMap.Point(dev.Lat, dev.Lng);
+                    //var marker = new BMap.Marker(pt);// 创建标注
+                    //baiduMap.addOverlay(marker);             // 将标注添加到地图中
+                    //if (dev.IconFileUrl != null && dev.IconFileUrl.length > 0) {
+                    //    var myIcon = new BMap.Icon(dev.IconFileUrl, new BMap.Size(32, 32));
+                    //    marker.setIcon(myIcon);  // 创建标注
+                    //}
+                    //var label = new BMap.Label(dev.DeviceName, { offset: new BMap.Size(20, -10) });
+                    //marker.setLabel(label);
+                    //marker.setTitle(dev.DeviceName);
+                    //marker.addEventListener("click",getAttr);
+                }
+            });
+        }
+
+
+        createMark = function(dev){
+            var pt = new BMap.Point(dev.Lat, dev.Lng);
+            var _marker = new BMap.Marker(pt);// 创建标注
+            _marker.device=dev;
+            _marker.deviceId=dev.DeviceId;
+            if (dev.IconFileUrl != null && dev.IconFileUrl.length > 0) {
+                var myIcon = new BMap.Icon(dev.IconFileUrl, new BMap.Size(32, 32));
+                _marker.setIcon(myIcon);  // 创建标注
+            }
+            var label = new BMap.Label(dev.DeviceName, { offset: new BMap.Size(20, -10) });
+            _marker.setLabel(label);
+            _marker.setTitle(dev.DeviceName);
+            _marker.addEventListener("click", function(e){
+                var p = e.target.getPosition();       //获取marker的位置
+                alert("marker["+_marker.deviceId+"]的位置是" + p.lng + "," + p.lat);
+            });
+            return _marker;
+        };
+
+        createLine = function(dev){
+            var points= new Array();
+            for(var idx=0;idx<dev.MapPoints.length;idx++){
+                var p=dev.MapPoints[idx];
+                points.push(new BMap.Point(p.Lng,p.Lat));
+            }
+            var polyline = new BMap.Polyline(points, {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});   //创建折线
+            polyline.device=dev;
+            polyline.deviceId=dev.DeviceId;
+            polyline.addEventListener("click", function(e){
+                var bounds = e.target.getBounds();       //获取marker的位置
+                alert("polyline["+polyline.deviceId+"]的位置是" + bounds.getSouthWest().lng + "," + bounds.getSouthWest().lat+"," + bounds.getNorthEast().lng + "," + bounds.getNorthEast().lat);
+            });
+            return polyline;
+        };
+
+</script>
+

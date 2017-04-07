@@ -873,6 +873,7 @@
     <Content Include="Views\Home\_AllLayersPartial.cshtml" />
     <Content Include="Views\Home\_EditLayerPartial.cshtml" />
     <Content Include="Views\Home\_AllDevicesPartial.cshtml" />
+    <Content Include="Views\Home\_BaiduMapPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
