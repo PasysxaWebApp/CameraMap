@@ -355,12 +355,15 @@
         </tr>
         <tr>
             <td><label>名称</label></td>
-            <td><input type="text" name="LineName" id="LineName" class="Fullwidth" style="width:150px;" /></td>
+            <td>
+                <input type="text" name="LineName" id="LineName" class="Fullwidth" style="width:150px;" />
+            </td>
         </tr>
         <tr>
             <td><label>坐标</label></td>
             <td>
                 <textarea name="Points" id="LinePoints" class="NumABC" style="width:500px;height:100px;"></textarea>
+                <p>格式:经度(Lng),纬度(Lat).一组一行</p>
             </td>
         </tr>
         <tr>
@@ -582,6 +585,8 @@
 <script>
 
     var googleMap;
+    var all_markers = [];
+    var all_polylines = [];
     function initMap() {
         var point = { lat: @Model.CenterLat, lng: @Model.CenterLng };
         googleMap= new google.maps.Map(document.getElementById('container'), {
@@ -612,6 +617,17 @@
         layerIds =layers.join(',');
 
         //googleMap.clearOverlays();
+
+        for (var i = 0; i < all_markers.length; i++) {
+            all_markers[i].setMap(null);
+        }
+        all_markers = [];
+
+        for (var i = 0; i < all_polylines.length; i++) {
+            all_polylines[i].setMap(null);
+        }
+        all_polylines = [];
+
         var url = '@Url.Action("GetAllDeviceDatas", "Device")';
         var postData = { LayerIds: layerIds }
         $.post(url, postData, function (data, status, jqXHR) {
@@ -619,23 +635,24 @@
                 var dev = data.Datas[idx];
                 if (dev.DeviceTypeName=="Point"){
                     var marker=createMark(dev,googleMap);                    
-                    //marker.setMap(googleMap);
+                    marker.setMap(googleMap);
+                    all_markers.push(marker);
                 }
-                //else if (dev.DeviceTypeName=="Line"){
-                //    var polyline=createLine(dev);
-                //    googleMap.addOverlay(polyline);
-                //}
+                else if (dev.DeviceTypeName=="Line"){
+                    var polyline=createLine(dev);
+                    polyline.setMap(googleMap);
+                    all_polylines.push(polyline);
+                }
             }
         });
     }
 
 
-    createMark = function(dev,map){
+    createMark = function(dev){
 
         var pt ={lat:dev.Lat,lng: dev.Lng};
         var _marker = new google.maps.Marker({
             position: pt,
-            map:map,
         });
 
         _marker.device=dev;
@@ -659,20 +676,23 @@
         var points= new Array();
         for(var idx=0;idx<dev.MapPoints.length;idx++){
             var p=dev.MapPoints[idx];
-            points.push(new BMap.Point(p.Lng,p.Lat));
+            points.push({lat:p.Lat,lng: p.Lng});
         }
-        var polyline = new BMap.Polyline(points, {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});   //创建折线
+        var polyline = new google.maps.Polyline({
+            path:points, 
+            geodesic: true,
+            strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});   //创建折线
         polyline.device=dev;
         polyline.deviceId=dev.DeviceId;
-        polyline.addEventListener("click", function(e){
-            var bounds = e.target.getBounds();       //获取marker的位置
-            alert("polyline["+polyline.deviceId+"]的位置是" + bounds.getSouthWest().lng + "," + bounds.getSouthWest().lat+"," + bounds.getNorthEast().lng + "," + bounds.getNorthEast().lat);
-        });
+        //polyline.addEventListener("click", function(e){
+        //    var bounds = e.target.getBounds();       //获取marker的位置
+        //    alert("polyline["+polyline.deviceId+"]的位置是" + bounds.getSouthWest().lng + "," + bounds.getSouthWest().lat+"," + bounds.getNorthEast().lng + "," + bounds.getNorthEast().lat);
+        //});
         return polyline;
     };
 
 </script>
 
-<script async defer src="http://ditu.google.cn/maps/api/js?key=AIzaSyB3C7qW3_wRpL57_k4FpjfrtZBrw_6KXMQ&callback=initMap"></script>
+<script async defer src="http://maps.google.cn/maps/api/js?region=cn&language=zh-CN&key=AIzaSyB3C7qW3_wRpL57_k4FpjfrtZBrw_6KXMQ&callback=initMap"></script>
 
 }
