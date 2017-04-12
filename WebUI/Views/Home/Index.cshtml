@@ -42,6 +42,12 @@
             width: 100%;
             margin: 0px;
         }
+        #StreetView {
+            min-height: 500px;
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+        }
 
         #mapRealInfo {
             height: 28px;
@@ -239,6 +245,7 @@
     </div>
     <div>
         <div id="container"></div>
+        <div id="StreetView" style="display:none;"></div>
     </div>
 
 </div>
@@ -647,7 +654,6 @@
         });
     }
 
-
     createMark = function(dev){
 
         var pt ={lat:dev.Lat,lng: dev.Lng};
@@ -665,10 +671,29 @@
         _marker.setTitle(dev.DeviceName);
         var label ={text:dev.DeviceName,color:'red'};
         _marker.setLabel(label);
-        //_marker.addEventListener("click", function(e){
-        //    var p = e.target.getPosition();       //获取marker的位置
-        //    alert("marker["+_marker.deviceId+"]的位置是" + p.lng + "," + p.lat);
-        //});
+        _marker.addListener("click", function(e){
+            //var p = e.target.getPosition();       //获取marker的位置
+            //alert("marker["+_marker.deviceId+"]的位置是" + p.lng + "," + p.lat);
+            if(_marker.device.DeviceKey=="camera01"){
+                $("#StreetView").show();
+                $("#container,#StreetView").css("width","49%");
+                $("#container").css("float","left");
+                $("#StreetView").css("float","right");
+                if (panorama==null){
+                    initPano();
+                }
+                panorama.setVisible(true);
+                googleMap.setStreetView(panorama);
+            }else{
+                if (panorama!=null){
+                    panorama.setVisible(false);
+                }
+                $("#container").css("width","100%");
+                $("#container").css("float",null);
+                $("#StreetView").hide();
+                googleMap.setStreetView(null);
+            }
+        });
         return _marker;
     };
 
@@ -678,10 +703,35 @@
             var p=dev.MapPoints[idx];
             points.push({lat:p.Lat,lng: p.Lng});
         }
+        var lineSymbol = {
+            path: 'M 0,-1 0,1',
+            strokeOpacity: 1,
+            scale: 4
+        };
         var polyline = new google.maps.Polyline({
             path:points, 
             geodesic: true,
-            strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});   //创建折线
+            strokeColor:"red", strokeWeight:2, 
+            strokeOpacity:0.5,
+            //icons: [{
+            //    icon: lineSymbol,
+            //    offset: '0',
+            //    repeat: '20px'
+            //}]
+        });   //创建折线
+
+        if (all_polylines.length%2==0){
+            polyline.strokeOpacity=0;
+            polyline.setOptions({
+                strokeOpacity:0,
+                strokeColor:"blue",
+                icons: [{
+                    icon: lineSymbol,
+                    offset: '0',
+                    repeat: '20px'
+                }]
+            });
+        }
         polyline.device=dev;
         polyline.deviceId=dev.DeviceId;
         //polyline.addEventListener("click", function(e){
@@ -691,6 +741,56 @@
         return polyline;
     };
 
+</script>
+
+<script>
+    var panorama;
+    function initPano() {
+        // Set up Street View and initially set it visible. Register the
+        // custom panorama provider function. Set the StreetView to display
+        // the custom panorama 'reception' which we check for below.
+        panorama = new google.maps.StreetViewPanorama(
+          document.getElementById('StreetView'), {
+              pano: 'reception',
+              visible: true,
+              panoProvider: getCustomPanorama
+          });
+    }
+
+   
+
+    // Return a pano image given the panoID.
+    function getCustomPanoramaTileUrl(pano, zoom, tileX, tileY) {
+        // Note: robust custom panorama methods would require tiled pano data.
+        // Here we're just using a single tile, set to the tile size and equal
+        // to the pano "world" size.
+        return 'https://developers.google.cn/maps/documentation/javascript/examples/full/images/panoReception1024-0.jpg';
+    }
+
+    // Construct the appropriate StreetViewPanoramaData given
+    // the passed pano IDs.
+    function getCustomPanorama(pano, zoom, tileX, tileY) {
+        if (pano === 'reception') {
+            return {
+                location: {
+                    pano: 'reception',
+                    description: '测试例子'
+                },
+                links: [],
+                // The text for the copyright control.
+                copyright: 'Imagery (c) 2010 Google',
+                // The definition of the tiles for this panorama.
+                tiles: {
+                    tileSize: new google.maps.Size(1024, 512),
+                    worldSize: new google.maps.Size(1024, 512),
+                    // The heading in degrees at the origin of the panorama
+                    // tile set.
+                    centerHeading: 105,
+                    getTileUrl: getCustomPanoramaTileUrl
+                }
+            };
+        }
+    }
 </script>
 
 <script async defer src="http://maps.google.cn/maps/api/js?region=cn&language=zh-CN&key=AIzaSyB3C7qW3_wRpL57_k4FpjfrtZBrw_6KXMQ&callback=initMap"></script>
