@@ -33,15 +33,15 @@
                 @Html.HiddenFor(m => m.OrganizationID)
                 <div class="form-group">
                     <label for="UserID" class="sr-only">
-                        ユーザーID
+                        用户ID
                     </label>
-                    @Html.TextBoxFor(m => m.UserID, new { style = "ime-mode:inactive", @Class = "form-control", placeholder = "ユーザーID" })
+                    @Html.TextBoxFor(m => m.UserID, new { style = "ime-mode:inactive", @Class = "form-control", placeholder = "用户ID" })
                 </div>
                 <div class="form-group">
                     <label for="Password" class="sr-only">
-                        パスワード
+                        密码
                     </label>
-                    @Html.PasswordFor(m => m.Password, new { @Class = "form-control", placeholder = "パスワード" })
+                    @Html.PasswordFor(m => m.Password, new { @Class = "form-control", placeholder = "密码" })
                 </div>
                 <div>
                     默认登录信息:123456
